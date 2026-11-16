@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+coverage/
+target/
+.env
+.env.*
+!.env.example
+*.pem
+*.zip
+.local/
