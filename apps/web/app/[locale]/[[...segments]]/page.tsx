@@ -9,6 +9,7 @@ import certifications from '../../../content/certifications.json';
 import skills from '../../../content/skills.json';
 import posts from '../../../content/posts.json';
 import { News } from '../../news';
+import { Playground } from '../../playground';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
@@ -54,17 +55,19 @@ export default async function Page({ params }: Props) {
     return <p lang={language}>{values[language]}</p>;
   };
   const featured = (entries: typeof projects) => <div className="cards">
-    {entries.map((project) => <article className="card" key={project.id}>
-      <h3><Link href={path('/project/' + project.id)}>{project.title}</Link></h3>{projectDescription(project)}
+    {entries.map((project, index) => <article className="card project-card" key={project.id}>
+      <span className="card-index">{String(index + 1).padStart(2, '0')} / {t('menu.projects')}</span>
+      <h3><Link href={path('/project/' + project.id)}>{project.title}<span aria-hidden="true"> ↗</span></Link></h3>{projectDescription(project)}
     </article>)}
   </div>;
 
   if (!section || (section === 'about' && !slug)) return <>
-    <section className="hero">
+    <section className={'hero' + (section === 'about' ? ' hero-about' : '')}>
       <div className="wrap hero-inner">
         <img src="/wellington.jpg" width="176" height="176" alt="" />
         <div>
-          <h1>Wellington do Nascimento</h1>
+          <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
+          <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
           <p>{!section ? 'Full Stack Developer · UI/UX' : t('html.about.description')}</p>
         </div>
       </div>
@@ -75,9 +78,10 @@ export default async function Page({ params }: Props) {
         <p>{t('html.home.trajectoryParagraph1')}</p>
         <div className="actions"><Link href={path('/about')}>{t('menu.about')}</Link><a href={linkedIn}>LinkedIn</a></div>
       </section>
+      <Playground locale={locale} />
       <section className="wrap section"><h2>{t('html.home.projectsTitle')}</h2>{featured(projects.slice(0, 3))}</section>
     </> : <>
-      <section className="wrap section">
+      <section className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
         <ol className="timeline">
           {[...timeline].sort((a, b) => (b.startDate ?? b.formationStartDate ?? '').localeCompare(a.startDate ?? a.formationStartDate ?? '')).map((entry) =>
@@ -99,16 +103,23 @@ export default async function Page({ params }: Props) {
     </>}
   </>;
 
-  return <section className="wrap section">
+  if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
+    <div className="wrap project-detail-inner">
+      <Link className="back-link" href={path('/projects')}>← {t('menu.projects')}</Link>
+      <span className="project-kicker">{t('menu.projects')} / {project.title}</span>
+      <h1>{project.title}</h1>
+      <div className="project-intro">{projectDescription(project)}</div>
+      <div className="actions">
+        {https(project.website) && <a href={https(project.website)}>{t('html.home.visit')} ↗</a>}
+        {https(project.code) && <a href={https(project.code)}>GitHub ↗</a>}
+      </div>
+    </div>
+  </section>)}</>;
+
+  return <section className={'wrap section page-section page-' + section}>
+    <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && featured(projects)}
-    {section === 'project' && projects.filter(({ id }) => id === slug).map((project) => <div key={project.id}>
-      {projectDescription(project)}
-      <div className="actions">
-        {https(project.website) && <a href={https(project.website)}>{t('html.home.visit')}</a>}
-        {https(project.code) && <a href={https(project.code)}>GitHub</a>}
-      </div>
-    </div>)}
     {section === 'certifications' && <div className="cards">{certifications.map((cert) => <article className="card" key={cert.id} lang="pt-BR">
       <span className="muted">{cert.emissor}</span><h3>{cert.title}</h3>
       {cert.description && <p>{cert.description}</p>}
@@ -124,9 +135,9 @@ export default async function Page({ params }: Props) {
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Markdown skipHtml>{post.body}</Markdown></article>)}
-    {section === 'contact' && <div className="actions">
-      <a href={linkedIn}>LinkedIn</a><a href="https://github.com/rydermais-dev">GitHub</a>
-      <a href="mailto:dev.wellnascimento@gmail.com">E-mail</a>
+    {section === 'contact' && <div className="contact-links">
+      <a href={linkedIn}><span>01</span>LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/rydermais-dev"><span>02</span>GitHub <span aria-hidden="true">↗</span></a>
+      <a href="mailto:dev.wellnascimento@gmail.com"><span>03</span>E-mail <span aria-hidden="true">↗</span></a>
     </div>}
     {section === 'about' && slug && <p>{t('html.about.personality.description')}</p>}
   </section>;

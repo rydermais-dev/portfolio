@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { isLocale, locales, translate } from '../../content';
 import { Header } from './nav';
 import '@moduix/react/style.css';
+import '@fontsource-variable/inter';
 import '../style.css';
 
 export const metadata: Metadata = {

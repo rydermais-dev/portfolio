@@ -28,3 +28,11 @@ Inventariar formulário, CV, atualizações de projeto, Twitch, YouTube e contad
 O repositório tem 9 arquivos de mensagens: pt-BR, pt, en, es, fr, de, ja-JP, ko e ru. Preservar a cobertura, normalizando `pt` legado para pt-PT e mantendo as demais tags. O seletor deve mostrar autônimos com bandeiras decorativas e nomes legíveis. Brasil, Portugal, EUA, Espanha, França, Alemanha, Japão, Coreia do Sul e Rússia cobrem o conjunto inicial. Canadá, Itália e China ficam disponíveis como assets e entram no seletor quando houver mensagens validadas. [Mensagens originais](https://github.com/Bryceed/portfolio/tree/57e94460f26544d0d5264060a0cd7396e78cb6e8/locales)
 
 Usar URLs com prefixo de idioma e pt-BR como padrão para URLs legadas, preservando query e seção quando possível. A troca de idioma preserva a entidade e usa desvio explícito para a versão original quando a tradução faltar. Usar `lang` no documento e nos trechos em idioma diferente, `Intl` para datas e números, URLs canônicas e hreflang para versões publicadas. Manter mapa completo de rotas antigas e verificar refresh/deep links. Datas sem dia usam precisão de mês/ano e nunca ganham dia inventado.
+
+## Experiências e identidade visual
+
+A página inicial apresenta uma seleção interativa de CodeHouse, SingAlong! e RyderMais, com botões Moduix e links diretos. A seção usa português identificado por `lang` enquanto traduções editoriais não estiverem disponíveis. A tipografia Inter Variable é distribuída pelo pacote local `@fontsource-variable/inter`. A trajetória inclui CSP Tech e datas de TI Safe e MAG conferidas no LinkedIn em novembro de 2026. Sincronização automática permanece pendente.
+
+## Linguagem visual das páginas
+
+O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos e contatos compartilham tipografia Inter Variable, espaçamento, cores e estados de foco. Cada projeto recebe uma cor de abertura e uma transição respeita a preferência por movimento reduzido. Páginas de projeto oferecem retorno ao catálogo e links disponíveis. Verificar páginas claras e escuras, teclado, dimensões móveis e desktop em cada alteração visual.
