@@ -22,7 +22,7 @@ export default async function Layout({ children, params }: {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const links = [
-    ['', 'menu.home'], ['/about', 'menu.about'], ['/certifications', 'html.certifications.title'],
+    ['', 'menu.home'], ['/about', 'menu.about'], ['/certifications', 'html.home.certifications'],
     ['/projects', 'menu.projects'], ['/blog', 'menu.blog'], ['/contact', 'menu.contact'],
   ].map(([path, key]) => ({ path, label: translate(locale, key) }));
   return (

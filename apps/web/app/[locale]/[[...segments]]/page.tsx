@@ -12,7 +12,7 @@ import { News } from '../../news';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
-  ['about', 'menu.about'], ['certifications', 'html.certifications.title'], ['projects', 'menu.projects'],
+  ['about', 'menu.about'], ['certifications', 'html.home.certifications'], ['projects', 'menu.projects'],
   ['blog', 'menu.blog'], ['contact', 'menu.contact'],
 ];
 const linkedIn = 'https://www.linkedin.com/in/wellnas/';
