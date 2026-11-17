@@ -12,7 +12,8 @@
       "de": "PWA-Plattform für Online-Multiplayer-Karaoke, die sich auf die Bereitstellung eines unterhaltsamen und interaktiven Erlebnisses konzentriert."
     },
     "website": "https://singalong.rydermais.com/app",
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/singAlong/placeholder.jpg"
   },
   {
     "id": "cedes",
@@ -27,7 +28,8 @@
       "de": "Religiöse institutionelle Website, die Informationen über die Institution, ihre Projekte und Aktivitäten abdeckt."
     },
     "website": "https://website-cedes.vercel.app/",
-    "code": "https://github.com/Bryceed/website-cedes"
+    "code": "https://github.com/Bryceed/website-cedes",
+    "image": "/assets/images/projects/cedes/cedes_placeholder.png"
   },
   {
     "id": "rydermais",
@@ -41,7 +43,8 @@
       "ko": "생산용 프로젝트 허브로, 새로운 경험과 기능을 대중에게 제공하는 데 중점을 둡니다."
     },
     "website": "https://rydermais.com",
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/rydermais/rydermais_cover.jpg"
   },
   {
     "id": "ryan",
@@ -55,7 +58,8 @@
       "ko": "Discord용 자동화 봇으로, 제어판 및 API 기능을 제공하는 데 중점을 둡니다."
     },
     "website": "https://ryan.rydermais.com/",
-    "code": "https://github.com/RyderMais/Ryan"
+    "code": "https://github.com/RyderMais/Ryan",
+    "image": "/assets/images/projects/ryan/placeholder.png"
   },
   {
     "id": "beatup",
@@ -69,7 +73,8 @@
       "ko": "다중 플랫폼 게임 경험으로, 리드미컬하고 도전적인 게임 경험을 제공하는 데 중점을 둡니다."
     },
     "website": null,
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/beatup/cover-fb.png"
   },
   {
     "id": "orkuty",
@@ -83,7 +88,8 @@
       "ko": "Orkut의 재창조로, Orkut의 향수를 현재로 가져오는 데 중점을 둡니다."
     },
     "website": null,
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/orkuty/banner-pink.png"
   },
   {
     "id": "deltaverse",
@@ -97,7 +103,8 @@
       "ko": "Discord, 제어판 및 API와의 통합 경험을 제공하는 데 중점을 둔 Minecraft 서버."
     },
     "website": null,
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/deltaverse/placeholder.png"
   },
   {
     "id": "mangut",
@@ -111,7 +118,8 @@
       "ko": "Recode PRO를 위한 그룹 TCC로, 원주민의 유기농 제품을 위한 가상 쇼케이스를 제공합니다."
     },
     "website": null,
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/mangut/placeholder.png"
   },
   {
     "id": "karaotrack",
@@ -125,6 +133,7 @@
       "ko": "실시간으로 노래 가사를 모니터링하고 표시하는 스크립트로, 카라오케 경험을 제공하는 데 중점을 둡니다."
     },
     "website": null,
-    "code": null
+    "code": null,
+    "image": "/assets/images/projects/karaotrackjs/placeholder.png"
   }
 ]

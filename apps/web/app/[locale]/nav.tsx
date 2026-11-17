@@ -57,6 +57,7 @@ export function Header({ locale, links, themeLabel }: {
             <img alt="" width="20" height="16" src={'/flags/Flag_' + languages[locale][1] + '.svg'} />
             <select aria-label={languageLabel} value={locale} onChange={(event) => {
               const suffix = pathname.slice(locale.length + 1);
+              document.cookie = 'portfolio-locale=' + encodeURIComponent(event.target.value) + '; Path=/; Max-Age=31536000; SameSite=Lax';
               router.push('/' + event.target.value + suffix + location.search + location.hash);
             }}>
               {Object.entries(languages).map(([key, [label]]) => <option lang={key} key={key} value={key}>{label}</option>)}

@@ -12,6 +12,7 @@ import { News } from '../../news';
 import { Playground } from '../../playground';
 import { TiltCard } from '../../tilt-card';
 import { HeroGrid } from '../../interaction-effects';
+import { PrintButton } from '../../print-button';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
@@ -19,7 +20,7 @@ const links = [
   ['blog', 'menu.blog'], ['contact', 'menu.contact'],
 ];
 const linkedIn = 'https://www.linkedin.com/in/wellnas/';
-const staticRoutes = [[], ...links.map(([slug]) => [slug]), ['about', 'personality-test'],
+const staticRoutes = [[], ...links.map(([slug]) => [slug]), ['cv'], ['about', 'personality-test'],
   ...projects.map(({ id }) => ['project', id]), ...posts.map(({ slug }) => ['blog', slug])];
 
 export function generateStaticParams() {
@@ -30,6 +31,7 @@ function title(locale: Locale, segments: string[]) {
   const [section, slug] = segments;
   if (section === 'project') return projects.find((project) => project.id === slug)?.title;
   if (section === 'blog' && slug) return posts.find((post) => post.slug === slug)?.title;
+  if (section === 'cv') return 'Curriculum Vitae';
   if (section === 'about' && slug) return translate(locale, 'html.about.personality.title');
   const key = links.find(([route]) => route === section)?.[1];
   return key ? translate(locale, key) : undefined;
@@ -59,6 +61,7 @@ export default async function Page({ params }: Props) {
   };
   const featured = (entries: typeof projects) => <div className="cards">
     {entries.map((project, index) => <TiltCard className="card project-card" key={project.id}>
+      {project.image && <Link className="project-image" href={path('/project/' + project.id)} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" /></Link>}
       <span className="card-index">{String(index + 1).padStart(2, '0')} / {t('menu.projects')}</span>
       <h3><Link href={path('/project/' + project.id)}>{project.title}<span aria-hidden="true"> ↗</span></Link></h3>{projectDescription(project)}
     </TiltCard>)}
@@ -118,14 +121,23 @@ export default async function Page({ params }: Props) {
         {https(project.website) && <a href={https(project.website)}>{t('html.home.visit')} ↗</a>}
         {https(project.code) && <a href={https(project.code)}>GitHub ↗</a>}
       </div>
+      {project.image && <div className="project-cover"><img src={project.image} alt="" /></div>}
     </div>
   </section>)}</>;
+
+  if (section === 'cv') return <section className="wrap section cv-page" lang="pt-BR">
+    <div className="cv-controls"><Link href={path('/contact')}>← {t('menu.contact')}</Link><PrintButton label="Imprimir / salvar em PDF" /></div>
+    <header className="cv-heading"><span className="page-kicker">Curriculum Vitae</span><h1>Wellington do Nascimento</h1><p>Full Stack Developer · UI/UX</p><p>Rio de Janeiro, Brasil · <a href="mailto:dev.wellnascimento@gmail.com">dev.wellnascimento@gmail.com</a> · <a href={linkedIn}>LinkedIn</a></p></header>
+    <h2>{t('html.about.experience.title')}</h2><div className="cv-entries">{timeline.filter((entry) => entry.jobRole).map((entry) => <article key={entry.id + '-' + entry.company}><h3>{entry.jobRole}</h3><strong>{entry.company} · {entry.date}</strong><p>{entry.jobDescription}</p></article>)}</div>
+    <h2>{t('html.about.skills.title')}</h2><div>{skills.map((group) => <p key={group.name}><strong>{group.name}: </strong>{group.items.map(({ name }) => name).join(' · ')}</p>)}</div>
+  </section>;
 
   return <section className={'wrap section page-section page-' + section}>
     <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && featured(projects)}
     {section === 'certifications' && <div className="cards">{certifications.map((cert) => <TiltCard className="card" key={cert.id}>
+      {cert.issuerLogo && <img className="issuer-logo" src={cert.issuerLogo} alt="" loading="lazy" />}
       <span className="muted">{cert.emissor}</span><h3>{cert.title}</h3>
       {cert.description && <p>{cert.description}</p>}
       {https(cert.link) && <a href={https(cert.link)}>{t('html.certifications.view') || cert.title}</a>}
@@ -141,9 +153,10 @@ export default async function Page({ params }: Props) {
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Markdown skipHtml>{post.body}</Markdown></article>)}
     {section === 'contact' && <div className="contact-groups">
+      <section className="resume-panel"><div><h2>Curriculum Vitae</h2><p lang="pt-BR">Consulte minha trajetória em uma versão pronta para impressão.</p></div><Link className="resume-link" href={path('/cv')}>Curriculum Vitae ↗</Link></section>
       <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://wa.me/5511942018873"><span aria-hidden="true">◉</span><div><strong>WhatsApp</strong><small>+55 11 94201-8873</small></div><span aria-hidden="true">↗</span></a></div></section>
       <section><h2>{t('html.contact.social.title')}</h2><div className="contact-grid"><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://github.com/rydermais-dev"><span aria-hidden="true">⌘</span><div><strong>GitHub</strong><small>@rydermais-dev</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://www.instagram.com/wellnas.dev/"><span aria-hidden="true">◎</span><div><strong>Instagram</strong><small>@wellnas.dev</small></div><span aria-hidden="true">↗</span></a></div></section>
     </div>}
-    {section === 'about' && slug && <p>{t('html.about.personality.description')}</p>}
+    {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities ↗</a></div></div>}
   </section>;
 }

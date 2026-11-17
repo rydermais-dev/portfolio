@@ -9,7 +9,8 @@
     "tags": [
       "Inteligência artificial",
       "Gestão"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/dio.png"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "tags": [
       "Governança corporativa",
       "Conformidade regulatória"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/mag.png"
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "tags": [
       "Segurança da informação",
       "Cibersegurança"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/mag.png"
   },
   {
     "id": 4,
@@ -42,7 +45,8 @@
     "description": "Scrimba - jul de 2024",
     "date": "jul de 2024",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/scrimba.png"
   },
   {
     "id": 5,
@@ -51,7 +55,8 @@
     "description": "Scrimba - jun de 2024",
     "date": "jun de 2024",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/scrimba.png"
   },
   {
     "id": 6,
@@ -60,7 +65,8 @@
     "description": "Ratatype - mai de 2024",
     "date": "mai de 2024",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/ratatype.png"
   },
   {
     "id": 7,
@@ -69,7 +75,8 @@
     "description": "Descomplica Faculdade Digital - nov de 2023",
     "date": "nov de 2023",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/descomplica.png"
   },
   {
     "id": 8,
@@ -78,7 +85,8 @@
     "description": "Descomplica Faculdade Digital - set de 2023",
     "date": "set de 2023",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/descomplica.png"
   },
   {
     "id": 9,
@@ -90,7 +98,8 @@
     "tags": [
       "Desenvolvimento de back-end",
       "Desenvolvimento de jogos eletrônicos"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/udemy.png"
   },
   {
     "id": 10,
@@ -102,7 +111,8 @@
     "tags": [
       "Criatividade",
       "Competências pessoais e sociais"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/recode.png"
   },
   {
     "id": 11,
@@ -113,7 +123,8 @@
     "link": "",
     "tags": [
       "Experiência do usuário (UX)"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 12,
@@ -124,7 +135,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de front-end e JavaScript"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 13,
@@ -133,7 +145,8 @@
     "description": "Alura - dez de 2022",
     "date": "dez de 2022",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 14,
@@ -144,7 +157,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 15,
@@ -155,7 +169,8 @@
     "link": "",
     "tags": [
       "Experiência do usuário (UX)"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 16,
@@ -166,7 +181,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 17,
@@ -177,7 +193,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 18,
@@ -188,7 +205,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 19,
@@ -199,7 +217,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 20,
@@ -210,7 +229,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end e Desenvolvimento de front-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/alura.png"
   },
   {
     "id": 21,
@@ -221,7 +241,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de front-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/recode.png"
   },
   {
     "id": 22,
@@ -230,7 +251,8 @@
     "description": "SEST SENAT - jun de 2022",
     "date": "jun de 2022",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/sestsenat.png"
   },
   {
     "id": 23,
@@ -242,7 +264,8 @@
     "tags": [
       "Desenvolvimento de back-end",
       "Desenvolvimento de front-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/recode.png"
   },
   {
     "id": 24,
@@ -253,7 +276,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/recode.png"
   },
   {
     "id": 25,
@@ -265,7 +289,8 @@
     "tags": [
       "Desenvolvimento de back-end",
       "Desenvolvimento de front-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/recode.png"
   },
   {
     "id": 26,
@@ -276,7 +301,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de front-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/bradesco.png"
   },
   {
     "id": 27,
@@ -285,7 +311,8 @@
     "description": "Fundação Bradesco - fev de 2021",
     "date": "fev de 2021",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/bradesco.png"
   },
   {
     "id": 28,
@@ -294,7 +321,8 @@
     "description": "SEST SENAT - abr de 2020",
     "date": "abr de 2020",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/sestsenat.png"
   },
   {
     "id": 29,
@@ -305,7 +333,8 @@
     "link": "",
     "tags": [
       "Desenvolvimento de back-end"
-    ]
+    ],
+    "issuerLogo": "/images/certs/logos/bradesco.png"
   },
   {
     "id": 30,
@@ -314,6 +343,7 @@
     "description": "Fundação Bradesco - abr de 2014",
     "date": "abr de 2014",
     "link": "",
-    "tags": []
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/bradesco.png"
   }
 ]
