@@ -9,3 +9,4 @@ target/
 *.pem
 *.zip
 .local/
+.railway-config-pull-*/

@@ -1,0 +1,110 @@
+{
+  "html": {
+    "contact": {
+      "cv": {
+        "selectLanguage": "Langue de fichier",
+        "traditionalDescription": "Choisissez la langue PDF à télécharger",
+        "popup": {
+          "description": "Lors de la sélection de la langue, vous serez redirigé pour afficher et télécharger le fichier."
+        },
+        "europass": "européen",
+        "title": "Programme d'études",
+        "traditional": "Traditionnel",
+        "description": "Télécharger mon CV mis à jour"
+      },
+      "title": "Contact",
+      "description": "Parlons de votre projet ou de votre opportunité d'emploi?",
+      "phone": {
+        "description": "(WhatsApp, appels et sms)",
+        "title": ""
+      },
+      "social": {
+        "title": "Réseaux sociaux"
+      },
+      "buttons": {
+        "downloadCV": "Télécharger CV"
+      },
+      "contactInfo": "Contacts"
+    },
+    "blog": {
+      "soon": "Cette session est reformulée. Nouvelles bientôt."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "description": "Ce sont quelques-unes de mes compétences",
+      "searchPlaceholder": "Pour rechercher ...",
+      "validUntil": "Valide jusqu'à",
+      "expired": "Expiré",
+      "noResults": "Aucune certification trouvée avec les filtres actuels.",
+      "clearFilters": "Pas"
+    },
+    "home": {
+      "greetings": "Bonjour! Je suis <span> {name} </span>",
+      "description[0]": "J'ai {années} des années et je suis actuellement <span> {occupation} </span> agissant sur <span> brazil </span>.",
+      "description[1]": "Mes principales compétences sont pour <span> {profession1} </span> et <span> {profession2} </span>.",
+      "description[2]": "Travaillant actuellement pour <span> {Business} </span>, il y a {time}.",
+      "description[3]": "<b> Sortons votre projet du papier? </b>",
+      "actions[1]": {
+        "label": "Contact"
+      },
+      "skillsTitle": "Compétences",
+      "skillsClickInfo": "Cliquez sur une compétence pour voir plus de détails",
+      "actions[2]": {
+        "label": "Sur moi"
+      },
+      "trajectoryTitle": "Ma trajectoire",
+      "trajectoryParagraph1": "Je suis amoureux de la fourniture de solutions technologiques qui combinent les performances, les pratiques modernes et une bonne expérience utilisateur. Tout au long de ma carrière, j'ai dirigé des projets pour l'automatisation, la création et la maintenance de sites Web dans diverses technologies.",
+      "trajectoryParagraph2": "J'ai de l'expérience avec Front End, Back End, Mobile, 3D, Automation, DevOps Culture, Cloud (AWS, GCP et Azure), conteneurisation avec Docker et CI / CD. J'apprécie les bonnes pratiques, le code propre et la collaboration avec diverses équipes. Mon objectif est de construire des solutions modernes qui ajoutent vraiment de la valeur, où, dans un environnement avec une écoute active, nous pouvons rassembler les meilleures idées de tous pour livrer un produit parfait au client.",
+      "skillsCount": "articles",
+      "action[1]": ""
+    },
+    "about": {
+      "description": "En savoir plus sur ma carrière professionnelle, mes compétences et ma personnalité.",
+      "personal": {
+        "title": "Information personnelle",
+        "name": {
+          "label": "Nom"
+        },
+        "age": {
+          "label": "Date de naissance",
+          "value": "{Date} ({Age} Years)"
+        },
+        "location": {
+          "label": "Emplacement"
+        },
+        "education": {
+          "label": "Entraînement"
+        },
+        "occupation": {
+          "label": "Profession"
+        }
+      },
+      "experience": {
+        "title": "Expérience professionnelle"
+      },
+      "skills": {
+        "title": "Compétences techniques"
+      }
+    },
+    "projects": {
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": ""
+        }
+      }
+    }
+  },
+  "menu": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "projects": "Projets",
+    "contact": "Contact",
+    "about": "À propos"
+  },
+  "footer": [
+    null,
+    null
+  ],
+  "footer[0]": "Le site est débranché avec ❤️ dans nuxt3 | Visites: {vues}"
+}

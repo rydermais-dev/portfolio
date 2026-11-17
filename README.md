@@ -11,3 +11,5 @@ Reconstrução do portfólio de Wellington do Nascimento. Esta fase prepara o re
 [Projeto Railway](https://railway.com/project/7ccc282c-e748-4fc1-92cd-944cd64b1738) · [Referência Vue/Nuxt](https://github.com/Bryceed/portfolio/tree/57e94460f26544d0d5264060a0cd7396e78cb6e8)
 
 Os SVGs recuperados estão em `apps/web/public/flags`, com os nomes originais e a licença AGPL-3.0 publicada pelo projeto de origem. O conteúdo profissional passa por revisão editorial antes de entrar em produção.
+
+[Release mínimo e migração de DNS](docs/06-release-mvp.md)

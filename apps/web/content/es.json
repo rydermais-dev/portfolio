@@ -1,0 +1,110 @@
+{
+  "html": {
+    "contact": {
+      "cv": {
+        "selectLanguage": "Lenguaje de archivo",
+        "traditionalDescription": "Elija el idioma pdf para descargar",
+        "popup": {
+          "description": "Al seleccionar el idioma, será redirigido para ver y descargar el archivo."
+        },
+        "europass": "europeo",
+        "title": "Plan de estudios",
+        "traditional": "Tradicional",
+        "description": "Descargar mi CV actualizado"
+      },
+      "title": "Contacto",
+      "description": "¿Hablemos de su proyecto o oportunidad de trabajo?",
+      "phone": {
+        "description": "(WhatsApp, llamadas y SMS)",
+        "title": ""
+      },
+      "social": {
+        "title": "Redes sociales"
+      },
+      "buttons": {
+        "downloadCV": "Descargar CV"
+      },
+      "contactInfo": "Contactos"
+    },
+    "blog": {
+      "soon": "Esta sesión está siendo reformulada. Noticias pronto."
+    },
+    "certifications": {
+      "title": "Certificaciones",
+      "description": "Estas son algunas de las pruebas de mis habilidades",
+      "searchPlaceholder": "Para buscar ...",
+      "validUntil": "Válido hasta",
+      "expired": "Venció",
+      "noResults": "No se encontró certificación con los filtros actuales.",
+      "clearFilters": "Paso"
+    },
+    "home": {
+      "greetings": "¡Hola! Soy <span> {nombre} </span>",
+      "description[0]": "Tengo {años} años y actualmente soy <span> {ocupación} </span> actuando en <span> brasil </span>.",
+      "description[1]": "Mis habilidades principales son para <span> {profesión1} </span> y <span> {profesión2} </span>.",
+      "description[2]": "Actualmente trabajando para <span> {Business} </span>, hay {tiempo}.",
+      "description[3]": "<b> ¡Saquemos su proyecto de papel? </b>",
+      "actions[1]": {
+        "label": "Contacto"
+      },
+      "skillsTitle": "Habilidades",
+      "skillsClickInfo": "Haga clic en una habilidad para ver más detalles",
+      "actions[2]": {
+        "label": "Acerca de mí"
+      },
+      "trajectoryTitle": "Mi trayectoria",
+      "trajectoryParagraph1": "Estoy enamorado de la entrega de soluciones tecnológicas que combinan el rendimiento, las prácticas modernas y la buena experiencia de usuario. A lo largo de mi carrera, dirigí proyectos para la automatización, creación y mantenimiento de sitios web en varias tecnologías.",
+      "trajectoryParagraph2": "Tengo experiencia con front -end, back -end, móvil, 3D, automatización, cultura DevOps, nube (AWS, GCP y Azure), contenedores con Docker y CI/CD. Valoro buenas prácticas, código limpio y colaboración con varios equipos. Mi objetivo es crear soluciones modernas que realmente agregen valor, donde, en un entorno con escucha activa, podemos reunir las mejores ideas de todas para ofrecer un producto perfecto al cliente.",
+      "skillsCount": "elementos",
+      "action[1]": ""
+    },
+    "about": {
+      "description": "Obtenga más información sobre mi carrera profesional, habilidades y personalidad.",
+      "personal": {
+        "title": "Información personal",
+        "name": {
+          "label": "Nombre"
+        },
+        "age": {
+          "label": "Fecha de nacimiento",
+          "value": "{Fecha} ({edad} años)"
+        },
+        "location": {
+          "label": "Ubicación"
+        },
+        "education": {
+          "label": "Capacitación"
+        },
+        "occupation": {
+          "label": "Profesión"
+        }
+      },
+      "experience": {
+        "title": "Experiencia profesional"
+      },
+      "skills": {
+        "title": "Habilidades técnicas"
+      }
+    },
+    "projects": {
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": ""
+        }
+      }
+    }
+  },
+  "menu": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "about": "Sobre mí"
+  },
+  "footer": [
+    null,
+    null
+  ],
+  "footer[0]": "Sitio Desbeado con ❤️ en Nuxt3 | Visitas: {Vistas}"
+}

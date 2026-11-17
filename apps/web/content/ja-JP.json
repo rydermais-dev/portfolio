@@ -1,0 +1,53 @@
+{
+  "html": {
+    "contact": {
+      "cv": {
+        "title": "カリキュラム",
+        "traditional": "伝統的",
+        "description": "更新された履歴書をダウンロードしてください"
+      },
+      "title": "接触",
+      "description": "あなたのプロジェクトや仕事の機会について話しましょうか？",
+      "phone": {
+        "description": "（WhatsApp、Calls、SMS）",
+        "title": ""
+      },
+      "social": {
+        "title": "ソーシャルメディア"
+      },
+      "buttons": {
+        "downloadCV": "履歴書をダウンロードします"
+      },
+      "contactInfo": "連絡先"
+    },
+    "home": {
+      "greetings": "こんにちは！私は<span> {name} </span>です",
+      "description[0]": "私は{年}年を過ごしており、現在は<span> {courdoce} </span> <span> Brazil </span>に行動しています。",
+      "description[1]": "私の主なスキルは、<span> {profession1} </span>および<span> {profession2} </span>です。",
+      "description[2]": "現在、<span> {Business} </span>で働いている、{時間}があります。",
+      "description[3]": "<b>あなたのプロジェクトを紙から取り出しましょうか？ </b>",
+      "actions[2]": {
+        "label": "私について"
+      },
+      "actions[1]": {
+        "label": "接触"
+      },
+      "skillsTitle": "スキル",
+      "skillsClickInfo": "スキルをクリックして詳細を確認してください",
+      "trajectoryTitle": "私の軌跡",
+      "trajectoryParagraph1": "私は、パフォーマンス、現代のプラクティス、優れたユーザーエクスペリエンスを組み合わせた技術ソリューションの提供に恋をしています。私のキャリアを通じて、私はさまざまなテクノロジーでウェブサイトの自動化、作成、メンテナンスのためのプロジェクトを主導しました。",
+      "trajectoryParagraph2": "フロントエンド、バックエンド、モバイル、3D、自動化、DevOpsカルチャー、クラウド（AWS、GCP、Azure）、DockerおよびCI/CDによるコンテナ化の経験があります。私は、優れたプラクティス、クリーンコード、さまざまなチームとのコラボレーションを大切にしています。私の目標は、本当に価値を高める最新のソリューションを構築することです。そこでは、積極的なリスニングの環境では、顧客に完璧な製品を提供するためにすべての最高のアイデアを集めることができます。",
+      "skillsCount": "アイテム",
+      "action[1]": ""
+    },
+    "projects": {
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": ""
+        }
+      }
+    }
+  },
+  "footer[0]": "nuxt3 |でdebreeed embreeがdebreeされました訪問：{ビュー}"
+}

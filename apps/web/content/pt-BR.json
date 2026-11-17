@@ -1,0 +1,336 @@
+{
+  "html": {
+    "home": {
+      "greetings": "Olá! Sou o <span>{name}</span>",
+      "description": [
+        "Tenho {years} anos e atualmente sou <span>{occupation}</span> atuando no <span>Brasil</span>.",
+        "Minhas habilidades principais são para <span>{profession1}</span> e <span>{profession2}</span>.",
+        "Atualmente trabalhando para <span>{business}</span>, há {time}.",
+        "<b>Vamos tirar o seu projeto do papel?</b>"
+      ],
+      "skillsTitle": "Habilidades",
+      "skillsClickInfo": "Clique em uma habilidade para ver mais detalhes",
+      "projectsTitle": "Destaques",
+      "featuredProjects": "Projetos em Destaque",
+      "experience": "Experiência Profissional",
+      "certifications": "Certificações",
+      "ctaTitle": "Vamos Trabalhar Juntos?",
+      "ctaText": "Tem um projeto em mente? Procurando um desenvolvedor para sua equipe? Vamos conversar!",
+      "contactMe": "Entre em Contato",
+      "viewProjects": "Ver Projetos",
+      "viewMore": "Ver Mais",
+      "view": "Visualizar",
+      "details": "Detalhes",
+      "visit": "Visitar",
+      "actions": [
+        {
+          "label": "Projetos",
+          "url": "/projects"
+        },
+        {
+          "label": "Contato",
+          "url": "https://api.whatsapp.com/send?phone=5511942018873"
+        },
+        {
+          "label": "Sobre mim",
+          "url": "/about"
+        }
+      ],
+      "projects": {
+        "title": "Projetos"
+      },
+      "trajectoryTitle": "Minha Trajetória",
+      "trajectoryParagraph1": "Sou apaixonado por entregar soluções tecnológicas que combinam performance, práticas modernas e com boa experiência de usuário. Ao longo da minha carreira, liderei projetos de automação, criação e manutenção de sites em diversas tecnologias.",
+      "trajectoryParagraph2": "Tenho experiência com front-end, back-end, mobile, 3D, automação, cultura DevOps, nuvem (AWS, GCP e Azure), conteinerização com Docker e CI/CD. Valorizo boas práticas, código limpo e colaboração com equipes diversas. Meu objetivo é construir soluções modernas que realmente agreguem valor, onde, num ambiente com escuta ativa, possamos reunir as melhores ideias de todos para entregarmos um produto perfeito ao cliente.",
+      "skillsCount": "itens"
+    },
+    "projects": {
+      "title": "Meus projetos",
+      "description": "Aqui estão alguns dos meus projetos mais recentes.",
+      "miniDisplay": {
+        "button": {
+          "details": "Detalhes",
+          "quickView": "Visão rápida",
+          "website": "Visitar site",
+          "invite": "Convidar",
+          "join": "Participar",
+          "watch": "Assistir"
+        }
+      },
+      "messages": {
+        "not-found": {
+          "title": "Oops! Projeto não encontrado.",
+          "description": "O projeto \"{project_id}\" não foi encontrado em nossos registros.\nPor favor, verifique a digitação do endereço ou retorne para a lista de projetos."
+        }
+      }
+    },
+    "footer": [
+      "Site construído em <b>Nuxt3</b>. por Wellington N. ({year})",
+      "Visite meu <a href=\"{url}\" target=\"_blank\">GitHub</a> para ver mais sobre meus projetos (incluindo este)."
+    ],
+    "contact": {
+      "title": "Contato",
+      "description": "Vamos conversar sobre seu projeto ou oportunidade de trabalho?",
+      "buttons": {
+        "sendEmail": "Enviar E-mail",
+        "sendMessage": "Enviar Mensagem",
+        "downloadCV": "Baixar CV",
+        "whatsapp": "Conversar no WhatsApp",
+        "whatsappAlternative": "Conversar agora no WhatsApp"
+      },
+      "cv": {
+        "title": "Currículo",
+        "description": "Baixe meu CV atualizado",
+        "traditional": "Tradicional",
+        "europass": "Europass",
+        "chooseModel": "Selecione o estilo do currículo",
+        "selectLanguage": "Idioma do arquivo",
+        "traditionalDescription": "Escolha o idioma do PDF para download",
+        "popup": {
+          "description": "Ao selecionar o idioma, você será redirecionado para visualização e download do arquivo."
+        }
+      },
+      "form": {
+        "title": "Envie uma mensagem",
+        "name": "Nome",
+        "namePlaceholder": "Seu nome",
+        "email": "E-mail",
+        "emailPlaceholder": "seu.email@exemplo.com",
+        "subject": "Assunto",
+        "subjectPlaceholder": "Motivo do contato",
+        "message": "Mensagem",
+        "messagePlaceholder": "Digite sua mensagem aqui...",
+        "submit": "Enviar mensagem",
+        "success": "Mensagem enviada com sucesso! Retornarei em breve.",
+        "error": "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.",
+        "or": "ou",
+        "divider": "OU",
+        "submitting": "Preparando formulário..."
+      },
+      "social": {
+        "title": "Redes Sociais"
+      },
+      "phone": {
+        "description": "(WhatsApp, ligações e SMS)",
+        "title": "Telefone"
+      },
+      "contactInfo": "Contatos",
+      "hero": {
+        "title": "Vamos conversar?",
+        "description": "Seja para concretizar o seu projeto, ou uma proposta para atuar na equipe da sua empresa, fico à disposição para transformar sua idealização em ação."
+      }
+    },
+    "blog": {
+      "title": "Blog",
+      "soon": "Essa sessão está sendo reformulada. Novidades em breve."
+    },
+    "commons": {
+      "underConstruction": {
+        "description": "Ainda preciso de mais um tempo para criar essa sessão em específico. Por favor, verifique mais tarde ou entre em contato comigo.",
+        "title": "Em construção"
+      }
+    },
+    "project": {
+      "buttons": {
+        "return": "Retornar",
+        "back": "Voltar",
+        "allProjects": "Todos os projetos"
+      }
+    },
+    "about": {
+      "title": "Sobre Mim",
+      "description": "Conheça mais sobre minha trajetória profissional, habilidades e personalidade.",
+      "personal": {
+        "title": "Informações Pessoais",
+        "name": {
+          "label": "Nome"
+        },
+        "location": {
+          "label": "Localização"
+        },
+        "education": {
+          "label": "Formação"
+        },
+        "occupation": {
+          "label": "Profissão"
+        },
+        "age": {
+          "label": "Data de Nascimento",
+          "value": "{date} ({age} anos)"
+        }
+      },
+      "experience": {
+        "title": "Experiência Profissional",
+        "company": {
+          "button": "Web"
+        }
+      },
+      "skills": {
+        "title": "Habilidades Técnicas"
+      },
+      "personality": {
+        "title": "Personalidade",
+        "description": "Sou uma pessoa lógica, criativa e analítica. Descubra mais sobre meu perfil de personalidade INTP-T.",
+        "button": "Ver resultado do teste"
+      }
+    }
+  },
+  "menu": {
+    "home": "Início",
+    "blog": "Blog",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "about": "Sobre mim"
+  },
+  "commons": {
+    "actions": {
+      "close": "Fechar",
+      "back": "Voltar"
+    },
+    "languages": {
+      "pt": "Português",
+      "en": "Inglês",
+      "es": "Espanhol"
+    },
+    "themes": {
+      "light": "Claro",
+      "dark": "Escuro"
+    },
+    "timings": {
+      "morning": "Bom dia",
+      "afternoon": "Boa tarde",
+      "night": "Boa noite",
+      "dawn": "Boa madrugada",
+      "periodOf": {
+        "day": {
+          "singular": "{periodOf} dia",
+          "plural": "{periodOf} dias"
+        },
+        "month": {
+          "singular": "{periodOf} mês",
+          "plural": "{periodOf} meses"
+        },
+        "year": {
+          "singular": "{periodOf} ano",
+          "plural": "{periodOf} anos"
+        },
+        "week": {
+          "singular": "{periodOf} semana",
+          "plural": "{periodOf} semanas"
+        },
+        "concat": " e "
+      }
+    }
+  },
+  "messages": {
+    "pride": {
+      "title": "Mês do Orgulho LGBTQIA+",
+      "message": "Hoje celebramos o mês do orgulho LGBTQIA+! 🌈\n\nAproveite para celebrar a diversidade, a inclusão e o amor em todas as suas formas. Que possamos continuar lutando por igualdade e respeito todos os dias.\n\nFeliz mês do orgulho! 🏳️‍🌈",
+      "startAt": "01-06",
+      "endAt": "30-06"
+    },
+    "blackHistory": {
+      "title": "Dia da Conscientização Negra 🎉",
+      "message": "Celebramos o Dia da Conscientização Negra! Hoje é um dia para refletirmos sobre a importância da cultura negra e a luta contra o racismo. Que possamos valorizar a diversidade e promover a igualdade todos os dias.",
+      "startAt": "15-11",
+      "endAt": "20-11"
+    },
+    "christmas": {
+      "title": "Feliz Natal! 🎄",
+      "message": "Desejo a você um Natal cheio de alegria, amor e paz. Que esta época traga momentos especiais com seus entes queridos.",
+      "startAt": "20-12",
+      "endAt": "25-12"
+    },
+    "newYear": {
+      "title": "Feliz Ano Novo! 🎉",
+      "message": "Que o novo ano traga novas oportunidades, conquistas e muita felicidade. Vamos juntos fazer de {year} um ano incrível!",
+      "startAt": "28-12",
+      "endAt": "03-01"
+    },
+    "easter": {
+      "title": "Feliz Páscoa! 🐰",
+      "message": "Desejo a você uma Páscoa cheia de amor, renovação e momentos doces com sua família e amigos.",
+      "startAt": "01-04",
+      "endAt": "04-04"
+    },
+    "halloween": {
+      "title": "Feliz Halloween! 🎃",
+      "message": "Que seu Halloween seja cheio de travessuras, gostosuras e muita diversão! Aproveite as fantasias e as guloseimas!",
+      "startAt": "30-10",
+      "endAt": "01-11"
+    },
+    "thanksgiving": {
+      "title": "Feliz Dia de Ação de Graças! 🦃",
+      "message": "Desejo a você um Dia de Ação de Graças repleto de gratidão, amor e momentos especiais com sua família e amigos.",
+      "startAt": "20-11",
+      "endAt": "25-11"
+    },
+    "valentines": {
+      "title": "Feliz Dia dos Namorados! 💖",
+      "message": "Neste Dia dos Namorados, celebre o amor e a conexão especial que você compartilha com alguém especial. Que seja um dia cheio de carinho e momentos inesquecíveis!",
+      "startAt": "10-06",
+      "endAt": "12-06",
+      "region": "BR"
+    },
+    "aprilFools": {
+      "title": "Feliz Dia da Mentira! 🤪",
+      "message": "Hoje é o dia perfeito para pregar peças e se divertir com amigos e familiares. Mas lembre-se, peguem leve com as brincadeiras e tudo com bom humor!",
+      "startAt": "01-04",
+      "endAt": "01-04"
+    },
+    "motherDay": {
+      "title": "Feliz Dia das Mães! 🌷",
+      "message": "Neste Dia das Mães, celebre o amor e a dedicação de todas as mães. Que seja um dia cheio de carinho, gratidão e momentos especiais com suas mães.",
+      "startAt": "10-05",
+      "endAt": "12-05"
+    },
+    "fatherDay": {
+      "title": "Feliz Dia dos Pais! 👔",
+      "message": "Neste Dia dos Pais, celebre o amor e a dedicação de todos os pais. Que seja um dia cheio de carinho, gratidão e momentos especiais com seus pais.",
+      "startAt": "10-08",
+      "endAt": "12-08"
+    },
+    "independenceDay": {
+      "title": "Feliz Dia da Independência! 🇧🇷",
+      "message": "Hoje celebramos a independência do Brasil! Que possamos valorizar nossa história e lutar por um país melhor.",
+      "startAt": "05-09",
+      "endAt": "07-09",
+      "region": "BR"
+    },
+    "internationalWomensDay": {
+      "title": "Feliz Dia Internacional da Mulher! 🌸",
+      "message": "Hoje celebramos a força, a coragem e as conquistas das mulheres ao redor do mundo. Que possamos continuar lutando por igualdade e respeito todos os dias."
+    },
+    "internationalWorkersDay": {
+      "title": "Feliz Dia do Trabalhador! 👷‍♂️👩‍🏭",
+      "message": "Hoje celebramos o trabalho e a dedicação de todos os trabalhadores. Que possamos valorizar o esforço e a contribuição de cada um para a sociedade."
+    },
+    "internationalChildrensDay": {
+      "title": "Feliz Dia das Crianças! 🎈",
+      "message": "Hoje celebramos a alegria, a inocência e a magia da infância. Que possamos proteger e cuidar de nossas crianças, garantindo um futuro melhor para elas."
+    },
+    "internationalStudentsDay": {
+      "title": "Feliz Dia Internacional do Estudante! 🎓",
+      "message": "Hoje celebramos a dedicação e o esforço de todos os estudantes. Que possamos valorizar a educação e lutar por um futuro melhor para todos."
+    },
+    "internationalTeachersDay": {
+      "title": "Feliz Dia Internacional dos Professores! 🍎",
+      "message": "Hoje celebramos o trabalho e a dedicação de todos os professores. Que possamos valorizar a educação e reconhecer o papel fundamental que eles desempenham na formação de nossas crianças e jovens."
+    },
+    "memorial": {
+      "title": "Minha memória eterna",
+      "message": "Esse site não recebe atualizações há um bom tempo, então é muito provável que eu não esteja mais vivo. Ainda assim, você pode conferir como era meu trabalho e minhas ideias até {year}.\nAgradeço por sua visita e espero que tenha gostado do que viu. Se você está vendo isso, é porque alguém ainda se importa com meu legado.\nObrigado por visitar meu memorial virtual. Espero que você encontre inspiração e aprendizado aqui.\n\nCom carinho,\nWellington N."
+    }
+  },
+  "language": {
+    "code": "pt",
+    "name": "Português (Brasil)",
+    "nativeName": "Portuguese (Brazil)",
+    "region": "BR"
+  },
+  "theme": "Tema",
+  "footer": [
+    "Site construído com ❤️ e ☕ em Nuxt3",
+    "Código aberto </a> sob licença <a href=\"https://opensource.org/license/agpl-v3\" target=\"_blank\">AGPL-3.0</a> <span class=\"divider\">•</span> {views} visitas"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "language": {
+    "code": "de",
+    "name": "Deutsch",
+    "nativeName": "Deutsch",
+    "region": "DE"
+  },
+  "menu": {
+    "home": "Startseite",
+    "blog": "Blog",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "about": "Über mich"
+  },
+  "commons": {
+    "actions": {
+      "close": "Schließen",
+      "back": "Zurück"
+    },
+    "languages": {
+      "pt": "Portugiesisch",
+      "en": "Englisch",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "de": "Deutsch",
+      "ru": "Russisch"
+    },
+    "themes": {
+      "light": "Hell",
+      "dark": "Dunkel"
+    }
+  },
+  "footer[0]": "Site Debreeed mit ❤️ in nuxt3 | Besuche: {Ansichten}",
+  "footer[1]": "Besuchen Sie meine <a href = \"{github}\" target = \"_ leer\"> github </a> Um mehr über meine Projekte zu erfahren (einschließlich dieser).",
+  "html": {
+    "contact": {
+      "cv": {
+        "traditional": "Traditionell",
+        "europass": "europäisch",
+        "chooseModel": "Wählen Sie den Lehrplanstil aus",
+        "selectLanguage": "Dateisprache",
+        "traditionalDescription": "Wählen Sie die PDF -Sprache zum Download",
+        "popup": {
+          "description": "Bei der Auswahl der Sprache werden Sie zum Anzeigen und Herunterladen der Datei umgeleitet."
+        },
+        "title": "Lehrplan",
+        "description": "Laden Sie meinen aktualisierten Lebenslauf herunter"
+      },
+      "form": {
+        "submitting": "Vorbereitung der Form..."
+      },
+      "phone": {
+        "description": "(WhatsApp, Anrufe und SMS)",
+        "title": ""
+      },
+      "title": "Kontakt",
+      "description": "Sprechen wir über Ihr Projekt oder Ihre Arbeitsmöglichkeit?",
+      "social": {
+        "title": "Social Media"
+      },
+      "buttons": {
+        "downloadCV": "CV herunterladen"
+      },
+      "contactInfo": "Kontakte"
+    },
+    "blog": {
+      "soon": "Diese Sitzung wird neu formuliert. Nachrichten bald."
+    },
+    "certifications": {
+      "title": "Zertifizierungen",
+      "description": "Dies sind einige der Beweise meiner Fähigkeiten",
+      "searchPlaceholder": "Suchen nach ...",
+      "validUntil": "Gültig bis",
+      "expired": "Abgelaufen",
+      "noResults": "Keine Zertifizierung mit aktuellen Filtern.",
+      "clearFilters": "Tonhöhe"
+    },
+    "home": {
+      "greetings": "Hallo! Ich bin <span> {Name} </span>",
+      "description[0]": "Ich habe {Jahre} Jahre und ich bin derzeit <span> {occupation} </span> auf <span> brasilien </span>.",
+      "description[1]": "Meine Hauptfähigkeiten sind für <span> {profession1} </span> und <span> {profession2} </span>.",
+      "description[2]": "Derzeit arbeitet für <span> {Business} </span> {time}.",
+      "description[3]": "<b> Nehmen wir Ihr Projekt aus dem Papier? </b>",
+      "actions[1]": {
+        "label": "Kontakt"
+      },
+      "skillsTitle": "Fähigkeiten",
+      "skillsClickInfo": "Klicken Sie auf eine Fähigkeit, um weitere Details anzuzeigen",
+      "actions[2]": {
+        "label": "Über mich"
+      },
+      "trajectoryTitle": "Meine Flugbahn",
+      "trajectoryParagraph1": "Ich bin verliebt, um technologische Lösungen zu liefern, die Leistung, moderne Praktiken und gute Benutzererfahrungen kombinieren. Während meiner Karriere leitete ich Projekte zur Automatisierung, Erstellung und Wartung von Websites in verschiedenen Technologien.",
+      "trajectoryParagraph2": "Ich habe Erfahrung mit Front End, Back End, Mobile, 3D, Automation, DevOps Culture, Cloud (AWS, GCP und Azure), Containerisierung mit Docker und CI/CD. Ich schätze gute Praktiken, saubere Code und Zusammenarbeit mit verschiedenen Teams. Mein Ziel ist es, moderne Lösungen aufzubauen, die wirklich einen Mehrwert bieten, in dem wir in einer Umgebung mit aktivem Zuhören die besten Ideen für alle sammeln können, um dem Kunden ein perfektes Produkt zu liefern.",
+      "skillsCount": "Artikel",
+      "action[1]": ""
+    },
+    "about": {
+      "description": "Erfahren Sie mehr über meine berufliche Laufbahn, meine Fähigkeiten und meine Persönlichkeit.",
+      "personal": {
+        "title": "Persönliche Informationen",
+        "name": {
+          "label": "Name"
+        },
+        "age": {
+          "label": "Geburtsdatum",
+          "value": "{Datum} ({älter} Jahre)"
+        },
+        "location": {
+          "label": "Standort"
+        },
+        "education": {
+          "label": "Ausbildung"
+        },
+        "occupation": {
+          "label": "Beruf"
+        }
+      },
+      "experience": {
+        "title": "Berufserfahrung"
+      },
+      "skills": {
+        "title": "Technische Fähigkeiten"
+      }
+    },
+    "projects": {
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": ""
+        }
+      }
+    }
+  }
+}

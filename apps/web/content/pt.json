@@ -1,0 +1,143 @@
+{
+  "personality": "Personalidade",
+  "logical": "Lógico",
+  "introduction": "Introdução",
+  "introText1": "Os INTPs são pensadores criativos e lógicos, com uma paixão por desafiar o status quo. Eles são capazes de analisar problemas complexos para encontrar soluções eficazes.",
+  "introText2": "São conhecidos por sua curiosidade e habilidade de pensar de forma abstrata. Eles são capazes de ver o mundo de uma perspectiva única e muitas vezes têm ideias que desafiam o status quo. Os INTPs são introvertidos, intuitivos, pensadores e prospectivos. Eles são conhecidos por sua capacidade de analisar problemas complexos e encontrar soluções criativas. Os INTPs são muitas vezes descritos como pensadores profundos e inovadores.",
+  "studyAndResult": "Estudo e",
+  "result": "resultado",
+  "basedOn": "baseado no teste Myers-Briggs Type Indicator (MBTI). Saiba mais em",
+  "footer": [
+    "Site construído em <b>Nuxt3</b>. por Wellington N. ({year})",
+    "Visite meu <a href=\"{url}\" target=\"_blank\">GitHub</a> para ver mais sobre meus projetos (incluindo este)."
+  ],
+  "footer[0]": "Site deesenvolvido com ❤️ em Nuxt3 | Visitas: {views}",
+  "footer[1]": "<a href=\"{github}\" target=\"_blank\">GitHub</a> | https://www.counter12.com/img-x8waWZwzd7d5z839-26.gif",
+  "html": {
+    "contact": {
+      "cv": {
+        "traditional": "Tradicional",
+        "europass": "Europass",
+        "chooseModel": "Selecione o estilo do currículo",
+        "selectLanguage": "Idioma do arquivo",
+        "traditionalDescription": "Escolha o idioma do PDF para download",
+        "popup": {
+          "description": "Ao selecionar o idioma, você será redirecionado para visualização e download do arquivo."
+        },
+        "title": "Currículo",
+        "description": "Baixe meu CV atualizado"
+      },
+      "form": {
+        "submitting": "Preparando formulário..."
+      },
+      "phone": {
+        "description": "(WhatsApp, ligações e SMS)",
+        "title": ""
+      },
+      "title": "Contato",
+      "description": "Vamos conversar sobre seu projeto ou oportunidade de trabalho?",
+      "social": {
+        "title": "Redes Sociais"
+      },
+      "buttons": {
+        "downloadCV": "Baixar CV"
+      },
+      "contactInfo": "Contatos"
+    },
+    "blog": {
+      "soon": "Essa sessão está sendo reformulada. Novidades em breve."
+    },
+    "certifications": {
+      "title": "Certificações",
+      "description": "Essas são algumas das comprovações de minhas habilidades",
+      "searchPlaceholder": "Procurar...",
+      "validUntil": "Válido até",
+      "expired": "Expirado",
+      "noResults": "Nenhuma certificação encontrada com os filtros atuais.",
+      "clearFilters": "Limpar filtros"
+    },
+    "home": {
+      "greetings": "Olá! Sou o <span>{name}</span>",
+      "description[0]": "Tenho {years} anos e atualmente sou <span>{occupation}</span> atuando no <span>Brasil</span>.",
+      "description[1]": "Minhas habilidades principais são para <span>{profession1}</span> e <span>{profession2}</span>.",
+      "description[2]": "Atualmente trabalhando para <span>{business}</span>, há {time}.",
+      "description[3]": "<b>Vamos tirar o seu projeto do papel?</b>",
+      "actions[1]": {
+        "label": "Contato"
+      },
+      "skillsTitle": "Habilidades",
+      "skillsClickInfo": "Clique em uma habilidade para ver mais detalhes",
+      "actions[2]": {
+        "label": "Sobre mim"
+      },
+      "trajectoryTitle": "Minha Trajetória",
+      "trajectoryParagraph1": "Sou apaixonado por entregar soluções tecnológicas que combinam performance, práticas modernas e com boa experiência de usuário. Ao longo da minha carreira, liderei projetos de automação, criação e manutenção de sites em diversas tecnologias.",
+      "trajectoryParagraph2": "Tenho experiência com front-end, back-end, mobile, 3D, automação, cultura DevOps, nuvem (AWS, GCP e Azure), conteinerização com Docker e CI/CD. Valorizo boas práticas, código limpo e colaboração com equipes diversas. Meu objetivo é construir soluções modernas que realmente agreguem valor, onde, num ambiente com escuta ativa, possamos reunir as melhores ideias de todos para entregarmos um produto perfeito ao cliente.",
+      "skillsCount": "itens",
+      "action[1]": "",
+      "stats": {
+        "experience": "Anos de Experiência",
+        "projects": "Projetos Concluídos",
+        "certifications": "Certificações",
+        "technologies": "Tecnologias"
+      },
+      "tech": {
+        "title": "Tecnologias & Ferramentas",
+        "subtitle": "As ferramentas que uso para dar vida às ideias",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "devops": "DevOps & Cloud",
+        "design": "Design & Ferramentas"
+      },
+      "cta": {
+        "available": "Disponível para freelance"
+      },
+      "actions[0]": "Sobre mim"
+    },
+    "about": {
+      "description": "Conheça mais sobre minha trajetória profissional, habilidades e personalidade.",
+      "personal": {
+        "title": "Informações Pessoais",
+        "name": {
+          "label": "Nome"
+        },
+        "age": {
+          "label": "Data de Nascimento",
+          "value": "{date} ({age} anos)"
+        },
+        "location": {
+          "label": "Localização"
+        },
+        "education": {
+          "label": "Formação"
+        },
+        "occupation": {
+          "label": "Profissão"
+        }
+      },
+      "experience": {
+        "title": "Experiência Profissional"
+      },
+      "skills": {
+        "title": "Habilidades Técnicas"
+      }
+    },
+    "projects": {
+      "intro": "Alguns dos projetos que desenvolvi ao longo da minha jornada de aprendizado e trabalho.",
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": "Visitar"
+        }
+      }
+    }
+  },
+  "menu": {
+    "certifications": "Certificações",
+    "home": "Início",
+    "projects": "Projetos",
+    "blog": "Blog",
+    "about": "Sobre mim",
+    "contact": "Contato"
+  }
+}

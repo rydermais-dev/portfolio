@@ -1,0 +1,130 @@
+[
+  {
+    "id": "singalong",
+    "title": "SingAlong!",
+    "description": {
+      "pt-BR": "Plataforma PWA de karaokê online multiplayer com foco em trazer uma experiência divertida e interativa.",
+      "en": "PWA platform for online multiplayer karaoke focused on providing a fun and interactive experience.",
+      "es": "Plataforma PWA de karaoke en línea multijugador centrada en proporcionar una experiencia divertida e interactiva.",
+      "fr": "Plateforme PWA de karaoké en ligne multijoueur axée sur la fourniture d'une expérience amusante et interactive.",
+      "ja-JP": "オンラインマルチプレイヤーカラオケのPWAプラットフォームで、楽しくインタラクティブな体験を提供することに焦点を当てています。",
+      "ko": "온라인 멀티플레이어 노래방을 위한 PWA 플랫폼으로, 재미있고 인터랙티브한 경험을 제공하는 데 중점을 둡니다.",
+      "de": "PWA-Plattform für Online-Multiplayer-Karaoke, die sich auf die Bereitstellung eines unterhaltsamen und interaktiven Erlebnisses konzentriert."
+    },
+    "website": "https://www.youtube.com/watch?v=FS8gVW_XwWY&list=PL6VzpIVyxDzf-zCnv4shDtla_1n6AL7V2&index=1/",
+    "code": null
+  },
+  {
+    "id": "cedes",
+    "title": "CEDES",
+    "description": {
+      "pt-BR": "Website insticional religioso, abrangendo informações sobre a instituição, seus projetos e atividades.",
+      "en": "Institutional religious website, covering information about the institution, its projects, and activities.",
+      "es": "Sitio web institucional religioso, abarcando información sobre la institución, sus proyectos y actividades.",
+      "fr": "Site web institutionnel religieux, couvrant des informations sur l'institution, ses projets et activités.",
+      "ja-JP": "宗教的な機関の公式ウェブサイトで、機関の情報、プロジェクト、および活動を網羅しています。",
+      "ko": "종교 기관의 공식 웹사이트로, 기관의 정보, 프로젝트 및 활동을 다룹니다.",
+      "de": "Religiöse institutionelle Website, die Informationen über die Institution, ihre Projekte und Aktivitäten abdeckt."
+    },
+    "website": "https://website-cedes.vercel.app/",
+    "code": "https://github.com/Bryceed/website-cedes"
+  },
+  {
+    "id": "rydermais",
+    "title": "RYDERMAIS",
+    "description": {
+      "pt-BR": "Central de projetos para produção, com foco em trazer novas experiências e funcionalidades para o público.",
+      "en": "Project hub for production, focused on bringing new experiences and functionalities to the public.",
+      "es": "Centro de proyectos para producción, enfocado en traer nuevas experiencias y funcionalidades al público.",
+      "fr": "Hub de projet pour la production, axé sur l'apport de nouvelles expériences et fonctionnalités au public.",
+      "ja-JP": "製品のためのプロジェクトハブで、新しい体験と機能を一般に提供することに焦点を当てています。",
+      "ko": "생산용 프로젝트 허브로, 새로운 경험과 기능을 대중에게 제공하는 데 중점을 둡니다."
+    },
+    "website": "https://rydermais.com",
+    "code": null
+  },
+  {
+    "id": "ryan",
+    "title": "RYAN Bot",
+    "description": {
+      "pt-BR": "Robô de automação para Discord, com foco em trazer funcionalidades com painel de controle e APIs.",
+      "en": "Automation bot for Discord, focused on bringing functionalities with control panel and APIs.",
+      "es": "Bot de automatización para Discord, enfocado en traer funcionalidades con panel de control y APIs.",
+      "fr": "Bot d'automatisation pour Discord, axé sur l'apport de fonctionnalités avec panneau de contrôle et APIs.",
+      "ja-JP": "Discordの自動化ボット、コントロールパネルとAPIを備えた機能を提供することに焦点を当てています。",
+      "ko": "Discord용 자동화 봇으로, 제어판 및 API 기능을 제공하는 데 중점을 둡니다."
+    },
+    "website": "https://ryan.rydermais.com/",
+    "code": "https://github.com/RyderMais/Ryan"
+  },
+  {
+    "id": "beatup",
+    "title": "BeatUP",
+    "description": {
+      "pt-BR": "Experiência de jogo multiplataforma, com foco em trazer uma experiência de jogo rítmico e desafiador.",
+      "en": "Multiplatform gaming experience, focused on bringing a rhythmic and challenging gaming experience.",
+      "es": "Experiencia de juego multiplataforma, enfocada en traer una experiencia de juego rítmica y desafiante.",
+      "fr": "Expérience de jeu multiplateforme, axée sur l'apport d'une expérience de jeu rythmique et stimulante.",
+      "ja-JP": "マルチプラットフォームのゲーム体験で、リズミカルで挑戦的なゲーム体験を提供することに焦点を当てています。",
+      "ko": "다중 플랫폼 게임 경험으로, 리드미컬하고 도전적인 게임 경험을 제공하는 데 중점을 둡니다."
+    },
+    "website": null,
+    "code": null
+  },
+  {
+    "id": "orkuty",
+    "title": "Orkuty",
+    "description": {
+      "pt-BR": "Recriação do Orkut, com foco em trazer a experiência nostálgica do Orkut para os dias atuais.",
+      "en": "Recreation of Orkut, focused on bringing the nostalgic experience of Orkut to the present day.",
+      "es": "Recreación de Orkut, enfocada en traer la experiencia nostálgica de Orkut a la actualidad.",
+      "fr": "Recréation d'Orkut, axée sur l'apport de l'expérience nostalgique d'Orkut à nos jours.",
+      "ja-JP": "Orkutの再現で、Orkutの懐かしい体験を現代に提供することに焦点を当てています。",
+      "ko": "Orkut의 재창조로, Orkut의 향수를 현재로 가져오는 데 중점을 둡니다."
+    },
+    "website": null,
+    "code": null
+  },
+  {
+    "id": "deltaverse",
+    "title": "Deltaverse",
+    "description": {
+      "pt-BR": "Servidor de Minecraft com foco em trazer uma experiência de integração com o Discord, painel de controle e APIs.",
+      "en": "Minecraft server focused on bringing an integration experience with Discord, control panel, and APIs.",
+      "es": "Servidor de Minecraft enfocado en traer una experiencia de integración con Discord, panel de control y APIs.",
+      "fr": "Serveur Minecraft axé sur l'apport d'une expérience d'intégration avec Discord, panneau de contrôle et APIs.",
+      "ja-JP": "Discord、コントロールパネル、およびAPIとの統合体験を提供することに焦点を当てたMinecraftサーバー。",
+      "ko": "Discord, 제어판 및 API와의 통합 경험을 제공하는 데 중점을 둔 Minecraft 서버."
+    },
+    "website": null,
+    "code": null
+  },
+  {
+    "id": "mangut",
+    "title": "Mangut",
+    "description": {
+      "pt-BR": "TCC em grupo para a Recode PRO, onde oferecemos uma vitrine virtual aos produtos orgânicos de povos originários.",
+      "en": "Group TCC for Recode PRO, where we offer a virtual showcase for organic products from indigenous peoples.",
+      "es": "TCC en grupo para Recode PRO, donde ofrecemos una vitrina virtual para productos orgánicos de pueblos originarios.",
+      "fr": "TCC en groupe pour Recode PRO, où nous offrons une vitrine virtuelle pour les produits biologiques des peuples autochtones.",
+      "ja-JP": "Recode PROのグループTCCで、先住民の有機製品を仮想ショーケースで提供します。",
+      "ko": "Recode PRO를 위한 그룹 TCC로, 원주민의 유기농 제품을 위한 가상 쇼케이스를 제공합니다."
+    },
+    "website": null,
+    "code": null
+  },
+  {
+    "id": "karaotrack",
+    "title": "karaoTrack.js",
+    "description": {
+      "pt-BR": "Script para monitorar e exibir letras de músicas em tempo real, com foco em trazer uma experiência de karaokê.",
+      "en": "Script to monitor and display song lyrics in real-time, focused on bringing a karaoke experience.",
+      "es": "Script para monitorear y mostrar letras de canciones en tiempo real, enfocado en traer una experiencia de karaoke.",
+      "fr": "Script pour surveiller et afficher les paroles des chansons en temps réel, axé sur l'apport d'une expérience de karaoké.",
+      "ja-JP": "リアルタイムで歌詞を監視および表示するスクリプトで、カラオケ体験を提供することに焦点を当てています。",
+      "ko": "실시간으로 노래 가사를 모니터링하고 표시하는 스크립트로, 카라오케 경험을 제공하는 데 중점을 둡니다."
+    },
+    "website": null,
+    "code": null
+  }
+]

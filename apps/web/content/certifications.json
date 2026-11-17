@@ -1,0 +1,319 @@
+[
+  {
+    "id": 1,
+    "title": "GitHub Copilot para Negócios (Microsoft Bootcamp)",
+    "emissor": "DIO",
+    "description": "DIO - dez de 2024",
+    "date": "dez de 2024",
+    "link": "",
+    "tags": [
+      "Inteligência artificial",
+      "Gestão"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Governança, Risco e Compliance",
+    "emissor": "Grupo MAG",
+    "description": "Grupo MAG - nov de 2024",
+    "date": "nov de 2024",
+    "link": "",
+    "tags": [
+      "Governança corporativa",
+      "Conformidade regulatória"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Segurança da Informação (2024)",
+    "emissor": "Grupo MAG",
+    "description": "Grupo MAG - nov de 2024",
+    "date": "nov de 2024",
+    "link": "",
+    "tags": [
+      "Segurança da informação",
+      "Cibersegurança"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "The Frontend Developer Career Path",
+    "emissor": "Scrimba",
+    "description": "Scrimba - jul de 2024",
+    "date": "jul de 2024",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 5,
+    "title": "The AI Engineer Path",
+    "emissor": "Scrimba",
+    "description": "Scrimba - jun de 2024",
+    "date": "jun de 2024",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 6,
+    "title": "Certificado de digitação",
+    "emissor": "Ratatype",
+    "description": "Ratatype - mai de 2024",
+    "date": "mai de 2024",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 7,
+    "title": "Programming Basics",
+    "emissor": "Descomplica Faculdade Digital",
+    "description": "Descomplica Faculdade Digital - nov de 2023",
+    "date": "nov de 2023",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 8,
+    "title": "Arquitetura e Organização de Computadores",
+    "emissor": "Descomplica Faculdade Digital",
+    "description": "Descomplica Faculdade Digital - set de 2023",
+    "date": "set de 2023",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 9,
+    "title": "3D Games with Unity",
+    "emissor": "Udemy",
+    "description": "Udemy - ago de 2023",
+    "date": "ago de 2023",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end",
+      "Desenvolvimento de jogos eletrônicos"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Mentoria Hackathon Recode Pro 203",
+    "emissor": "Recode",
+    "description": "Recode - abr de 2023",
+    "date": "abr de 2023",
+    "link": "",
+    "tags": [
+      "Criatividade",
+      "Competências pessoais e sociais"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "UX Strategy",
+    "emissor": "Alura",
+    "description": "Alura - jan de 2023",
+    "date": "jan de 2023",
+    "link": "",
+    "tags": [
+      "Experiência do usuário (UX)"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "jQuery",
+    "emissor": "Alura",
+    "description": "Alura - jan de 2023",
+    "date": "jan de 2023",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de front-end e JavaScript"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Os Pilares do e-Commerce",
+    "emissor": "Alura",
+    "description": "Alura - dez de 2022",
+    "date": "dez de 2022",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 14,
+    "title": "React: Escrevendo com TypeScript (TS)",
+    "emissor": "Alura",
+    "description": "Alura - dez de 2022",
+    "date": "dez de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "UX (Básico)",
+    "emissor": "Alura",
+    "description": "Alura - dez de 2022",
+    "date": "dez de 2022",
+    "link": "",
+    "tags": [
+      "Experiência do usuário (UX)"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Dart: Lidando com Exceptions e Null Safety",
+    "emissor": "Alura",
+    "description": "Alura - nov de 2022",
+    "date": "nov de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Dart: Sintaxe, coleções e dinamismo",
+    "emissor": "Alura",
+    "description": "Alura - nov de 2022",
+    "date": "nov de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Dart: Criando e manipulando variáveis e listas",
+    "emissor": "Alura",
+    "description": "Alura - out de 2022",
+    "date": "out de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Dart: Entendendo a Orientação a Objetos",
+    "emissor": "Alura",
+    "description": "Alura - out de 2022",
+    "date": "out de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Vue3 (Básico)",
+    "emissor": "Alura",
+    "description": "Alura - out de 2022",
+    "date": "out de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end e Desenvolvimento de front-end"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Desenvolvimento de Games (Básico)",
+    "emissor": "Recode",
+    "description": "Recode - jul de 2022",
+    "date": "jul de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de front-end"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Gestão de Marketing",
+    "emissor": "SEST SENAT",
+    "description": "SEST SENAT - jun de 2022",
+    "date": "jun de 2022",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 23,
+    "title": "Programação Full Stack",
+    "emissor": "Recode",
+    "description": "Recode - abr de 2022",
+    "date": "abr de 2022",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end",
+      "Desenvolvimento de front-end"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Gestão de Projetos e Aplicativos de Impacto",
+    "emissor": "Recode",
+    "description": "Recode - mai de 2021",
+    "date": "mai de 2021",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "ProgramAção",
+    "emissor": "Recode",
+    "description": "Recode - mai de 2021",
+    "date": "mai de 2021",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end",
+      "Desenvolvimento de front-end"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "HTML - Avançado",
+    "emissor": "Fundação Bradesco",
+    "description": "Fundação Bradesco - fev de 2021",
+    "date": "fev de 2021",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de front-end"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Lei Geral de Proteção de Dados (LGPD)",
+    "emissor": "Fundação Bradesco",
+    "description": "Fundação Bradesco - fev de 2021",
+    "date": "fev de 2021",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 28,
+    "title": "Noções de Primeiros Socorros",
+    "emissor": "SEST SENAT",
+    "description": "SEST SENAT - abr de 2020",
+    "date": "abr de 2020",
+    "link": "",
+    "tags": []
+  },
+  {
+    "id": 29,
+    "title": "Aplicações Java Mobile",
+    "emissor": "Fundação Bradesco",
+    "description": "Fundação Bradesco - abr de 2014",
+    "date": "abr de 2014",
+    "link": "",
+    "tags": [
+      "Desenvolvimento de back-end"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Microsoft Excel 2010 (Intermediário)",
+    "emissor": "Fundação Bradesco",
+    "description": "Fundação Bradesco - abr de 2014",
+    "date": "abr de 2014",
+    "link": "",
+    "tags": []
+  }
+]

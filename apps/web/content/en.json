@@ -1,0 +1,124 @@
+{
+  "html": {
+    "home": {
+      "greetings": "Hello! I'm <span>{name}</span>",
+      "description": [
+        "I'm {years} years old and currently work as a <span>{occupation}</span> in <span>Brazil</span>.",
+        "My main skills are in <span>{profession1}</span> and <span>{profession2}</span>.",
+        "Currently working for <span>{business}</span>, for {time}.",
+        "<b>Let's bring your project to life?</b>"
+      ],
+      "skillsTitle": "Skills",
+      "skillsClickInfo": "Click on a skill to see more details",
+      "projectsTitle": "Highlights",
+      "featuredProjects": "Featured Projects",
+      "experience": "Professional Experience",
+      "certifications": "Certifications",
+      "ctaTitle": "Let's Work Together?",
+      "ctaText": "Have a project in mind? Looking for a developer for your team? Let's talk!",
+      "contactMe": "Contact Me",
+      "viewProjects": "View Projects",
+      "viewMore": "View More",
+      "view": "View",
+      "details": "Details",
+      "actions[2]": {
+        "label": "About me"
+      },
+      "actions[1]": {
+        "label": "Contact"
+      },
+      "trajectoryTitle": "My trajectory",
+      "trajectoryParagraph1": "I am in love with delivering technological solutions that combine performance, modern practices and good user experience. \nThroughout my career, I led projects for automation, creation and maintenance of websites in various technologies.",
+      "trajectoryParagraph2": "I have experience with front end, back end, mobile, 3D, automation, Devops culture, cloud (AWS, GCP and Azure), containerization with docker and CI/CD. \nI value good practices, clean code and collaboration with various teams. \nMy goal is to build modern solutions that really add value, where, in an environment with active listening, we can gather the best ideas of all to deliver a perfect product to the customer.",
+      "skillsCount": "items",
+      "action": "Visit",
+      "action[1]": ""
+    },
+    "contact": {
+      "cv": {
+        "selectLanguage": "File Language",
+        "traditionalDescription": "Choose the PDF language for download",
+        "popup": {
+          "description": "When selecting the language, you will be redirected to view and download the file."
+        },
+        "europass": "European",
+        "title": "Curriculum",
+        "traditional": "Traditional",
+        "description": "Download my updated CV"
+      },
+      "title": "Contact",
+      "description": "Let's talk about your project or job opportunity?",
+      "phone": {
+        "description": "(WhatsApp, calls and SMS)",
+        "title": ""
+      },
+      "social": {
+        "title": "Social media"
+      },
+      "buttons": {
+        "downloadCV": "Download cv"
+      },
+      "contactInfo": "Contacts"
+    },
+    "blog": {
+      "soon": "This session is being reformulated. \nNews soon."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "description": "These are some of the proof of my skills",
+      "searchPlaceholder": "To search for...",
+      "validUntil": "Valid until",
+      "expired": "Expired",
+      "noResults": "No certification found with current filters.",
+      "clearFilters": "Pitch"
+    },
+    "about": {
+      "description": "Learn more about my professional career, skills and personality.",
+      "personal": {
+        "title": "Personal information",
+        "name": {
+          "label": "Name"
+        },
+        "age": {
+          "label": "Date of birth",
+          "value": "{Date} ({age} years)"
+        },
+        "location": {
+          "label": "Location"
+        },
+        "education": {
+          "label": "Training"
+        },
+        "occupation": {
+          "label": "Profession"
+        }
+      },
+      "experience": {
+        "title": "Professional experience"
+      },
+      "skills": {
+        "title": "Technical skills"
+      }
+    },
+    "projects": {
+      "miniDisplay": {
+        "button": {
+          "details": "+",
+          "website": "Access"
+        }
+      }
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "blog": "Blog",
+    "projects": "Projects",
+    "contact": "Contact",
+    "about": "About me"
+  },
+  "footer": [
+    null,
+    null
+  ],
+  "footer[0]": "Site Debreeed with ❤️ in NUXT3 | Visits: {views}"
+}
