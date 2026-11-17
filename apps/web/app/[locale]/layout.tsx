@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { isLocale, locales, translate } from '../../content';
 import { Header } from './nav';
+import { RevealLight } from '../interaction-effects';
 import '@moduix/react/style.css';
 import '@fontsource-variable/inter';
 import '../style.css';
@@ -29,6 +30,7 @@ export default async function Layout({ children, params }: {
   return (
     <html lang={locale} suppressHydrationWarning>
       <body>
+        <RevealLight />
         <Header locale={locale} links={links} themeLabel={translate(locale, 'commons.themes.dark') + ' / ' + translate(locale, 'commons.themes.light')} />
         <main id="content">{children}</main>
         <footer className="wrap footer">

@@ -36,3 +36,7 @@ A página inicial apresenta uma seleção interativa de CodeHouse, SingAlong! e 
 ## Linguagem visual das páginas
 
 O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos e contatos compartilham tipografia Inter Variable, espaçamento, cores e estados de foco. Cada projeto recebe uma cor de abertura e uma transição respeita a preferência por movimento reduzido. Páginas de projeto oferecem retorno ao catálogo e links disponíveis. Verificar páginas claras e escuras, teclado, dimensões móveis e desktop em cada alteração visual.
+
+## Interações recuperadas
+
+A timeline de /about agrupa eventos por ano e usa marcadores coloridos, etiquetas de competências, localização e vínculo recuperados de `data/timeline.json` do repositório original. Contato reúne e-mail, WhatsApp, LinkedIn, GitHub e Instagram. Cartões de projetos e certificações respondem ao ponteiro com inclinação; o hero da home desenha uma malha de pontos e conexões próximas ao mouse e os controles recebem iluminação localizada. A malha desenha apenas quando necessário; toque tem estado estático e a preferência por movimento reduzido desativa os movimentos. Currículos antigos não foram republicados sem revisão.

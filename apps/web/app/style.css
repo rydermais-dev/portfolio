@@ -198,3 +198,43 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .contact-links a span:last-child { font-size:1.5rem; color:var(--accent); }
 .contact-links a:hover { color:var(--accent); }
 @media(max-width:520px) { .hero-about .hero-inner { flex-direction:column; } .project-detail-inner { padding-top:2.5rem; } .back-link { margin-bottom:4rem; } .contact-links a { grid-template-columns:2rem 1fr auto; } }
+
+/* Career timeline, based on the original portfolio */
+.career-year { display:grid; grid-template-columns:100px 1fr; gap:2rem; }
+.career-year-label { color:var(--muted); opacity:.7; font-size:2rem; text-align:right; margin:1rem 0; letter-spacing:-.06em; }
+.career-events { list-style:none; margin:0; padding:0 0 1rem 2rem; border-left:2px solid var(--line); }
+.career-event { position:relative; margin:0 0 1.25rem; padding:1.6rem; border:1px solid var(--line); border-radius:18px; background:var(--surface); }
+.career-event::before { content:''; position:absolute; width:14px; height:14px; left:calc(-2rem - 9px); top:2rem; border-radius:50%; background:var(--event-color); box-shadow:0 0 0 4px var(--background); }
+.career-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; font-size:.9rem; }
+.career-header strong { color:var(--ink); }
+.career-header span { color:var(--muted); }
+.career-event h4 { margin:1rem 0 .6rem; font-size:1.2rem; letter-spacing:-.025em; }
+.career-event p { color:var(--muted); line-height:1.7; margin:0 0 1rem; }
+.career-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin:1rem 0; }
+.career-tags span { border:1px solid var(--line); border-radius:99px; padding:.27rem .65rem; font-size:.75rem; color:var(--muted); }
+.career-meta { display:flex; align-items:center; flex-wrap:wrap; gap:.6rem 1rem; color:var(--muted); font-size:.83rem; }
+.career-meta a { margin-left:auto; text-decoration:none; font-weight:650; }
+.contact-groups { display:grid; gap:3rem; }
+.contact-groups h2 { font-size:1.35rem; }
+.contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:1rem; }
+.contact-tile { display:flex; align-items:center; gap:1rem; padding:1.4rem; background:var(--surface); border:1px solid var(--line); border-radius:16px; color:var(--ink); text-decoration:none; transition:border-color .2s,transform .2s; }
+.contact-tile:hover { border-color:var(--accent); transform:translateY(-3px); }
+.contact-tile > span:first-child { display:grid; place-items:center; flex:0 0 44px; height:44px; border-radius:12px; color:var(--accent); background:var(--background); font-size:1.2rem; font-weight:700; }
+.contact-tile > span:last-child { margin-left:auto; color:var(--accent); }
+.contact-tile strong,.contact-tile small { display:block; }
+.contact-tile small { margin-top:.3rem; color:var(--muted); overflow-wrap:anywhere; }
+.tilt-card { position:relative; transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); transform-style:preserve-3d; transition:transform .2s ease,border-color .2s; }
+.tilt-card::after { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; background:radial-gradient(circle at var(--glare-x,50%) var(--glare-y,50%),#ffffff35,transparent 60%); transition:opacity .2s; }
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) { .tilt-card:hover { transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); } .tilt-card:hover::after { opacity:1; } }
+@media(max-width:700px) { .career-year { display:block; } .career-year-label { text-align:left; font-size:1.5rem; margin:1.5rem 0 .8rem; } .career-events { padding-left:1.25rem; } .career-event { padding:1.2rem; } .career-event::before { left:calc(-1.25rem - 9px); } .career-header { align-items:start; flex-direction:column; gap:.3rem; } }
+@media(prefers-reduced-motion:reduce) { .tilt-card,.contact-tile { transform:none !important; transition:none; } }
+
+/* Light follows the pointer while text and focus indicators remain readable. */
+.hero-grid { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.hero-inner { position:relative; z-index:1; }
+.hero:not(.hero-about) { background:linear-gradient(115deg,#19182c,#323154 65%,#4b3d68); }
+.hero:not(.hero-about) .hero-inner { min-height:250px; }
+@media (hover:hover) and (pointer:fine) {
+  .reveal-active { background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), #c9bcff28, transparent 75%); }
+  .reveal-active:active { background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), #d8ceff55, transparent 75%); }
+}

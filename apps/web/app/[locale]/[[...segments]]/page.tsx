@@ -10,6 +10,8 @@ import skills from '../../../content/skills.json';
 import posts from '../../../content/posts.json';
 import { News } from '../../news';
 import { Playground } from '../../playground';
+import { TiltCard } from '../../tilt-card';
+import { HeroGrid } from '../../interaction-effects';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
@@ -49,20 +51,22 @@ export default async function Page({ params }: Props) {
   if (!allowed) notFound();
   const heading = title(locale, segments);
   const date = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: 'UTC' });
+  const groupedTimeline = Object.entries(Object.groupBy([...timeline].sort((a, b) => (b.startDate ?? b.formationStartDate ?? '').localeCompare(a.startDate ?? a.formationStartDate ?? '')), (entry) => (entry.startDate ?? entry.formationStartDate ?? '').slice(0, 4) || '—')).sort(([a], [b]) => b.localeCompare(a));
   const projectDescription = (project: (typeof projects)[number]) => {
     const values = project.description as Partial<Record<Locale, string>>;
     const language = values[locale] ? locale : 'pt-BR';
     return <p lang={language}>{values[language]}</p>;
   };
   const featured = (entries: typeof projects) => <div className="cards">
-    {entries.map((project, index) => <article className="card project-card" key={project.id}>
+    {entries.map((project, index) => <TiltCard className="card project-card" key={project.id}>
       <span className="card-index">{String(index + 1).padStart(2, '0')} / {t('menu.projects')}</span>
       <h3><Link href={path('/project/' + project.id)}>{project.title}<span aria-hidden="true"> ↗</span></Link></h3>{projectDescription(project)}
-    </article>)}
+    </TiltCard>)}
   </div>;
 
   if (!section || (section === 'about' && !slug)) return <>
     <section className={'hero' + (section === 'about' ? ' hero-about' : '')}>
+      {!section && <HeroGrid />}
       <div className="wrap hero-inner">
         <img src="/wellington.jpg" width="176" height="176" alt="" />
         <div>
@@ -83,15 +87,16 @@ export default async function Page({ params }: Props) {
     </> : <>
       <section className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
-        <ol className="timeline">
-          {[...timeline].sort((a, b) => (b.startDate ?? b.formationStartDate ?? '').localeCompare(a.startDate ?? a.formationStartDate ?? '')).map((entry) =>
-            <li key={entry.id} className="card" lang="pt-BR">
-              <span className="muted">{entry.date ?? (entry.startDate ?? entry.formationStartDate)?.slice(0, 4)}</span>
-              <h3>{entry.jobRole ?? entry.formationRole ?? entry.title}</h3>
-              {https(entry.companyLink) ? <a href={https(entry.companyLink)}>{entry.company ?? entry.formationType}</a> : (entry.company ?? entry.formationType)}
-              <p>{entry.jobDescription ?? entry.formationDescription ?? entry.description}</p>
-            </li>)}
-        </ol>
+        <div className="career-timeline">{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year}>
+          <h3 className="career-year-label">{year}</h3>
+          <ol className="career-events">{entries?.map((entry) => <li key={entry.id + '-' + (entry.company ?? entry.formationType)} className="career-event" lang="pt-BR" style={{ '--event-color': entry.color || '#9871f6' } as React.CSSProperties}>
+            <div className="career-header"><strong>{entry.company ?? entry.formationType}</strong><span>{entry.date ?? year}</span></div>
+            <h4>{entry.jobRole ?? entry.formationRole ?? entry.title}</h4>
+            <p>{entry.jobDescription ?? entry.formationDescription ?? entry.description}</p>
+            {(entry.jobtags || entry.formationtags) && <div className="career-tags">{(entry.jobtags || entry.formationtags || []).map((tag) => <span key={tag}>{tag}</span>)}</div>}
+            <div className="career-meta">{(entry.jobLocation || entry.formationLocation) && <span>⌖ {entry.jobLocation || entry.formationLocation}</span>}{(entry.jobContract || entry.formationType) && <span>◌ {entry.jobContract || entry.formationType}</span>}{https(entry.companyLink) && <a href={https(entry.companyLink)}>{t('html.about.experience.company.button')} ↗</a>}</div>
+          </li>)}</ol>
+        </section>)}</div>
       </section>
       <section className="wrap section">
         <h2>{t('html.about.skills.title')}</h2>
@@ -120,11 +125,11 @@ export default async function Page({ params }: Props) {
     <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && featured(projects)}
-    {section === 'certifications' && <div className="cards">{certifications.map((cert) => <article className="card" key={cert.id} lang="pt-BR">
+    {section === 'certifications' && <div className="cards">{certifications.map((cert) => <TiltCard className="card" key={cert.id}>
       <span className="muted">{cert.emissor}</span><h3>{cert.title}</h3>
       {cert.description && <p>{cert.description}</p>}
       {https(cert.link) && <a href={https(cert.link)}>{t('html.certifications.view') || cert.title}</a>}
-    </article>)}</div>}
+    </TiltCard>)}</div>}
     {section === 'blog' && !slug && <>
       <div className="cards">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card" key={post.slug} lang="pt-BR">
         {post.date && <time dateTime={post.date}>{date.format(new Date(post.date))}</time>}
@@ -135,9 +140,9 @@ export default async function Page({ params }: Props) {
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Markdown skipHtml>{post.body}</Markdown></article>)}
-    {section === 'contact' && <div className="contact-links">
-      <a href={linkedIn}><span>01</span>LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/rydermais-dev"><span>02</span>GitHub <span aria-hidden="true">↗</span></a>
-      <a href="mailto:dev.wellnascimento@gmail.com"><span>03</span>E-mail <span aria-hidden="true">↗</span></a>
+    {section === 'contact' && <div className="contact-groups">
+      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://wa.me/5511942018873"><span aria-hidden="true">◉</span><div><strong>WhatsApp</strong><small>+55 11 94201-8873</small></div><span aria-hidden="true">↗</span></a></div></section>
+      <section><h2>{t('html.contact.social.title')}</h2><div className="contact-grid"><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://github.com/rydermais-dev"><span aria-hidden="true">⌘</span><div><strong>GitHub</strong><small>@rydermais-dev</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://www.instagram.com/wellnas.dev/"><span aria-hidden="true">◎</span><div><strong>Instagram</strong><small>@wellnas.dev</small></div><span aria-hidden="true">↗</span></a></div></section>
     </div>}
     {section === 'about' && slug && <p>{t('html.about.personality.description')}</p>}
   </section>;
