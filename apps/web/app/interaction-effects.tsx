@@ -12,6 +12,8 @@ export function HeroGrid() {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     let width = 0, height = 0, frame = 0;
     let pointer: { x: number; y: number } | null = null;
+    let sparks: { x: number; y: number; start: number; duration: number }[] = [];
+    let timer: ReturnType<typeof setTimeout> | undefined;
     const draw = () => {
       frame = 0;
       ctx.clearRect(0, 0, width, height);
@@ -35,15 +37,33 @@ export function HeroGrid() {
         ctx.fillStyle = `rgba(210,202,255,${.22 + p.near * .75})`;
         ctx.beginPath(); ctx.arc(p.x, p.y, 1 + p.near * 1.5, 0, Math.PI * 2); ctx.fill();
       }
+      const now = performance.now();
+      sparks = sparks.filter((spark) => now - spark.start < spark.duration);
+      for (const spark of sparks) {
+        const alpha = Math.sin(Math.PI * (now - spark.start) / spark.duration);
+        ctx.fillStyle = `rgba(243,226,206,${alpha * .9})`;
+        ctx.shadowColor = '#f2d5ad'; ctx.shadowBlur = 12 * alpha;
+        ctx.beginPath(); ctx.arc(spark.x, spark.y, 1.5 + alpha, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      if (sparks.length) schedule();
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(draw); };
     const resize = () => { const rect = parent.getBoundingClientRect(); width = rect.width; height = rect.height; const dpr = Math.min(devicePixelRatio || 1, 2); el.width = width * dpr; el.height = height * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); schedule(); };
     const move = (event: PointerEvent) => { if (reduced.matches || event.pointerType !== 'mouse') return; const rect = parent.getBoundingClientRect(); pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top }; schedule(); };
     const leave = () => { pointer = null; schedule(); };
+    const twinkle = () => {
+      if (!reduced.matches && !document.hidden && width > 40 && height > 40) {
+        const spacing = width < 600 ? 34 : 39;
+        sparks.push({ x: 20 + Math.floor(Math.random() * Math.max(1, Math.floor((width - 20) / spacing))) * spacing, y: 20 + Math.floor(Math.random() * Math.max(1, Math.floor((height - 20) / spacing))) * spacing, start: performance.now(), duration: 1500 + Math.random() * 1400 });
+        schedule();
+      }
+      timer = setTimeout(twinkle, 1100 + Math.random() * 1400);
+    };
     const observer = new ResizeObserver(resize); observer.observe(parent);
     parent.addEventListener('pointermove', move); parent.addEventListener('pointerleave', leave);
-    resize();
-    return () => { observer.disconnect(); parent.removeEventListener('pointermove', move); parent.removeEventListener('pointerleave', leave); cancelAnimationFrame(frame); };
+    resize(); timer = setTimeout(twinkle, 1000);
+    return () => { observer.disconnect(); parent.removeEventListener('pointermove', move); parent.removeEventListener('pointerleave', leave); cancelAnimationFrame(frame); clearTimeout(timer); };
   }, []);
   return <canvas className="hero-grid" ref={canvas} aria-hidden="true" />;
 }

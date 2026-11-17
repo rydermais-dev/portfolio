@@ -263,3 +263,27 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .personality-result p { line-height:1.7; color:var(--muted); }
 @media(max-width:600px) { .personality-result { grid-template-columns:1fr; } .personality-result img { max-width:200px; } }
 @media print { .header,.footer,.cv-controls { display:none !important; } body { background:#fff; color:#111; font-size:10pt; } .cv-page { width:100%; max-width:none; padding:0; } .cv-entries article { break-inside:avoid; } .cv-entries p { color:#333; } a { color:inherit; text-decoration:none; } }
+
+/* Warm light and quiet moving trails, inspired by the profile portrait. */
+.hero-about { background:linear-gradient(115deg,#1d2029,#302b32 56%,#574536); }
+.hero-trails { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.hero-trails i { position:absolute; left:-45%; width:45%; height:1px; opacity:.42; background:linear-gradient(90deg,transparent,#d3bda2,transparent); animation:trail-drift 22s ease-in-out infinite alternate; }
+.hero-trails i:nth-child(1) { top:98px; animation-duration:24s; }
+.hero-trails i:nth-child(2) { top:176px; animation-duration:31s; animation-delay:-17s; opacity:.28; }
+.hero-trails i:nth-child(3) { top:293px; animation-duration:28s; animation-delay:-8s; opacity:.35; }
+.hero-trails i:nth-child(4) { top:410px; animation-duration:36s; animation-delay:-23s; opacity:.23; }
+.hero-trails i:nth-child(n+5) { top:-45%; width:1px; height:45%; background:linear-gradient(180deg,transparent,#d3bda2,transparent); animation-name:trail-vertical; }
+.hero-trails i:nth-child(5) { left:215px; animation-duration:29s; animation-delay:-11s; opacity:.3; }
+.hero-trails i:nth-child(6) { left:410px; animation-duration:35s; animation-delay:-23s; opacity:.25; }
+.hero-trails i:nth-child(7) { left:722px; animation-duration:27s; animation-delay:-7s; opacity:.32; }
+@keyframes trail-drift { 0% { translate:-15% 0; } 100% { translate:370% 0; } }
+@keyframes trail-vertical { 0% { translate:0 -15%; } 100% { translate:0 370%; } }
+.hero-portrait { flex:0 0 auto; position:relative; display:grid; place-items:center; }
+.hero-about .hero-portrait { padding:18px; }
+.hero-about .hero-portrait::before,.hero-about .hero-portrait::after { content:''; position:absolute; inset:0; border:1px solid #d8bc9866; border-radius:50%; pointer-events:none; }
+.hero-about .hero-portrait::after { inset:8px; border-color:#ffffff22; }
+.hero-about .hero-portrait::before { animation:portrait-glow 8s ease-in-out infinite alternate; }
+@keyframes portrait-glow { from { box-shadow:0 0 0 0 #d8b98a00; border-color:#d8bc9844; } to { box-shadow:0 0 32px 3px #d8b98a30; border-color:#d8bc98aa; } }
+.hero-about .hero-portrait img { position:relative; border-color:#e3c8a844; box-shadow:0 20px 65px #100e0c55; }
+@media(prefers-reduced-motion:reduce) { .hero-trails i,.hero-about .hero-portrait::before { animation:none; } }
+@media(max-width:600px) { .hero-trails i:nth-child(1) { top:88px; } .hero-trails i:nth-child(2) { top:156px; } .hero-trails i:nth-child(3) { top:258px; } .hero-trails i:nth-child(4) { top:394px; } .hero-trails i:nth-child(5) { left:88px; } .hero-trails i:nth-child(6) { left:190px; } .hero-trails i:nth-child(7) { left:292px; } }

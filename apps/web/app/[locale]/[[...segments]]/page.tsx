@@ -69,9 +69,10 @@ export default async function Page({ params }: Props) {
 
   if (!section || (section === 'about' && !slug)) return <>
     <section className={'hero' + (section === 'about' ? ' hero-about' : '')}>
-      {!section && <HeroGrid />}
+      <HeroGrid />
+      <div className="hero-trails" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
       <div className="wrap hero-inner">
-        <img src="/wellington.jpg" width="176" height="176" alt="" />
+        <div className="hero-portrait"><img src={section === 'about' ? '/wellington-linkedin.jpg' : '/wellington.jpg'} width="176" height="176" alt="" /></div>
         <div>
           <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
