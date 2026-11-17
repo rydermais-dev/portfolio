@@ -77,3 +77,48 @@ h3 { font-size: 1.15rem; line-height: 1.25; margin: .35rem 0; }
   .language img { display: none; }
   .hero-inner { align-items: flex-start; flex-direction: column; }
 }
+/* Refined portfolio visual system */
+:root { --background:#ebe9e4; --surface:#faf9f6; --ink:#242321; --muted:#706d67; --accent:#5b54a4; --line:#ddd9d1; --radius:30px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) { --background:#171719; --surface:#222224; --ink:#f4f1eb; --muted:#b6b2aa; --accent:#c5bcff; --line:#3b3938; } }
+:root[data-theme=dark] { --background:#171719; --surface:#222224; --ink:#f4f1eb; --muted:#b6b2aa; --accent:#c5bcff; --line:#3b3938; }
+body { font-family:ui-sans-serif,system-ui,sans-serif; letter-spacing:-.015em; }
+.header { padding:12px 24px; }
+.nav { max-width:1400px; min-height:62px; padding:7px 10px 7px 22px; border-radius:18px; box-shadow:0 8px 30px #24232109; }
+.brand { font:800 1.5rem/1 ui-sans-serif,system-ui,sans-serif; letter-spacing:-.08em; }
+.desktop { gap:2px; }
+.desktop a { padding:10px 12px; border-radius:10px; font-size:.87rem; color:var(--muted); transition:background .2s,color .2s; }
+.desktop a:hover,.desktop a[aria-current=page] { background:var(--background); color:var(--ink); text-decoration:none; }
+.tools { gap:7px; }
+.language { background:var(--background); border-radius:11px; padding-left:10px; }
+.language select { background:transparent; border:0; font-size:.8rem; max-width:8.5rem; }
+.theme,.mobile summary { background:var(--background); border:0; min-width:42px; text-align:center; }
+.wrap { width:min(1160px,calc(100% - 48px)); }
+.hero { background:radial-gradient(circle at 82% 18%,#8877b4 0,transparent 32%),linear-gradient(120deg,#25223d,#49416c 65%,#77658c); padding:clamp(5rem,10vw,9rem) 0; overflow:hidden; }
+.hero-inner { gap:clamp(2rem,5vw,5rem); }
+.hero img { width:clamp(130px,19vw,220px); border:5px solid #ffffff30; box-shadow:0 20px 60px #100a2840; }
+.hero p { color:#e0dce9; font-size:clamp(1.05rem,1.6vw,1.25rem); line-height:1.7; }
+h1 { max-width:15ch; font-weight:700; letter-spacing:-.065em; }
+h2 { letter-spacing:-.045em; }
+h3 { letter-spacing:-.025em; }
+.section { padding:clamp(2.5rem,5vw,4.5rem) 0; }
+.section > h1 { margin-bottom:2.4rem; }
+.section > h2 { margin-bottom:1.6rem; }
+.section > p { max-width:72ch; color:var(--muted); line-height:1.8; }
+.cards { gap:16px; }
+.card { padding:clamp(1.4rem,2.5vw,2rem); border-radius:20px; transition:transform .2s,border-color .2s; }
+.card:hover { transform:translateY(-3px); border-color:var(--accent); }
+.card h3 { font-size:1.2rem; line-height:1.35; }
+.card h3 a { color:var(--ink); text-decoration:none; }
+.card h3 a:hover { color:var(--accent); }
+.card p { line-height:1.7; }
+.timeline { margin:0; gap:0; border:0; padding:0; }
+.timeline .card { display:grid; grid-template-columns:minmax(130px,.28fr) 1fr; column-gap:2rem; border:0; border-top:1px solid var(--line); border-radius:0; background:transparent; padding:2rem 0; }
+.timeline .card:hover { transform:none; }
+.timeline .card > span { grid-row:1 / span 3; font-size:.85rem; font-weight:650; }
+.timeline .card h3 { margin:0 0 .35rem; }
+.timeline .card p { max-width:70ch; margin:.8rem 0 0; }
+.actions a { display:inline-flex; align-items:center; padding:.75rem 1.1rem; border:1px solid var(--line); border-radius:12px; color:var(--ink); background:var(--surface); text-decoration:none; font-weight:650; }
+.actions a:hover { border-color:var(--accent); color:var(--accent); }
+.footer { padding:2rem 0 3rem; color:var(--muted); font-size:.9rem; }
+@media(max-width:1000px) { .mobile summary { list-style:none; padding:10px 14px; font-weight:650; } .mobile summary::-webkit-details-marker { display:none; } .mobile nav { width:min(320px,calc(100vw - 32px)); padding:.7rem; box-shadow:0 20px 45px #0002; } .mobile nav a { padding:.85rem; border-radius:10px; } .mobile nav a[aria-current=page] { background:var(--background); text-decoration:none; } }
+@media(max-width:520px) { .header { padding:8px; } .nav { padding-left:14px; } .wrap { width:calc(100% - 36px); } .hero { padding:4rem 0; } .hero img { width:120px; } .timeline .card { display:block; padding:1.5rem 0; } .timeline .card h3 { margin-top:.6rem; } .language select { max-width:4.5rem; } }
