@@ -40,3 +40,5 @@ O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos
 ## Interações recuperadas
 
 A timeline de /about agrupa eventos por ano e usa marcadores coloridos, etiquetas de competências, localização e vínculo recuperados de `data/timeline.json` do repositório original. Contato reúne e-mail, WhatsApp, LinkedIn, GitHub e Instagram. Cartões de projetos e certificações respondem ao ponteiro com inclinação; o hero da home desenha uma malha de pontos e conexões próximas ao mouse e os controles recebem iluminação localizada. A malha desenha apenas quando necessário; toque tem estado estático e a preferência por movimento reduzido desativa os movimentos. Currículos antigos não foram republicados sem revisão.
+
+A iluminação acompanha a proximidade do ponteiro em até 110 pixels de botões, links, seletores e cartões visíveis, revelando a borda e intensificando o efeito ao pressionar. O cálculo é limitado a um quadro por atualização; teclado mantém foco visível e dispositivos sem mouse mantêm estados convencionais.

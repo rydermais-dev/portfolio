@@ -50,20 +50,37 @@ export function HeroGrid() {
 
 export function RevealLight() {
   useEffect(() => {
-    const selector = '.nav a, .nav button, .nav summary, .card, .career-event, .contact-tile, .actions a, .story-button';
-    let last: HTMLElement | null = null;
+    const selector = 'main a, main button, .nav a, .nav button, .nav summary, .nav select, .footer a, .card, .career-event, .contact-tile';
+    const lit = new Set<HTMLElement>();
+    let frame = 0;
+    let position: { x: number; y: number } | null = null;
+    const update = () => {
+      frame = 0;
+      if (!position) return;
+      const { x, y } = position;
+      const next = new Set<HTMLElement>();
+      document.querySelectorAll<HTMLElement>(selector).forEach((target) => {
+        const rect = target.getBoundingClientRect();
+        if (!rect.width || !rect.height || rect.bottom < 0 || rect.top > innerHeight) return;
+        const dx = Math.max(rect.left - x, 0, x - rect.right);
+        const dy = Math.max(rect.top - y, 0, y - rect.bottom);
+        const distance = Math.hypot(dx, dy);
+        if (distance >= 110) return;
+        target.style.setProperty('--reveal-x', `${x - rect.left}px`);
+        target.style.setProperty('--reveal-y', `${y - rect.top}px`);
+        target.style.setProperty('--reveal-strength', String((1 - distance / 110) * .55));
+        target.classList.add('reveal-active');
+        next.add(target);
+      });
+      lit.forEach((target) => { if (!next.has(target)) target.classList.remove('reveal-active'); });
+      lit.clear(); next.forEach((target) => lit.add(target));
+    };
     const move = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
-      const target = (event.target as Element).closest<HTMLElement>(selector);
-      if (last && last !== target) last.classList.remove('reveal-active');
-      last = target;
-      if (!target) return;
-      const rect = target.getBoundingClientRect();
-      target.style.setProperty('--reveal-x', `${event.clientX - rect.left}px`);
-      target.style.setProperty('--reveal-y', `${event.clientY - rect.top}px`);
-      target.classList.add('reveal-active');
+      position = { x: event.clientX, y: event.clientY };
+      if (!frame) frame = requestAnimationFrame(update);
     };
-    const clear = () => { last?.classList.remove('reveal-active'); last = null; };
+    const clear = () => { position = null; cancelAnimationFrame(frame); frame = 0; lit.forEach((target) => target.classList.remove('reveal-active')); lit.clear(); };
     document.addEventListener('pointermove', move, { passive: true });
     document.addEventListener('pointerleave', clear);
     return () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerleave', clear); clear(); };
