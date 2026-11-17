@@ -249,6 +249,17 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-cover { margin-top:clamp(3rem,6vw,6rem); border-radius:20px; overflow:hidden; border:1px solid #ffffff40; max-width:960px; box-shadow:0 25px 80px #0004; }
 .project-cover img { display:block; width:100%; height:auto; }
 .issuer-logo { width:52px; height:52px; object-fit:contain; border-radius:12px; background:#fff; padding:5px; margin-bottom:1rem; }
+.certification-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); align-items:stretch; }
+.certification-card { display:flex; flex-direction:column; gap:1.1rem; min-height:210px; }
+.certification-issuer { display:flex; align-items:center; gap:.8rem; min-width:0; }
+.certification-issuer .issuer-logo { flex:0 0 48px; width:48px; height:48px; margin:0; }
+.certification-issuer strong,.certification-issuer span { display:block; }
+.certification-issuer strong { font-size:.9rem; line-height:1.3; }
+.certification-issuer span { color:var(--muted); font-size:.8rem; margin-top:.25rem; }
+.certification-card h2 { font-size:1.15rem; line-height:1.35; letter-spacing:-.025em; margin:0; }
+.certification-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:auto; }
+.certification-tags span { color:var(--muted); background:var(--background); border-radius:99px; padding:.3rem .65rem; font-size:.73rem; }
+.certification-link { margin-top:auto; font-size:.85rem; font-weight:650; }
 @media(prefers-reduced-motion:reduce) { .project-image img { transition:none; } .project-card:hover .project-image img { transform:none; } }
 .resume-panel { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem; background:#292a48; color:white; border-radius:20px; padding:clamp(1.5rem,4vw,2.5rem); }
 .resume-panel p { color:#d1cce3; margin-bottom:0; }

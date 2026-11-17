@@ -137,11 +137,11 @@ export default async function Page({ params }: Props) {
     <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && featured(projects)}
-    {section === 'certifications' && <div className="cards">{certifications.map((cert) => <TiltCard className="card" key={cert.id}>
-      {cert.issuerLogo && <img className="issuer-logo" src={cert.issuerLogo} alt="" loading="lazy" />}
-      <span className="muted">{cert.emissor}</span><h3>{cert.title}</h3>
-      {cert.description && <p>{cert.description}</p>}
-      {https(cert.link) && <a href={https(cert.link)}>{t('html.certifications.view') || cert.title}</a>}
+    {section === 'certifications' && <div className="cards certification-grid" lang="pt-BR">{certifications.map((cert) => <TiltCard className="card certification-card" key={cert.id}>
+      <div className="certification-issuer">{cert.issuerLogo && <img className="issuer-logo" src={cert.issuerLogo} alt="" loading="lazy" />}<div><strong>{cert.emissor}</strong>{cert.date && <span>{cert.date}</span>}</div></div>
+      <h2>{cert.title}</h2>
+      {cert.tags?.length > 0 && <div className="certification-tags">{cert.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>}
+      {https(cert.link) && <a className="certification-link" href={https(cert.link)}>{t('html.certifications.view') || cert.title} ↗</a>}
     </TiltCard>)}</div>}
     {section === 'blog' && !slug && <>
       <div className="cards">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card" key={post.slug} lang="pt-BR">
@@ -155,8 +155,7 @@ export default async function Page({ params }: Props) {
       <article className="article" key={post.slug} lang="pt-BR"><Markdown skipHtml>{post.body}</Markdown></article>)}
     {section === 'contact' && <div className="contact-groups">
       <section className="resume-panel"><div><h2>Curriculum Vitae</h2><p lang="pt-BR">Consulte minha trajetória em uma versão pronta para impressão.</p></div><Link className="resume-link" href={path('/cv')}>Curriculum Vitae ↗</Link></section>
-      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://wa.me/5511942018873"><span aria-hidden="true">◉</span><div><strong>WhatsApp</strong><small>+55 11 94201-8873</small></div><span aria-hidden="true">↗</span></a></div></section>
-      <section><h2>{t('html.contact.social.title')}</h2><div className="contact-grid"><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://github.com/rydermais-dev"><span aria-hidden="true">⌘</span><div><strong>GitHub</strong><small>@rydermais-dev</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href="https://www.instagram.com/wellnas.dev/"><span aria-hidden="true">◎</span><div><strong>Instagram</strong><small>@wellnas.dev</small></div><span aria-hidden="true">↗</span></a></div></section>
+      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a></div></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities ↗</a></div></div>}
   </section>;
