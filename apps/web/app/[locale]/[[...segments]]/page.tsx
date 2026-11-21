@@ -77,17 +77,14 @@ export default async function Page({ params }: Props) {
           <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
           <p>{!section ? 'Full Stack Developer · UI/UX' : t('html.about.description')}</p>
+          {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('/about')}>{t('menu.about')} ↓</Link></div>}
         </div>
       </div>
     </section>
     {!section ? <>
-      <section className="wrap section">
-        <h2>{t('html.home.trajectoryTitle')}</h2>
-        <p>{t('html.home.trajectoryParagraph1')}</p>
-        <div className="actions"><Link href={path('/about')}>{t('menu.about')}</Link><a href={linkedIn}>LinkedIn</a></div>
-      </section>
+      <section className="wrap section home-story"><div><span className="page-kicker">FULL STACK · UX</span><h2>{t('html.home.trajectoryTitle')}</h2></div><div><p>{t('html.home.trajectoryParagraph1')}</p><div className="actions"><Link href={path('/about')}>{t('menu.about')} ↗</Link></div></div></section>
       <Playground locale={locale} />
-      <section className="wrap section"><h2>{t('html.home.projectsTitle')}</h2>{featured(projects.slice(0, 3))}</section>
+      <section className="wrap section home-projects"><div className="home-section-heading"><h2>{t('html.home.projectsTitle')}</h2><Link href={path('/projects')}>{t('menu.projects')} ↗</Link></div>{featured(projects.slice(0, 3))}</section><section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
     </> : <>
       <section className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
