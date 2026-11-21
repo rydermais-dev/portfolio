@@ -13,6 +13,7 @@ import { Playground } from '../../playground';
 import { TiltCard } from '../../tilt-card';
 import { HeroGrid } from '../../interaction-effects';
 import { PrintButton } from '../../print-button';
+import { CertificateGallery } from '../../certificate-gallery';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
@@ -134,12 +135,7 @@ export default async function Page({ params }: Props) {
     <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p>{featured(projects)}</>}
-    {section === 'certifications' && <div className="cards certification-grid" lang="pt-BR">{certifications.map((cert) => <TiltCard className="card certification-card" key={cert.id}>
-      <div className="certification-issuer">{cert.issuerLogo && <img className="issuer-logo" src={cert.issuerLogo} alt="" loading="lazy" />}<div><strong>{cert.emissor}</strong>{cert.date && <span>{cert.date}</span>}</div></div>
-      <h2>{cert.title}</h2>
-      {cert.tags?.length > 0 && <div className="certification-tags">{cert.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>}
-      {https(cert.link) && <a className="certification-link" href={https(cert.link)}>{t('html.certifications.view') || cert.title} ↗</a>}
-    </TiltCard>)}</div>}
+    {section === 'certifications' && <CertificateGallery viewLabel={t('html.certifications.view')} />}
     {section === 'blog' && !slug && <>
       <div className="journal-intro" lang="pt-BR"><div><p className="journal-eyebrow">NOTAS DE UM DESENVOLVEDOR</p><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="journal-mark" aria-hidden="true">✳</div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
       <div className="blog-index">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">
