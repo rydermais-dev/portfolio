@@ -384,3 +384,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .cert-empty { padding:3rem; text-align:center; background:var(--surface); border-radius:18px; }
 .cert-empty button { padding:.7rem 1rem; border:1px solid var(--line); border-radius:10px; background:var(--background); color:var(--ink); cursor:pointer; }
 @media(max-width:600px) { .cert-seal { flex-basis:70px; height:70px; font-size:2rem; } .cert-intro { align-items:flex-start; } }
+.cert-summary,.editorial-aside { display:flex; flex-direction:column; gap:.4rem; padding-left:1.5rem; border-left:1px solid #ffffff55; color:#e8e2f2; }
+.cert-summary strong,.editorial-aside strong { font-size:clamp(2.2rem,4vw,3.5rem); line-height:1; letter-spacing:-.06em; color:#fff; }
+.cert-summary span,.editorial-aside span { font-size:.85rem; line-height:1.5; }
+@media(max-width:650px) { .cert-summary,.editorial-aside { padding-left:1rem; } }
