@@ -144,20 +144,20 @@ export default async function Page({ params }: Props) {
       {https(cert.link) && <a className="certification-link" href={https(cert.link)}>{t('html.certifications.view') || cert.title} ↗</a>}
     </TiltCard>)}</div>}
     {section === 'blog' && !slug && <>
-      <p className="editorial-lead" lang="pt-BR">Escrevo sobre o que aprendo programando, de como o Electron aproxima a web do hardware à história das expressões que viraram parte da cultura dev.</p>
+      <div className="journal-intro" lang="pt-BR"><div><p className="journal-eyebrow">NOTAS DE UM DESENVOLVEDOR</p><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="journal-mark" aria-hidden="true">✳</div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
       <div className="blog-index">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">
         {post.date && <time dateTime={post.date}>{date.format(new Date(post.date))}</time>}
         <div><h2><Link href={path('/blog/' + post.slug)}>{post.title} <span aria-hidden="true">↗</span></Link></h2><p>{post.description}</p></div>
       </article>)}</div>
       <News />
-      <p><a href={linkedIn}>LinkedIn</a></p>
+      <div className="journal-follow" lang="pt-BR"><div><h2>Continuamos a conversa?</h2><p>Compartilho descobertas e projetos também no LinkedIn.</p></div><a href={linkedIn}>Acompanhar no LinkedIn ↗</a></div>
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Link href={path('/blog')}>← {t('menu.blog')}</Link><Markdown skipHtml>{post.body}</Markdown><aside className="article-next">{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} ↗</Link>)}</aside></article>)}
     {section === 'contact' && <div className="contact-groups">
-      <p className="editorial-lead" lang="pt-BR">Tem uma ideia de produto ou uma interface que precisa evoluir? Conte um pouco sobre o contexto, quem vai usar e o que você gostaria de mudar. Pelo LinkedIn, também podemos conversar sobre oportunidades e trocar experiências de desenvolvimento.</p>
+      <div className="contact-intro" lang="pt-BR"><div><p className="journal-eyebrow">VAMOS CONVERSAR</p><h2>Uma boa ideia começa com uma conversa.</h2><p>Quer criar um produto, melhorar uma experiência ou conversar sobre uma oportunidade? Conte o que você tem em mente e o contexto do projeto. Vou gostar de conhecer sua ideia.</p></div><div className="contact-orbit" aria-hidden="true">✳</div></div>
       <section className="resume-panel"><div><h2>Curriculum Vitae</h2><p lang="pt-BR">Consulte minha trajetória em uma versão pronta para impressão.</p></div><Link className="resume-link" href={path('/cv')}>Curriculum Vitae ↗</Link></section>
-      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a></div></section>
+      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>Envie um e-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>Conecte-se no LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a></div></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities ↗</a></div></div>}
   </section>;
