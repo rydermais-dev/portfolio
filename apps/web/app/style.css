@@ -414,4 +414,12 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .logo-marquee { mask-image:linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
 .logo-cloud-item img { filter:grayscale(1) brightness(0) invert(.75); }
 .logo-cloud-item:hover img,.logo-cloud-item:focus-visible img { filter:drop-shadow(0 0 2px #ffffffb3); }
+.cert-intro { position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(120deg,#232137,#35304c 70%,#534663); min-height:360px; }
+.cert-intro::before { content:''; position:absolute; z-index:-1; width:360px; height:360px; right:-80px; top:-180px; border:1px solid #cbb8ff40; border-radius:50%; box-shadow:0 0 0 45px #cbb8ff0c,0 0 0 90px #cbb8ff08; }
+.cert-intro h2 { max-width:18ch; }
+.cert-intro h2 span { color:#c9bbff; }
+.cert-intro-copy > a { display:inline-block; margin-top:1rem; color:#f6f2ff; font-weight:650; text-underline-offset:.3em; }
+.cert-intro-aside { display:flex; flex-direction:column; align-self:stretch; justify-content:space-between; gap:3rem; }
+.cert-intro-note { color:#d5cbe5; font-size:.75rem; max-width:18ch; line-height:1.6; }
+@media(max-width:600px) { .cert-intro { flex-direction:column; min-height:0; } .cert-intro-aside { flex-direction:row; align-items:end; gap:1rem; } }
 
