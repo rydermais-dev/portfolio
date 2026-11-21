@@ -409,4 +409,9 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 @media(prefers-reduced-motion:reduce) { .logo-track { animation:none; } .logo-marquee { overflow-x:auto; } .logo-group[aria-hidden=true] { display:none; } }
 .hero:not(.hero-about) .home-hero-statement { margin-top:1.4rem; font-size:clamp(1.4rem,2.6vw,2.4rem); line-height:1.2; font-weight:650; letter-spacing:-.04em; color:#fff; }
 .home-hero-statement span { color:#cbbdff; }
+.logo-marquee { background:transparent; border:0; border-radius:0; }
+.logo-cloud-item { background:transparent; border:0; border-radius:0; }
+.logo-marquee { mask-image:linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
+.logo-cloud-item img { filter:grayscale(1) brightness(0) invert(.75); }
+.logo-cloud-item:hover img,.logo-cloud-item:focus-visible img { filter:drop-shadow(0 0 2px #ffffffb3); }
 

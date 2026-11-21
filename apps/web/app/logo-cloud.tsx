@@ -10,7 +10,7 @@ export function LogoCloud({ selected, onSelect }: { selected: string; onSelect: 
     <motion.div className="logo-track">
       {[0, 1].map((copy) => <div className="logo-group" key={copy} aria-hidden={copy === 1}>
         {issuers.map(([name, logo]) => <button className="logo-cloud-item" type="button" key={name} tabIndex={copy === 1 ? -1 : 0} aria-pressed={selected === name} aria-label={name} onClick={() => onSelect(name)}>
-          <img src={logo} alt="" /><span>{name}</span>
+          <img src={logo.replace('/logos/', '/transparent/').replace(/\.png$/, '.webp')} alt="" />
         </button>)}
       </div>)}
     </motion.div>
