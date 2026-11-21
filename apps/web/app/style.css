@@ -207,6 +207,12 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .career-event::before { content:''; position:absolute; width:14px; height:14px; left:calc(-2rem - 9px); top:2rem; border-radius:50%; background:var(--event-color); box-shadow:0 0 0 4px var(--background); }
 .career-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; font-size:.9rem; }
 .career-header strong { color:var(--ink); }
+.career-company { display:flex; align-items:center; gap:.75rem; }
+.career-company img { display:block; width:36px; height:36px; object-fit:contain; background:#fff; border-radius:9px; padding:3px; }
+.career-more { margin:0 0 1rem; }
+.career-more summary { width:fit-content; cursor:pointer; color:var(--accent); font-size:.85rem; font-weight:600; padding:.3rem 0; }
+.career-event { box-shadow:0 8px 30px #00000008; }
+.page-projects .cards { grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); }
 .career-header span { color:var(--muted); }
 .career-event h4 { margin:1rem 0 .6rem; font-size:1.2rem; letter-spacing:-.025em; }
 .career-event p { color:var(--muted); line-height:1.7; margin:0 0 1rem; }

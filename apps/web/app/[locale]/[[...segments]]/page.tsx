@@ -94,10 +94,10 @@ export default async function Page({ params }: Props) {
         <div className="career-timeline">{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year}>
           <h3 className="career-year-label">{year}</h3>
           <ol className="career-events">{entries?.map((entry) => <li key={entry.id + '-' + (entry.company ?? entry.formationType)} className="career-event" lang="pt-BR" style={{ '--event-color': entry.color || '#9871f6' } as React.CSSProperties}>
-            <div className="career-header"><strong>{entry.company ?? entry.formationType}</strong><span>{entry.date ?? year}</span></div>
+            <div className="career-header"><div className="career-company">{entry.companyLogo && <img src={entry.companyLogo} alt="" width="36" height="36" loading="lazy" />}<strong>{entry.company ?? entry.formationType}</strong></div><span>{entry.date ?? year}</span></div>
             <h4>{entry.jobRole ?? entry.formationRole ?? entry.title}</h4>
             <p>{entry.jobDescription ?? entry.formationDescription ?? entry.description}</p>
-            {(entry.jobtags || entry.formationtags) && <div className="career-tags">{(entry.jobtags || entry.formationtags || []).map((tag) => <span key={tag}>{tag}</span>)}</div>}
+            {(entry.jobtags || entry.formationtags) && <><div className="career-tags">{(entry.jobtags || entry.formationtags || []).slice(0, 8).map((tag) => <span key={tag}>{tag}</span>)}</div>{(entry.jobtags || entry.formationtags || []).length > 8 && <details className="career-more"><summary>{t('html.home.viewMore')}</summary><div className="career-tags">{(entry.jobtags || entry.formationtags || []).slice(8).map((tag) => <span key={tag}>{tag}</span>)}</div></details>}</>}
             <div className="career-meta">{(entry.jobLocation || entry.formationLocation) && <span>⌖ {entry.jobLocation || entry.formationLocation}</span>}{(entry.jobContract || entry.formationType) && <span>◌ {entry.jobContract || entry.formationType}</span>}{https(entry.companyLink) && <a href={https(entry.companyLink)}>{t('html.about.experience.company.button')} ↗</a>}</div>
           </li>)}</ol>
         </section>)}</div>

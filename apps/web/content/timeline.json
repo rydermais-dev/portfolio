@@ -21,7 +21,8 @@
       ".NET C#",
       "UX",
       "Front-end"
-    ]
+    ],
+    "companyLogo": "/companies/csp.webp"
   },
   {
     "id": 7,
@@ -65,7 +66,8 @@
       "Inteligência Artificial"
     ],
     "jobLocation": "Híbrido",
-    "jobContract": "CLT"
+    "jobContract": "CLT",
+    "companyLogo": "/companies/7-1.jpg"
   },
   {
     "id": 6,
@@ -143,7 +145,8 @@
       "Customer Experience"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "Autônomo"
+    "jobContract": "Autônomo",
+    "companyLogo": "/companies/6-2.svg"
   },
   {
     "id": 5,
@@ -174,7 +177,8 @@
       "OutSystems"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "Terceirizado"
+    "jobContract": "Terceirizado",
+    "companyLogo": "/companies/5-3.png"
   },
   {
     "id": 4,
@@ -205,7 +209,8 @@
       "SQL"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "Terceirizado"
+    "jobContract": "Terceirizado",
+    "companyLogo": "/companies/4-4.svg"
   },
   {
     "id": 3,
@@ -228,7 +233,8 @@
       "Inteligência Artificial",
       "Ciência de Dados"
     ],
-    "formationLocation": "Remoto"
+    "formationLocation": "Remoto",
+    "companyLogo": "/companies/3-5.png"
   },
   {
     "id": 2,
@@ -261,7 +267,8 @@
       "Google Tag Manager"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "PJ"
+    "jobContract": "PJ",
+    "companyLogo": "/companies/2-6.ico"
   },
   {
     "id": 2,
@@ -294,7 +301,8 @@
       "Google Tag Manager"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "PJ"
+    "jobContract": "PJ",
+    "companyLogo": "/companies/esx.ico"
   },
   {
     "id": 1,
@@ -337,6 +345,7 @@
       "Heroku"
     ],
     "jobLocation": "Remoto",
-    "jobContract": "Autônomo"
+    "jobContract": "Autônomo",
+    "companyLogo": "/companies/1-8.jpg"
   }
 ]
