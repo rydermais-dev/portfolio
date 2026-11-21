@@ -388,3 +388,25 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .cert-summary strong,.editorial-aside strong { font-size:clamp(2.2rem,4vw,3.5rem); line-height:1; letter-spacing:-.06em; color:#fff; }
 .cert-summary span,.editorial-aside span { font-size:.85rem; line-height:1.5; }
 @media(max-width:650px) { .cert-summary,.editorial-aside { padding-left:1rem; } }
+.logo-cloud { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(.6rem,1.5vw,1.2rem); padding:1.5rem; border:1px solid var(--line); border-radius:22px; background:var(--surface); }
+.logo-cloud-item { width:clamp(62px,8vw,88px); height:clamp(62px,8vw,88px); display:grid; place-items:center; padding:10px; border-radius:20px; background:#fff; }
+.logo-cloud-item img { width:100%; height:100%; object-fit:contain; }
+.hero:not(.hero-about) .hero-portrait { padding:18px; border:1px solid #ffffff35; border-radius:50%; box-shadow:0 0 0 12px #ffffff08, 0 0 70px #b195ff30; }
+.hero:not(.hero-about) .hero-inner { justify-content:center; }
+.hero:not(.hero-about) .hero-label { display:inline-flex; padding:.5rem .75rem; border:1px solid #c5b5ff55; border-radius:99px; }
+.hero:not(.hero-about) h1 { text-wrap:balance; }
+@media(max-width:520px) { .hero:not(.hero-about) .hero-portrait { padding:10px; } }
+.logo-marquee { overflow:hidden; border:1px solid var(--line); border-radius:22px; background:var(--surface); padding:1rem 0; }
+.logo-track { display:flex; width:max-content; animation:logo-scroll 38s linear infinite; }
+.logo-group { display:flex; flex:none; gap:.8rem; padding-right:.8rem; }
+.logo-marquee:hover .logo-track,.logo-marquee:focus-within .logo-track { animation-play-state:paused; }
+.logo-cloud-item { flex:none; width:112px; height:100px; display:flex; flex-direction:column; gap:.3rem; padding:10px; border:1px solid var(--line); color:#302e35; cursor:pointer; }
+.logo-cloud-item img { width:100%; height:60px; object-fit:contain; filter:grayscale(1); transition:filter .25s ease; }
+.logo-cloud-item:hover img,.logo-cloud-item:focus-visible img { filter:grayscale(0); }
+.logo-cloud-item[aria-pressed=true] { outline:2px solid var(--accent); outline-offset:-2px; }
+.logo-cloud-item span { font-size:.65rem; text-align:center; line-height:1.1; }
+@keyframes logo-scroll { to { transform:translateX(-50%); } }
+@media(prefers-reduced-motion:reduce) { .logo-track { animation:none; } .logo-marquee { overflow-x:auto; } .logo-group[aria-hidden=true] { display:none; } }
+.hero:not(.hero-about) .home-hero-statement { margin-top:1.4rem; font-size:clamp(1.4rem,2.6vw,2.4rem); line-height:1.2; font-weight:650; letter-spacing:-.04em; color:#fff; }
+.home-hero-statement span { color:#cbbdff; }
+

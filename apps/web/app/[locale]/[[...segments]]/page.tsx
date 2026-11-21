@@ -78,6 +78,7 @@ export default async function Page({ params }: Props) {
           <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
           <p>{!section ? 'Full Stack Developer · UI/UX' : t('html.about.description')}</p>
+          {!section && <p className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></p>}
           {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('/about')}>{t('menu.about')} ↓</Link></div>}
         </div>
       </div>

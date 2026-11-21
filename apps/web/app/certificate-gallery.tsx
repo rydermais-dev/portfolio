@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Button } from '@moduix/react/button';
 import { TiltCard } from './tilt-card';
 import certificates from '../content/certifications.json';
+import { LogoCloud } from './logo-cloud';
 
 export function CertificateGallery({ viewLabel }: { viewLabel: string }) {
   const [query, setQuery] = useState('');
@@ -15,6 +16,7 @@ export function CertificateGallery({ viewLabel }: { viewLabel: string }) {
   });
   return <div className="cert-experience" lang="pt-BR">
     <div className="cert-intro"><div><p className="cert-overline">APRENDIZADO CONTÍNUO</p><h2>Conhecimento que acompanha a jornada.</h2><p>Cada curso representa uma curiosidade, uma habilidade desenvolvida e novas possibilidades para criar.</p></div><div className="cert-summary"><strong>{certificates.length}</strong><span>certificados<br />na coleção</span></div></div>
+    <LogoCloud selected={issuer} onSelect={(name) => { setIssuer(name === issuer ? '' : name); setQuery(''); }} />
     <div className="cert-toolbar"><label>Buscar certificado<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Título, instituição ou tema" /></label><label>Instituição<select value={issuer} onChange={(event) => setIssuer(event.target.value)}><option value="">Todas as instituições</option>{issuers.map((name) => <option key={name} value={name}>{name}</option>)}</select></label><p role="status">{filtered.length} {filtered.length === 1 ? 'certificado' : 'certificados'}</p></div>
     {filtered.length ? <div className="cert-gallery">{filtered.map((cert) => <TiltCard className="cert-piece" key={cert.id}>
       <div className="cert-piece-top"><div className="cert-logo">{cert.issuerLogo && <img src={cert.issuerLogo} alt="" loading="lazy" />}</div><div><strong>{cert.emissor}</strong><span>{cert.date}</span></div></div>
