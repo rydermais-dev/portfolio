@@ -13,13 +13,15 @@ const featuredProjects = featuredIds.map((id) => projects.find((project) => proj
 export function Playground({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState(0);
   const project = featuredProjects[selected];
+  const descriptions = project.description as Partial<Record<Locale, string>>;
+  const descriptionLanguage = descriptions[locale] ? locale : 'pt-BR';
   const step = (direction: number) => setSelected((index) => (index + direction + featuredProjects.length) % featuredProjects.length);
 
   return <section className="playground" aria-labelledby="playground-title">
     <div className="wrap playground-inner">
-      <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2></div>
+      <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description" aria-live="polite" aria-atomic="true"><h3>{project.title}</h3><p lang={descriptionLanguage}>{descriptions[descriptionLanguage]}</p></div></div>
       <div className="playground-slide">
-        <div aria-live="polite" aria-atomic="true" key={project.id}>
+        <div className="playground-stack" key={project.id}>
           <ProjectCard project={project} locale={locale} visitLabel={translate(locale, 'html.home.visit')} />
         </div>
         <div className="story-controls" aria-label="Navegar pelos destaques">
