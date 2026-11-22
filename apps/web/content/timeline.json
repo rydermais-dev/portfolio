@@ -284,7 +284,7 @@
     "formationStartDate": null,
     "title": null,
     "description": null,
-    "color": "#D31047",
+    "color": "#EE2549",
     "jobtags": [
       "Flutter",
       "Firebase",
@@ -302,7 +302,7 @@
     ],
     "jobLocation": "Remoto",
     "jobContract": "PJ",
-    "companyLogo": "/companies/esx.ico"
+    "companyLogo": "/companies/esx.webp"
   },
   {
     "id": 1,
