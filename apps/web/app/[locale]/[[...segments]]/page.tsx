@@ -14,6 +14,7 @@ import { TiltCard } from '../../tilt-card';
 import { HeroGrid } from '../../interaction-effects';
 import { PrintButton } from '../../print-button';
 import { CertificateGallery } from '../../certificate-gallery';
+import { TimelineHighlight } from '../../timeline-highlight';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const links = [
@@ -89,7 +90,7 @@ export default async function Page({ params }: Props) {
     </> : <>
       <section className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
-        <div className="career-timeline">{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
+        <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
           <h3 className="career-year-label">{year}</h3>
           <ol className="career-events">{entries?.map((entry) => <li key={entry.id + '-' + (entry.company ?? entry.formationType)} className="career-event" lang="pt-BR" style={{ '--event-color': entry.color || '#9871f6' } as React.CSSProperties}>
             <div className="career-header"><div className="career-company">{entry.companyLogo && <img src={entry.companyLogo} alt="" width="36" height="36" loading="lazy" />}<strong>{entry.company ?? entry.formationType}</strong></div><span>{entry.date ?? year}</span></div>

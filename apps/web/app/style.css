@@ -523,3 +523,13 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .career-year-label { color:var(--year-color); }
 .career-year-label::after { background:var(--year-color); box-shadow:0 0 0 5px var(--background),0 0 18px var(--year-color); }
 .career-event { border-color:color-mix(in srgb,var(--event-color) 45%,var(--line)); }
+
+/* Only the experience at the scroll marker carries its company color. */
+.career-year-label { color:var(--ink); }
+.career-year-label::after { background:var(--line); box-shadow:0 0 0 5px var(--background); }
+.career-event { border-color:var(--line); }
+.career-event::before { background:var(--line); }
+.career-year.is-active .career-year-label { color:var(--active-color); }
+.career-year.is-active .career-year-label::after { background:var(--active-color); box-shadow:0 0 0 5px var(--background),0 0 18px var(--active-color); }
+.career-event.is-active { border-color:var(--event-color); }
+.career-event.is-active::before { background:var(--event-color); }
