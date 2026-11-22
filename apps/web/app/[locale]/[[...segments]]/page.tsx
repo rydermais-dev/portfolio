@@ -61,9 +61,8 @@ export default async function Page({ params }: Props) {
     return <p lang={language}>{values[language]}</p>;
   };
   const featured = (entries: typeof projects) => <div className="cards">
-    {entries.map((project, index) => <TiltCard className="card project-card" key={project.id}>
+    {entries.map((project) => <TiltCard className={'card project-card project-card-' + project.id} key={project.id}>
       {project.image && <Link className="project-image" href={path('/project/' + project.id)} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" /></Link>}
-      <span className="card-index">{String(index + 1).padStart(2, '0')} / {t('menu.projects')}</span>
       <h3><Link href={path('/project/' + project.id)}>{project.title}<span aria-hidden="true"> ↗</span></Link></h3>{projectDescription(project)}
     </TiltCard>)}
   </div>;
@@ -84,7 +83,7 @@ export default async function Page({ params }: Props) {
       </div>
     </section>
     {!section ? <>
-      <section className="wrap section home-story"><div><span className="page-kicker">FULL STACK · UX</span><h2>{t('html.home.trajectoryTitle')}</h2></div><div><p>{t('html.home.trajectoryParagraph1')}</p><div className="actions"><Link href={path('/about')}>{t('menu.about')} ↗</Link></div></div></section>
+      <section className="wrap section home-story"><div><h2>{t('html.home.trajectoryTitle')}</h2></div><div><p>{t('html.home.trajectoryParagraph1')}</p><div className="actions"><Link href={path('/about')}>{t('menu.about')} ↗</Link></div></div></section>
       <Playground locale={locale} />
       <section className="wrap section home-projects"><div className="home-section-heading"><h2>{t('html.home.projectsTitle')}</h2><Link href={path('/projects')}>{t('menu.projects')} ↗</Link></div>{featured(projects.slice(0, 3))}</section><section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
     </> : <>
@@ -114,7 +113,6 @@ export default async function Page({ params }: Props) {
   if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
     <div className="wrap project-detail-inner">
       <Link className="back-link" href={path('/projects')}>← {t('menu.projects')}</Link>
-      <span className="project-kicker">{t('menu.projects')} / {project.title}</span>
       <h1>{project.title}</h1>
       <div className="project-intro">{projectDescription(project)}</div>
       <div className="actions">
@@ -133,12 +131,11 @@ export default async function Page({ params }: Props) {
   </section>;
 
   return <section className={'wrap section page-section page-' + section}>
-    <span className="page-kicker">WELLNAS / {heading}</span>
     <h1>{heading}</h1>
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p>{featured(projects)}</>}
     {section === 'certifications' && <CertificateGallery viewLabel={t('html.certifications.view')} />}
     {section === 'blog' && !slug && <>
-      <div className="journal-intro" lang="pt-BR"><div><p className="journal-eyebrow">NOTAS DE UM DESENVOLVEDOR</p><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="editorial-aside"><strong>{posts.length}</strong><span>artigos publicados</span></div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
+      <div className="journal-intro" lang="pt-BR"><div><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="editorial-aside"><strong>{posts.length}</strong><span>artigos publicados</span></div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
       <div className="blog-index">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">
         {post.date && <time dateTime={post.date}>{date.format(new Date(post.date))}</time>}
         <div><h2><Link href={path('/blog/' + post.slug)}>{post.title} <span aria-hidden="true">↗</span></Link></h2><p>{post.description}</p></div>
@@ -149,7 +146,7 @@ export default async function Page({ params }: Props) {
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Link href={path('/blog')}>← {t('menu.blog')}</Link><Markdown skipHtml>{post.body}</Markdown><aside className="article-next">{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} ↗</Link>)}</aside></article>)}
     {section === 'contact' && <div className="contact-groups">
-      <div className="contact-intro" lang="pt-BR"><div><p className="journal-eyebrow">VAMOS CONVERSAR</p><h2>Uma boa ideia começa com uma conversa.</h2><p>Quer criar um produto, melhorar uma experiência ou conversar sobre uma oportunidade? Conte o que você tem em mente e o contexto do projeto. Vou gostar de conhecer sua ideia.</p></div><div className="editorial-aside"><strong>Olá!</strong><span>Vamos construir algo juntos?</span></div></div>
+      <div className="contact-intro" lang="pt-BR"><div><h2>Uma boa ideia começa com uma conversa.</h2><p>Quer criar um produto, melhorar uma experiência ou conversar sobre uma oportunidade? Conte o que você tem em mente e o contexto do projeto. Vou gostar de conhecer sua ideia.</p></div><div className="editorial-aside"><strong>Olá!</strong><span>Vamos construir algo juntos?</span></div></div>
       <section className="resume-panel"><div><h2>Curriculum Vitae</h2><p lang="pt-BR">Consulte minha trajetória em uma versão pronta para impressão.</p></div><Link className="resume-link" href={path('/cv')}>Curriculum Vitae ↗</Link></section>
       <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>Envie um e-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>Conecte-se no LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a></div></section>
     </div>}

@@ -9,8 +9,9 @@ export function TiltCard({ children, className = '' }: { children: ReactNode; cl
     const rect = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - .5;
     const y = (event.clientY - rect.top) / rect.height - .5;
-    event.currentTarget.style.setProperty('--tilt-x', `${-y * 8}deg`);
-    event.currentTarget.style.setProperty('--tilt-y', `${x * 8}deg`);
+    const amount = event.currentTarget.classList.contains('project-card') ? 18 : 8;
+    event.currentTarget.style.setProperty('--tilt-x', `${-y * amount}deg`);
+    event.currentTarget.style.setProperty('--tilt-y', `${x * amount}deg`);
     event.currentTarget.style.setProperty('--glare-x', `${(x + .5) * 100}%`);
     event.currentTarget.style.setProperty('--glare-y', `${(y + .5) * 100}%`);
   }
