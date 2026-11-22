@@ -1,5 +1,7 @@
 'use client';
 
+import { Icon } from '../material-icon';
+
 import { Button } from '@moduix/react/button';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -63,7 +65,7 @@ export function Header({ locale, links, themeLabel }: {
               {Object.entries(languages).map(([key, [label]]) => <option lang={key} key={key} value={key}>{label}</option>)}
             </select>
           </label>
-          <Button type="button" aria-label={themeLabel} className="ui-button ui-button--nav-icon theme" onClick={toggleTheme}>◐</Button>
+          <Button type="button" aria-label={themeLabel} className="ui-button ui-button--nav-icon theme" onClick={toggleTheme}><Icon name="contrast" /></Button>
           <details className="mobile" ref={menu} onKeyDown={(event) => {
             if (event.key === 'Escape' && menu.current?.open) {
               menu.current.open = false;

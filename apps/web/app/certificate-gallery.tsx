@@ -1,5 +1,7 @@
 'use client';
 
+import { Icon } from './material-icon';
+
 import { useMemo, useState } from 'react';
 import { Button } from '@moduix/react/button';
 import { TiltCard } from './tilt-card';
@@ -21,7 +23,7 @@ export function CertificateGallery({ viewLabel }: { viewLabel: string }) {
     <div className="cert-toolbar" id="certificados"><label>Buscar certificado<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Título, instituição ou tema" /></label><label>Instituição<select value={issuer} onChange={(event) => setIssuer(event.target.value)}><option value="">Todas as instituições</option>{issuers.map((name) => <option key={name} value={name}>{name}</option>)}</select></label><p role="status">{filtered.length} {filtered.length === 1 ? 'certificado' : 'certificados'}</p></div>
     {filtered.length ? <div className="cert-gallery">{filtered.map((cert) => <TiltCard className="cert-piece" key={cert.id}>
       <div className="cert-piece-top"><div className="cert-logo">{cert.issuerLogo && <img src={cert.issuerLogo} alt="" loading="lazy" />}</div><div><strong>{cert.emissor}</strong><span>{cert.date}</span></div></div>
-      <div className="cert-piece-title"><span>CERTIFICADO</span><h3>{cert.title}</h3></div><div className="cert-piece-bottom">{cert.tags.length > 0 && <div className="certification-tags">{cert.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>}{cert.link.startsWith('https://') && <a href={cert.link}>{viewLabel} ↗</a>}</div>
+      <div className="cert-piece-title"><span>CERTIFICADO</span><h3>{cert.title}</h3></div><div className="cert-piece-bottom">{cert.tags.length > 0 && <div className="certification-tags">{cert.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>}{cert.link.startsWith('https://') && <a href={cert.link}>{viewLabel} <Icon name="arrow_outward" /></a>}</div>
     </TiltCard>)}</div> : <div className="cert-empty"><p>Nenhum certificado encontrado para essa busca.</p><Button type="button" onClick={() => { setQuery(''); setIssuer(''); }}>Limpar filtros</Button></div>}
   </div>;
 }
