@@ -11,6 +11,7 @@ import posts from '../../../content/posts.json';
 import { News } from '../../news';
 import { Playground } from '../../playground';
 import { TiltCard } from '../../tilt-card';
+import { HomeHeroPortrait } from '../../home-hero-portrait';
 import { HeroGrid } from '../../interaction-effects';
 import { PrintButton } from '../../print-button';
 import { CertificateGallery } from '../../certificate-gallery';
@@ -61,7 +62,7 @@ export default async function Page({ params }: Props) {
     const language = values[locale] ? locale : 'pt-BR';
     return <p lang={language}>{values[language]}</p>;
   };
-  const foregrounds = new Set(['orkuty', 'rydermais', 'singalong', 'deltaverse']);
+  const foregrounds = new Set(['orkuty', 'rydermais', 'singalong', 'deltaverse', 'ryan']);
   const featured = (entries: typeof projects) => <div className="cards">
     {entries.map((project) => <TiltCard className={'card project-card project-card-' + project.id} key={project.id}>
       <div className="project-art">
@@ -74,11 +75,11 @@ export default async function Page({ params }: Props) {
   </div>;
 
   if (!section || (section === 'about' && !slug)) return <>
-    <section className={'hero' + (section === 'about' ? ' hero-about' : '')}>
+    <section className={'hero' + (section === 'about' ? ' hero-about' : ' home-hero')}>
       <HeroGrid />
       <div className="hero-trails" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
       <div className="wrap hero-inner">
-        <div className="hero-portrait"><img src={section === 'about' ? '/wellington-linkedin.jpg' : '/wellington.jpg'} width="176" height="176" alt="" /></div>
+        {section === 'about' && <div className="hero-portrait"><img src="/wellington-linkedin.jpg" width="176" height="176" alt="" /></div>}
         <div>
           <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
@@ -86,6 +87,7 @@ export default async function Page({ params }: Props) {
           {!section && <p className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></p>}
           {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('/about')}>{t('menu.about')} ↓</Link></div>}
         </div>
+        {!section && <HomeHeroPortrait />}
       </div>
     </section>
     {!section ? <>
