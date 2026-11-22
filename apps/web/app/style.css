@@ -1124,8 +1124,8 @@ body:has(.home-next) .footer a { color:#382b47; }
 .playground .project-info h3 a .project-visit { color:var(--featured-card-ink, #fff); }
 @media (hover:hover) and (pointer:fine) {
   .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-art::after { background:linear-gradient(transparent 35%,var(--featured-card-bottom, #24212d) 82%); }
-  :root[data-theme=light] .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:brightness(0) opacity(.8); }
+  :root[data-theme=light] .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:drop-shadow(0 1px 3px #241a3580); }
 }
 @media (prefers-color-scheme:light) and (hover:hover) and (pointer:fine) {
-  :root:not([data-theme=dark]) .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:brightness(0) opacity(.8); }
+  :root:not([data-theme=dark]) .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:drop-shadow(0 1px 3px #241a3580); }
 }
