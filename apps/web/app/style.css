@@ -581,3 +581,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 @media (hover:hover) and (pointer:fine) {
   .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:center; }
 }
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:var(--logo-target-y,75%); transform:translate(0,-50%) translateZ(45px); }
+  .project-card:hover .project-info p,.project-card:focus-within .project-info p { padding-left:calc(min(36%,140px) + 1rem); }
+}
