@@ -954,7 +954,26 @@ main { overflow-x:clip; }
 .playground-backdrop-deltaverse { --slide-tint:#58351fe0; }
 .playground-backdrop.is-visible { opacity:1; }
 @media(prefers-reduced-motion:reduce) { .playground-backdrop { transition:none; } }
-.playground-description { display:flex; align-items:center; gap:1.4rem; max-width:none; }
+.playground-description { display:flex; flex-direction:column; align-items:flex-start; gap:1rem; }
 .playground-description .playground-all { flex:none; white-space:nowrap; }
 .playground-description p { max-width:30ch; }
-@media(max-width:900px) { .playground-description { align-items:flex-start; flex-direction:column; gap:1rem; } }
+
+.ui-button.carousel-arrow { display:grid; padding:0; }
+.ui-button.carousel-arrow:hover { background-color:#463a5a; }
+.ui-button.carousel-pill { min-height:0; display:block; padding:0; }
+.carousel-pill .carousel-progress { pointer-events:none; }
+@media (hover:hover) and (pointer:fine) {
+  .ui-button:is(.carousel-arrow,.carousel-pill).reveal-active {
+    background-image:radial-gradient(48px circle at var(--reveal-x) var(--reveal-y), rgb(222 209 255 / var(--reveal-strength)), transparent 90%);
+    box-shadow:inset 0 0 0 1px rgb(222 209 255 / var(--reveal-strength)),0 0 10px rgb(196 165 255 / var(--reveal-strength));
+  }
+  .ui-button.carousel-pill.reveal-active::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:radial-gradient(32px circle at var(--reveal-x) var(--reveal-y), #fff8, transparent 85%);
+    opacity:var(--reveal-strength);
+    pointer-events:none;
+  }
+}

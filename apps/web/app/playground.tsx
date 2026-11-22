@@ -59,7 +59,7 @@ export function Playground({ locale }: { locale: Locale }) {
   return <section className="playground" aria-labelledby="playground-title">
     <div className="playground-backdrops" aria-hidden="true">{featuredProjects.map((item, index) => <div key={item.id} className={'playground-backdrop playground-backdrop-' + item.id + (selected === index ? ' is-visible' : '')} style={{ backgroundImage: 'url("' + item.image + '")' }} />)}</div>
     <div className="wrap playground-inner">
-      <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <span aria-hidden="true">↗</span></Link><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p></div></div>
+      <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p><Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <span aria-hidden="true">↗</span></Link></div></div>
       <div className="playground-slide" onPointerEnter={() => setInteracting(true)} onPointerLeave={() => setInteracting(false)} onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
         <div className="playground-stage">
           <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}>←</Button>
@@ -72,7 +72,7 @@ export function Playground({ locale }: { locale: Locale }) {
         <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}>→</Button>
         </div>
         <div className="carousel-pagination" aria-label="Escolher destaque">
-          {featuredProjects.map((item, index) => <button key={item.id} type="button" className="carousel-pill" aria-label={item.title + ' · ' + (index + 1) + ' / ' + featuredProjects.length} aria-current={selected === index ? 'true' : undefined} onClick={() => select(index)}>
+          {featuredProjects.map((item, index) => <button key={item.id} type="button" className="ui-button carousel-pill" aria-label={item.title + ' · ' + (index + 1) + ' / ' + featuredProjects.length} aria-current={selected === index ? 'true' : undefined} onClick={() => select(index)}>
             {selected === index && <span key={timerKey + '-' + String(running)} className={'carousel-progress' + (running ? ' is-running' : '')} />}
           </button>)}
         </div>
