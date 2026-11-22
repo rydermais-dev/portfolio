@@ -556,3 +556,9 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card .project-logo-small { position:absolute; left:0; max-width:42%; height:2rem; object-fit:contain; object-position:left center; opacity:0; transform:translateX(-8px); transition:opacity .25s ease,transform .3s ease; }
 @media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:24%; top:50%; width:min(29%,120px); height:21%; opacity:0; } .project-card:hover .project-logo-small,.project-card:focus-within .project-logo-small { opacity:1; transform:translateX(0); } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-logo-small { transition:none; } }
+
+/* Animate the original logo to the measured position of the title. */
+.project-card .project-logo { z-index:3; object-position:center; }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-y,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
+
+.project-card.tilt-card::after { display:none; }

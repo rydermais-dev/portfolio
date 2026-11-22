@@ -1,9 +1,21 @@
 'use client';
 
-import { useRef, type PointerEvent, type ReactNode } from 'react';
+import { useEffect, useRef, type PointerEvent, type ReactNode } from 'react';
 
 export function TiltCard({ children, className = '' }: { children: ReactNode; className?: string }) {
   const card = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const element = card.current;
+    const info = element?.querySelector<HTMLElement>('.project-info');
+    const heading = info?.querySelector<HTMLElement>('h3');
+    if (!element || !info || !heading) return;
+    const update = () => element.style.setProperty('--logo-target-y',       `${info.offsetTop + heading.offsetTop + heading.offsetHeight / 2}px`);
+    const observer = new ResizeObserver(update);
+    observer.observe(element);
+    observer.observe(info);
+    update();
+    return () => observer.disconnect();
+  }, []);
   function move(event: PointerEvent<HTMLElement>) {
     if (event.pointerType !== 'mouse' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
