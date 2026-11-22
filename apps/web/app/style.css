@@ -570,3 +570,14 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 @media (hover:hover) and (pointer:fine) {
   .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-y,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
 }
+/* Use the same square geometry at both ends of the logo transition. */
+.project-card .project-logo { height:auto; aspect-ratio:1 / 1; object-fit:contain; object-position:center; }
+.project-card .project-info h3 a.reveal-active { background-image:none; box-shadow:none; }
+.project-card .project-info h3 a:focus-visible { outline:none; }
+.project-card .project-info h3 a:focus-visible .project-visit { outline:2px solid var(--accent); outline-offset:4px; }
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { height:auto; aspect-ratio:1 / 1; }
+}
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:center; }
+}
