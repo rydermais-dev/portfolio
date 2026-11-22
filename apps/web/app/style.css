@@ -536,7 +536,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 
 .career-event.is-active::before { visibility:hidden; }
 
-.project-card .project-logo { position:absolute; z-index:1; left:50%; top:46%; width:min(62%, 260px); height:35%; object-fit:contain; pointer-events:none; filter:drop-shadow(0 3px 12px #000a); transform:translate(-50%,-50%) translateZ(35px); transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease,transform .35s ease; }
+.project-card .project-logo { position:absolute; z-index:1; left:50%; top:46%; width:min(62%, 260px); height:35%; object-fit:contain; pointer-events:none; filter:drop-shadow(0 3px 12px #000a); transform:translate(-50%,-50%) translateZ(35px); transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease,transform .35s ease,opacity .35s ease; }
 .project-card-cedes .project-logo { width:30%; height:48%; }
 @media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:30%; transform:translate(-50%,-50%) translateZ(65px) scale(1.05); } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
@@ -549,3 +549,10 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 @media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:83%; top:50%; width:min(29%,120px); height:21%; transform:translate(-50%,-50%) translateZ(45px); } .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; transform:translateX(12px); } .project-card:hover .project-visit,.project-card:focus-within .project-visit { opacity:1; transform:translateX(0); pointer-events:auto; } }
 @media(hover:none) { .project-card .project-visit { position:static; opacity:1; transform:none; pointer-events:auto; margin-left:auto; } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-title,.project-card .project-visit { transition:none; } }
+
+/* Keep the mark in the title position and the action at the opposite edge. */
+.project-card .project-title { font-family:inherit; font-weight:700; }
+.project-card .project-visit { left:auto; right:0; transform:translateX(-14px); font-family:inherit; font-weight:650; }
+.project-card .project-logo-small { position:absolute; left:0; max-width:42%; height:2rem; object-fit:contain; object-position:left center; opacity:0; transform:translateX(-8px); transition:opacity .25s ease,transform .3s ease; }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:24%; top:50%; width:min(29%,120px); height:21%; opacity:0; } .project-card:hover .project-logo-small,.project-card:focus-within .project-logo-small { opacity:1; transform:translateX(0); } }
+@media(prefers-reduced-motion:reduce) { .project-card .project-logo-small { transition:none; } }

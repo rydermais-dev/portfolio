@@ -70,7 +70,7 @@ export function HeroGrid() {
 
 export function RevealLight() {
   useEffect(() => {
-    const selector = 'main a, main button, .nav a, .nav button, .nav summary, .nav select, .footer a, .card, .career-event, .contact-tile';
+    const selector = 'main a:not(.project-card a), main button, .project-visit, .nav a, .nav button, .nav summary, .nav select, .footer a, .card:not(.project-card), .career-event, .contact-tile';
     const lit = new Set<HTMLElement>();
     let frame = 0;
     let position: { x: number; y: number } | null = null;
