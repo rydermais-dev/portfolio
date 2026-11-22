@@ -1129,3 +1129,9 @@ body:has(.home-next) .footer a { color:#382b47; }
 @media (prefers-color-scheme:light) and (hover:hover) and (pointer:fine) {
   :root:not([data-theme=dark]) .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:drop-shadow(0 1px 3px #241a3580); }
 }
+/* Only the light theme picks up the active project's color in the bottom fade. */
+:root[data-theme=light] .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 16%,transparent); }
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme=dark]) .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 16%,transparent); }
+}
+.playground-backdrops::after { background:linear-gradient(to bottom,transparent 45%,var(--carousel-bottom-tint, transparent) 100%),linear-gradient(to bottom,transparent 45%,var(--carousel-depth-shadow) 100%); }
