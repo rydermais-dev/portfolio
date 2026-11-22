@@ -1114,9 +1114,9 @@ body:has(.home-next) .footer a { color:#382b47; }
 @media(max-width:700px) { .ui-button.carousel-arrow { width:36px; height:36px; min-height:36px; } }
 
 /* The active slide uses a light, project-tinted scrim in the light theme. */
-:root[data-theme=light] .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 10%,#fff); --featured-card-ink:#201c2c; }
+:root[data-theme=light] .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 38%,#fff); --featured-card-ink:#201c2c; }
 @media (prefers-color-scheme:light) {
-  :root:not([data-theme=dark]) .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 10%,#fff); --featured-card-ink:#201c2c; }
+  :root:not([data-theme=dark]) .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 38%,#fff); --featured-card-ink:#201c2c; }
 }
 .playground .project-art::after { background:linear-gradient(transparent 48%,var(--featured-card-bottom, #15121eee)); }
 .playground .project-info p { color:var(--featured-card-ink, #eeeaf3); }
@@ -1130,8 +1130,8 @@ body:has(.home-next) .footer a { color:#382b47; }
   :root:not([data-theme=dark]) .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:drop-shadow(0 1px 3px #241a3580); }
 }
 /* Only the light theme picks up the active project's color in the bottom fade. */
-:root[data-theme=light] .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 16%,transparent); }
+:root[data-theme=light] .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 26%,transparent); }
 @media (prefers-color-scheme:light) {
-  :root:not([data-theme=dark]) .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 16%,transparent); }
+  :root:not([data-theme=dark]) .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 26%,transparent); }
 }
 .playground-backdrops::after { background:linear-gradient(to bottom,transparent 45%,var(--carousel-bottom-tint, transparent) 100%),linear-gradient(to bottom,transparent 45%,var(--carousel-depth-shadow) 100%); }
