@@ -21,8 +21,10 @@ export function Playground({ locale }: { locale: Locale }) {
     <div className="wrap playground-inner">
       <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description" aria-live="polite" aria-atomic="true"><h3>{project.title}</h3><p lang={descriptionLanguage}>{descriptions[descriptionLanguage]}</p></div></div>
       <div className="playground-slide">
-        <div className="playground-stack" key={project.id}>
-          <ProjectCard project={project} locale={locale} visitLabel={translate(locale, 'html.home.visit')} />
+        <div className="playground-stack">
+          <div className="playground-current" key={project.id}>
+            <ProjectCard project={project} locale={locale} visitLabel={translate(locale, 'html.home.visit')} />
+          </div>
         </div>
         <div className="story-controls" aria-label="Navegar pelos destaques">
           <Button type="button" className="story-button" aria-label="Destaque anterior" onClick={() => step(-1)}>←</Button>
