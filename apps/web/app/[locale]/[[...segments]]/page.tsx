@@ -119,7 +119,7 @@ export default async function Page({ params }: Props) {
   </section>;
 
   return <section className={'wrap section page-section page-' + section}>
-    <h1>{heading}</h1>
+    {section !== 'contact' && <h1>{heading}</h1>}
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p><div className="cards">{projects.map((project) => <ProjectCard key={project.id} project={project} locale={locale} visitLabel={t('html.home.visit')} />)}</div></>}
     {section === 'certifications' && <CertificateGallery viewLabel={t('html.certifications.view')} />}
     {section === 'blog' && !slug && <>
@@ -133,10 +133,19 @@ export default async function Page({ params }: Props) {
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Link href={path('/blog')}>← {t('menu.blog')}</Link><Markdown skipHtml>{post.body}</Markdown><aside className="article-next">{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} ↗</Link>)}</aside></article>)}
-    {section === 'contact' && <div className="contact-groups">
-      <div className="contact-intro" lang="pt-BR"><div><h2>Uma boa ideia começa com uma conversa.</h2><p>Quer criar um produto, melhorar uma experiência ou conversar sobre uma oportunidade? Conte o que você tem em mente e o contexto do projeto. Vou gostar de conhecer sua ideia.</p></div><div className="editorial-aside"><strong>Olá!</strong><span>Vamos construir algo juntos?</span></div></div>
-      <section className="resume-panel"><div><h2>Curriculum Vitae</h2><p lang="pt-BR">Consulte minha trajetória em uma versão pronta para impressão.</p></div><Link className="resume-link" href={path('/cv')}>Curriculum Vitae ↗</Link></section>
-      <section><h2>{t('html.contact.contactInfo')}</h2><div className="contact-grid"><a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>Envie um e-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a><a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>Conecte-se no LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a></div></section>
+    {section === 'contact' && <div className="contact-page" lang="pt-BR">
+      <header className="contact-hero">
+        <div className="contact-hero-copy"><h1>Uma boa conversa<br /><span>abre caminhos.</span></h1><p>Tem um projeto, uma oportunidade ou uma ideia que merece sair do papel? Conte comigo para pensar nos próximos passos.</p></div>
+        <div className="contact-hero-art" aria-hidden="true"><i /><i /><i /><span /></div>
+      </header>
+      <section className="contact-channels" aria-labelledby="contact-channels-title">
+        <div className="contact-channels-intro"><h2 id="contact-channels-title">Escolha por onde começar</h2><p>Escreva diretamente ou acompanhe meu trabalho profissional.</p></div>
+        <div className="contact-grid">
+          <a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><span aria-hidden="true">✉</span><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><span aria-hidden="true">↗</span></a>
+          <a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link href={path('/cv')}>Ver currículo <span aria-hidden="true">↗</span></Link></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities ↗</a></div></div>}
   </section>;
