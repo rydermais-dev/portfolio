@@ -31,9 +31,29 @@ export function CertificateGallery({ viewLabel }: { viewLabel: string }) {
       </div>
       {issuer && <p className="cert-active-filter">Exibindo certificados de <strong>{issuer}</strong>. <button type="button" onClick={() => setIssuer('')}>Ver todas</button></p>}
       {filtered.length ? <div className="cert-gallery">{filtered.map((cert) => <TiltCard className="cert-piece" key={cert.id}>
-        <div className="cert-piece-top"><div className="cert-logo">{cert.issuerLogo && <img src={cert.issuerLogo.replace('/logos/', '/transparent/').replace(/\.png$/, '.webp')} alt="" loading="lazy" />}</div><div className="cert-issuer-meta"><span>EMITIDO POR</span><strong>{cert.emissor}</strong></div><span className="cert-piece-mark" aria-hidden="true"><Icon name="workspace_premium" /></span></div>
-        <div className="cert-piece-title"><span>FORMAÇÃO E CERTIFICAÇÃO</span><h3>{cert.title}</h3></div>
-        <div className="cert-piece-bottom"><div className="cert-piece-date"><span>EMISSÃO</span><strong>{cert.date}</strong></div>{cert.tags.length > 0 && <div className="certification-tags">{cert.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>}{cert.link.startsWith('https://') && <a href={cert.link}>{viewLabel} <Icon name="arrow_outward" /></a>}</div>
+        <header className="cert-piece-top">
+          <div className="cert-logo">
+            {cert.issuerLogo && <img src={cert.issuerLogo.replace('/logos/', '/transparent/').replace(/\.png$/, '.webp')} alt="" loading="lazy" />}
+          </div>
+          <div className="cert-issuer-meta"><strong>{cert.emissor}</strong></div>
+          <span className="cert-piece-mark"><Icon name="workspace_premium" /></span>
+        </header>
+        <h3>{cert.title}</h3>
+        <div className="cert-piece-topics">
+          <span className="cert-field-label">Temas</span>
+          {cert.tags.length > 0 ? (
+            <ul className="certification-tags">
+              {cert.tags.slice(0, 3).map((tag) => <li key={tag}><span>{tag}</span></li>)}
+            </ul>
+          ) : <span className="cert-topics-empty">Não informados</span>}
+        </div>
+        <footer className="cert-piece-bottom">
+          <div className="cert-piece-date">
+            <Icon name="calendar_today" />
+            <div><span className="cert-field-label">Emissão</span><strong>{cert.date}</strong></div>
+          </div>
+          {cert.link.startsWith('https://') && <a href={cert.link}>{viewLabel} <Icon name="arrow_outward" /></a>}
+        </footer>
       </TiltCard>)}</div> : <div className="cert-empty"><Icon name="search" /><h3>Nenhum certificado encontrado</h3><p>Experimente outra palavra ou escolha outra instituição.</p><Button type="button" className="ui-button ui-button--outline" onClick={reset}>Limpar filtros</Button></div>}
     </section>
   </div>;

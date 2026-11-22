@@ -15,7 +15,7 @@ Direção visual proposta: base grafite com tema claro equivalente, violeta para
 | / | Apresentação, destaques de projetos, experiência e atividade recente com links reais |
 | /about | Perfil, trajetória profissional e formação, habilidades e seção de personalidade |
 | /about/personality-test | Resultado estático com conteúdo aprovado e fonte atribuída |
-| /certifications | Lista, emissor, datas e link verificável quando fornecido |
+| /certifications | Todos os cards exibem emissor, título, temas e data de emissão no rodapé. Temas ausentes são sinalizados. Logos e ícones mantêm contraste nos dois temas. Link verificável quando fornecido. |
 | /projects e /project/:id | Catálogo e detalhe, com demo/repositório quando disponíveis e redirecionamento de IDs legados |
 | /blog e /blog/:slug | Listagem e artigo, notícias próprias e referências a publicações públicas |
 | /contact | Canais aprovados e links diretos, incluindo LinkedIn |
