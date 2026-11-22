@@ -5,12 +5,13 @@
     "emissor": "DIO",
     "description": "DIO - dez de 2024",
     "date": "dez de 2024",
-    "link": "",
+    "link": "https://hermes.dio.me/certificates/Y5A3DODT.pdf",
     "tags": [
       "Inteligência artificial",
       "Gestão"
     ],
-    "issuerLogo": "/images/certs/logos/dio.png"
+    "issuerLogo": "/images/certs/logos/dio.png",
+    "credentialId": "Y5A3DODT"
   },
   {
     "id": 2,
@@ -44,9 +45,10 @@
     "emissor": "Scrimba",
     "description": "Scrimba - jul de 2024",
     "date": "jul de 2024",
-    "link": "",
+    "link": "https://v1.scrimba.com/certificate/uvbB7EfZ/gfrontend",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/scrimba.png"
+    "issuerLogo": "/images/certs/logos/scrimba.png",
+    "credentialId": "uvbB7EfZ/gfrontend"
   },
   {
     "id": 5,
@@ -54,9 +56,10 @@
     "emissor": "Scrimba",
     "description": "Scrimba - jun de 2024",
     "date": "jun de 2024",
-    "link": "",
+    "link": "https://scrimba.com/certificate/uvbB7EfZ/gaiengineer",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/scrimba.png"
+    "issuerLogo": "/images/certs/logos/scrimba.png",
+    "credentialId": "uvbB7EfZ/gaiengineer"
   },
   {
     "id": 6,
@@ -64,9 +67,10 @@
     "emissor": "Ratatype",
     "description": "Ratatype - mai de 2024",
     "date": "mai de 2024",
-    "link": "",
+    "link": "https://www.ratatype.com.br/pt_BR/u7009959/certificate/pt_br/",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/ratatype.png"
+    "issuerLogo": "/images/certs/logos/ratatype.png",
+    "credentialId": "7009959"
   },
   {
     "id": 7,
@@ -74,9 +78,10 @@
     "emissor": "Descomplica Faculdade Digital",
     "description": "Descomplica Faculdade Digital - nov de 2023",
     "date": "nov de 2023",
-    "link": "",
+    "link": "https://certificados.descomplica.com.br/graduacao/b8c7ffb30da815423cf109b91cb55ca2fbb22c539640ba383600aced945878ec",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/descomplica.png"
+    "issuerLogo": "/images/certs/logos/descomplica.png",
+    "credentialId": "b8c7ffb30da815423cf109b91cb55ca2fbb22c539640ba383600aced945878ec"
   },
   {
     "id": 8,
@@ -84,9 +89,10 @@
     "emissor": "Descomplica Faculdade Digital",
     "description": "Descomplica Faculdade Digital - set de 2023",
     "date": "set de 2023",
-    "link": "",
+    "link": "https://certificados.descomplica.com.br/graduacao/7baadeeceb0269d66bea74ef7dd53d88117e1fccfd42baa7d3c50642972c6537",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/descomplica.png"
+    "issuerLogo": "/images/certs/logos/descomplica.png",
+    "credentialId": "7baadeeceb0269d66bea74ef7dd53d88117e1fccfd42baa7d3c50642972c6537"
   },
   {
     "id": 9,
@@ -94,12 +100,13 @@
     "emissor": "Udemy",
     "description": "Udemy - ago de 2023",
     "date": "ago de 2023",
-    "link": "",
+    "link": "https://www.udemy.com/certificate/UC-bdeed96b-6070-4bee-be75-56af47c2bbc7/",
     "tags": [
       "Desenvolvimento de back-end",
       "Desenvolvimento de jogos eletrônicos"
     ],
-    "issuerLogo": "/images/certs/logos/udemy.png"
+    "issuerLogo": "/images/certs/logos/udemy.png",
+    "credentialId": "UC-bdeed96b-6070-4bee-be75-56af47c2bbc7"
   },
   {
     "id": 10,
@@ -107,7 +114,7 @@
     "emissor": "Recode",
     "description": "Recode - abr de 2023",
     "date": "abr de 2023",
-    "link": "",
+    "link": "https://drive.google.com/uc?id=1jGrdWGCFsLEt60eFa-G1kmoBkk_k4jVf",
     "tags": [
       "Criatividade",
       "Competências pessoais e sociais"
@@ -120,11 +127,12 @@
     "emissor": "Alura",
     "description": "Alura - jan de 2023",
     "date": "jan de 2023",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/305b917e-3765-4da9-8370-9cee0f2f28c5",
     "tags": [
       "Experiência do usuário (UX)"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "305b917e-3765-4da9-8370-9cee0f2f28c5"
   },
   {
     "id": 12,
@@ -132,11 +140,12 @@
     "emissor": "Alura",
     "description": "Alura - jan de 2023",
     "date": "jan de 2023",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/bdc83604-5fea-488f-b84d-4676e5fd0281",
     "tags": [
       "Desenvolvimento de front-end e JavaScript"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "bdc83604-5fea-488f-b84d-4676e5fd0281"
   },
   {
     "id": 13,
@@ -144,9 +153,10 @@
     "emissor": "Alura",
     "description": "Alura - dez de 2022",
     "date": "dez de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/467d991a-e203-4ddb-b97e-93e49fa499d2",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "467d991a-e203-4ddb-b97e-93e49fa499d2"
   },
   {
     "id": 14,
@@ -154,11 +164,12 @@
     "emissor": "Alura",
     "description": "Alura - dez de 2022",
     "date": "dez de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/659240bb-51d2-4170-b943-59f2dbdf31ea",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "659240bb-51d2-4170-b943-59f2dbdf31ea"
   },
   {
     "id": 15,
@@ -166,11 +177,12 @@
     "emissor": "Alura",
     "description": "Alura - dez de 2022",
     "date": "dez de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/83a02795-1837-4708-93ff-4a717a16e51d",
     "tags": [
       "Experiência do usuário (UX)"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "83a02795-1837-4708-93ff-4a717a16e51d"
   },
   {
     "id": 16,
@@ -178,11 +190,12 @@
     "emissor": "Alura",
     "description": "Alura - nov de 2022",
     "date": "nov de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/8b502b2d-ab10-4a4b-8cc9-d15f85063756",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "8b502b2d-ab10-4a4b-8cc9-d15f85063756"
   },
   {
     "id": 17,
@@ -190,11 +203,12 @@
     "emissor": "Alura",
     "description": "Alura - nov de 2022",
     "date": "nov de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/0b65ea26-b2d7-4cca-82d4-105db7c3a363",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "0b65ea26-b2d7-4cca-82d4-105db7c3a363"
   },
   {
     "id": 18,
@@ -202,11 +216,12 @@
     "emissor": "Alura",
     "description": "Alura - out de 2022",
     "date": "out de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/628bef14-085e-4fac-9ca7-e91d5f298dac",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "628bef14-085e-4fac-9ca7-e91d5f298dac"
   },
   {
     "id": 19,
@@ -214,11 +229,12 @@
     "emissor": "Alura",
     "description": "Alura - out de 2022",
     "date": "out de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/a0d56e0a-6268-4a08-8418-20c4b0dd1319",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "a0d56e0a-6268-4a08-8418-20c4b0dd1319"
   },
   {
     "id": 20,
@@ -226,11 +242,12 @@
     "emissor": "Alura",
     "description": "Alura - out de 2022",
     "date": "out de 2022",
-    "link": "",
+    "link": "https://cursos.alura.com.br/certificate/ffd68967-2e59-494c-8362-2f07bcd1de10",
     "tags": [
       "Desenvolvimento de back-end e Desenvolvimento de front-end"
     ],
-    "issuerLogo": "/images/certs/logos/alura.png"
+    "issuerLogo": "/images/certs/logos/alura.png",
+    "credentialId": "ffd68967-2e59-494c-8362-2f07bcd1de10"
   },
   {
     "id": 21,
@@ -238,11 +255,12 @@
     "emissor": "Recode",
     "description": "Recode - jul de 2022",
     "date": "jul de 2022",
-    "link": "",
+    "link": "https://newmoodle.recode.org.br/mod/simplecertificate/verify.php?code=62c3341b-fbec-4c63-b9ed-6a710a010069",
     "tags": [
       "Desenvolvimento de front-end"
     ],
-    "issuerLogo": "/images/certs/logos/recode.png"
+    "issuerLogo": "/images/certs/logos/recode.png",
+    "credentialId": "62c3341b-fbec-4c63-b9ed-6a710a010069"
   },
   {
     "id": 22,
@@ -250,9 +268,10 @@
     "emissor": "SEST SENAT",
     "description": "SEST SENAT - jun de 2022",
     "date": "jun de 2022",
-    "link": "",
+    "link": "https://ead.sestsenat.org.br/validacao-de-certificados/",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/sestsenat.png"
+    "issuerLogo": "/images/certs/logos/sestsenat.png",
+    "credentialId": "EACCE7256EC7C96335C636F9E035086D"
   },
   {
     "id": 23,
@@ -265,7 +284,8 @@
       "Desenvolvimento de back-end",
       "Desenvolvimento de front-end"
     ],
-    "issuerLogo": "/images/certs/logos/recode.png"
+    "issuerLogo": "/images/certs/logos/recode.png",
+    "credentialId": "62517022-fad8-4029-91b2-ad990a010068"
   },
   {
     "id": 24,
@@ -277,7 +297,8 @@
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/recode.png"
+    "issuerLogo": "/images/certs/logos/recode.png",
+    "credentialId": "60b30349-5214-4d33-959b-59e00a010068"
   },
   {
     "id": 25,
@@ -290,7 +311,8 @@
       "Desenvolvimento de back-end",
       "Desenvolvimento de front-end"
     ],
-    "issuerLogo": "/images/certs/logos/recode.png"
+    "issuerLogo": "/images/certs/logos/recode.png",
+    "credentialId": "60acbee9-dfac-4496-b3c1-a4500a010068"
   },
   {
     "id": 26,
@@ -298,11 +320,12 @@
     "emissor": "Fundação Bradesco",
     "description": "Fundação Bradesco - fev de 2021",
     "date": "fev de 2021",
-    "link": "",
+    "link": "https://www.ev.org.br/validar-certificado",
     "tags": [
       "Desenvolvimento de front-end"
     ],
-    "issuerLogo": "/images/certs/logos/bradesco.png"
+    "issuerLogo": "/images/certs/logos/bradesco.png",
+    "credentialId": "094BAE16-DAAF-4866-80E9-4DEADC50E5FC"
   },
   {
     "id": 27,
@@ -310,9 +333,10 @@
     "emissor": "Fundação Bradesco",
     "description": "Fundação Bradesco - fev de 2021",
     "date": "fev de 2021",
-    "link": "",
+    "link": "https://www.ev.org.br/validar-certificado",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/bradesco.png"
+    "issuerLogo": "/images/certs/logos/bradesco.png",
+    "credentialId": "807C3AC9-3A92-4BCE-AE5F-F1B65E7747D3"
   },
   {
     "id": 28,
@@ -320,9 +344,10 @@
     "emissor": "SEST SENAT",
     "description": "SEST SENAT - abr de 2020",
     "date": "abr de 2020",
-    "link": "",
+    "link": "https://ead.sestsenat.org.br/validacao-de-certificados/",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/sestsenat.png"
+    "issuerLogo": "/images/certs/logos/sestsenat.png",
+    "credentialId": "0D2BD0DA42FC7E665412B622125283D5"
   },
   {
     "id": 29,
@@ -330,11 +355,12 @@
     "emissor": "Fundação Bradesco",
     "description": "Fundação Bradesco - abr de 2014",
     "date": "abr de 2014",
-    "link": "",
+    "link": "https://www.ev.org.br/validar-certificado",
     "tags": [
       "Desenvolvimento de back-end"
     ],
-    "issuerLogo": "/images/certs/logos/bradesco.png"
+    "issuerLogo": "/images/certs/logos/bradesco.png",
+    "credentialId": "11407580-E17E-4E0D-B6D7-C0480857A38D"
   },
   {
     "id": 30,
@@ -342,8 +368,20 @@
     "emissor": "Fundação Bradesco",
     "description": "Fundação Bradesco - abr de 2014",
     "date": "abr de 2014",
+    "link": "https://www.ev.org.br/validar-certificado",
+    "tags": [],
+    "issuerLogo": "/images/certs/logos/bradesco.png",
+    "credentialId": "25CB536C-CB7D-45F8-BA33-B6C2253AC26C"
+  },
+  {
+    "id": 31,
+    "title": "Informática - Ciclo I",
+    "emissor": "ITEP - Instituto Tecnológico de Educação Profissional",
+    "description": "ITEP - jan de 2012",
+    "date": "jan de 2012",
     "link": "",
     "tags": [],
-    "issuerLogo": "/images/certs/logos/bradesco.png"
+    "issuerLogo": "",
+    "credentialId": "Physical Archive: Book 2011/1, Page 74"
   }
 ]

@@ -123,7 +123,7 @@ export default async function Page({ params }: Props) {
   return <section className={'wrap section page-section page-' + section}>
     {section !== 'contact' && <h1>{heading}</h1>}
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p><div className="cards">{projects.map((project) => <ProjectCard key={project.id} project={project} locale={locale} visitLabel={t('html.home.visit')} />)}</div></>}
-    {section === 'certifications' && <CertificateGallery viewLabel={t('html.certifications.view')} />}
+    {section === 'certifications' && <CertificateGallery locale={locale} />}
     {section === 'blog' && !slug && <>
       <div className="journal-intro" lang="pt-BR"><div><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="editorial-aside"><strong>{posts.length}</strong><span>artigos publicados</span></div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
       <div className="blog-index">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">

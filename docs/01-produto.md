@@ -15,7 +15,7 @@ Direção visual proposta: base grafite com tema claro equivalente, violeta para
 | / | Apresentação, destaques de projetos, experiência e atividade recente com links reais |
 | /about | Perfil, trajetória profissional e formação, habilidades e seção de personalidade |
 | /about/personality-test | Resultado estático com conteúdo aprovado e fonte atribuída |
-| /certifications | Todos os cards exibem emissor, título, temas e data de emissão no rodapé. Temas ausentes são sinalizados. Logos e ícones mantêm contraste nos dois temas. Link verificável quando fornecido. |
+| /certifications | Todos os certificados têm áreas localizadas e tecnologias quando sustentadas pelo conteúdo. Busca ao digitar usa termos nos idiomas do site, prefixos e pequenos erros. Áreas e tecnologias aceitam seleção múltipla com união dentro do grupo e interseção entre grupos. Card e botão Ver abrem diploma com titular, emissor, emissão, temas, ID da credencial e link quando fornecidos. O parâmetro certificado usa o ID estável do catálogo e abre o modal ao acessar o link compartilhado. |
 | /projects e /project/:id | Catálogo e detalhe, com demo/repositório quando disponíveis e redirecionamento de IDs legados |
 | /blog e /blog/:slug | Listagem e artigo, notícias próprias e referências a publicações públicas |
 | /contact | Canais aprovados e links diretos, incluindo LinkedIn |
