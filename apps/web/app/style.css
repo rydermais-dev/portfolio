@@ -559,7 +559,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 
 /* Animate the original logo to the measured position of the title. */
 .project-card .project-logo { z-index:3; object-position:center; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-y,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-bottom,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
 
 .project-card.tilt-card::after { display:none; }
 .project-card .project-title { opacity:.38; }
@@ -568,7 +568,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
   .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; }
 }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-y,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-bottom,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
 }
 /* Use the same square geometry at both ends of the logo transition. */
 .project-card .project-logo { height:auto; aspect-ratio:1 / 1; object-fit:contain; object-position:center; }
@@ -582,7 +582,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
   .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:center; }
 }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:var(--logo-target-y,75%); transform:translate(0,-50%) translateZ(45px); }
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:var(--logo-target-bottom,75%); transform:translate(0,-50%) translateZ(45px); }
   .project-card:hover .project-info p,.project-card:focus-within .project-info p { padding-left:calc(min(36%,140px) + 1rem); }
 }
 
@@ -664,4 +664,12 @@ main { overflow-x:clip; }
     background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), #d8ceff55, transparent 75%);
     box-shadow:inset 0 0 0 2px #d8ceffb3;
   }
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .project-card:is(:hover,:focus-within) .project-logo {
+    top:var(--logo-target-bottom,85%);
+    transform:translateY(-100%) translateZ(45px);
+  }
+  .project-card:is(:hover,:focus-within) .project-info h3 { transform:translateZ(20px); }
 }
