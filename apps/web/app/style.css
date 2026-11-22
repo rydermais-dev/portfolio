@@ -954,3 +954,7 @@ main { overflow-x:clip; }
 .playground-backdrop-deltaverse { --slide-tint:#58351fe0; }
 .playground-backdrop.is-visible { opacity:1; }
 @media(prefers-reduced-motion:reduce) { .playground-backdrop { transition:none; } }
+.playground-description { display:flex; align-items:center; gap:1.4rem; max-width:none; }
+.playground-description .playground-all { flex:none; white-space:nowrap; }
+.playground-description p { max-width:30ch; }
+@media(max-width:900px) { .playground-description { align-items:flex-start; flex-direction:column; gap:1rem; } }

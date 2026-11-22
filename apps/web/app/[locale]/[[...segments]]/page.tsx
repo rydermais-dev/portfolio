@@ -81,6 +81,7 @@ export default async function Page({ params }: Props) {
         <HomeHeroPortrait />
       </div>
     </section>
+      <Playground locale={locale} />
       <section id="sobre-mim" className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
         <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
@@ -94,7 +95,6 @@ export default async function Page({ params }: Props) {
           </li>)}</ol>
         </section>)}</div>
       </section>
-      <Playground locale={locale} />
       <section className="wrap home-next" lang="pt-BR"><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--primary" href={path('/contact')}>{t('menu.contact')} <span aria-hidden="true">↗</span></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
   </>;
 
