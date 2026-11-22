@@ -487,22 +487,30 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 :root[data-theme=dark] .cert-piece-title > span { color:#c9aeca; }
 :root[data-theme=dark] .cert-piece-bottom { border-color:#51464d; }
 
-/* Project cards inspired by the original portfolio's depth and reveal. */
-.project-card { --project-highlight:#9871f6; position:relative; min-height:300px; overflow:visible; background:#24212d; color:#fff; border-radius:12px; transform-style:preserve-3d; }
+/* Full-bleed project cards, inspired by the original MiniDisplay. */
+.project-card { --project-highlight:#9871f6; position:relative; display:block; width:100%; min-width:0; box-sizing:border-box; aspect-ratio:16 / 10; min-height:280px; padding:0; overflow:visible; background:#24212d; color:#fff; border-radius:12px; transform-style:preserve-3d; }
 .project-card-singalong { --project-highlight:#40ad4b; }
 .project-card-cedes { --project-highlight:#e0a535; }
 .project-card-rydermais,.project-card-ryan { --project-highlight:#9871f6; }
 .project-card-orkuty { --project-highlight:#e57bb4; }
-.project-card .project-image { height:180px; aspect-ratio:auto; border-radius:11px 11px 0 0; transform:translateZ(18px); transform-origin:center top; transition:transform .35s ease, border-radius .35s ease; margin-bottom:1.2rem; }
-.project-card .project-image img { transition:transform .35s ease,filter .35s ease; }
-.project-card h3,.project-card .card-index,.project-card p { position:relative; transform:translateZ(24px); }
-.project-card h3 a { color:#fff; }
-.project-card p { color:#d5cfdf; }
-.project-card .card-index { color:#cbbcff; }
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
-  .project-card:hover,.project-card:focus-within { box-shadow:0 0 0 4px var(--background),0 0 0 7px var(--project-highlight),0 20px 45px #0005; }
-  .project-card:hover .project-image,.project-card:focus-within .project-image { transform:translateZ(18px) scale(.92); border-radius:8px; }
+.project-card .project-image { position:absolute; inset:0 0 auto; width:100%; height:100%; margin:0; border-radius:11px; overflow:hidden; transform:translateZ(12px); transition:height .35s ease, border-radius .35s ease; }
+.project-card .project-image img { width:100%; height:100%; object-fit:cover; transition:filter .35s ease; }
+.project-card .project-info { position:absolute; z-index:2; inset:auto 0 0; padding:3.5rem 1.5rem 1.4rem; border-radius:0 0 11px 11px; background:linear-gradient(transparent, #15121eee 70%); transform:translateZ(25px); }
+.project-card .project-info h3,.project-card .project-info p { margin:0; }
+.project-card .project-info h3 { font-size:clamp(1.25rem,2vw,1.8rem); line-height:1.15; transition:transform .35s ease; }
+.project-card .project-info h3 a { color:#fff; }
+.project-card .project-info h3 a span { color:#fff; }
+.project-card .project-info p { color:#eeeaf3; margin-top:.65rem; font-size:.9rem; line-height:1.4; }
+@media(hover:hover) and (pointer:fine) {
+  .project-card .project-info p { max-height:0; opacity:0; overflow:hidden; margin-top:0; transition:max-height .35s ease,opacity .25s ease,margin .35s ease; }
+  .project-card:hover,.project-card:focus-within { z-index:2; box-shadow:0 0 0 4px var(--background),0 0 0 7px var(--project-highlight),0 20px 45px #0005; }
+  .project-card:hover .project-image,.project-card:focus-within .project-image { height:62%; border-radius:11px 11px 0 0; }
   .project-card:hover .project-image img,.project-card:focus-within .project-image img { filter:brightness(.8); }
-  .project-card:hover h3,.project-card:focus-within h3 { transform:translateZ(42px); }
+  .project-card:hover .project-info,.project-card:focus-within .project-info { background:linear-gradient(transparent, #24212d 42%); }
+  .project-card:hover .project-info h3,.project-card:focus-within .project-info h3 { transform:translateZ(35px); }
+  .project-card:hover .project-info p,.project-card:focus-within .project-info p { max-height:7rem; opacity:1; margin-top:.65rem; }
 }
-@media(max-width:600px) { .project-card { min-height:0; } .project-card .project-image { height:auto; aspect-ratio:16 / 10; } }
+@media(max-width:600px) { .project-card { min-height:280px; } .project-card .project-info { padding:4rem 1.1rem 1.1rem; } }
+@media(prefers-reduced-motion:reduce) { .project-card .project-image,.project-card .project-info h3,.project-card .project-info p { transition:none; } }
+
+.home-projects .cards,.page-projects .cards { gap:24px; }
