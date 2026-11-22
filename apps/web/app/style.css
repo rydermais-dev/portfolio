@@ -533,3 +533,5 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .career-year.is-active .career-year-label::after { background:var(--active-color); box-shadow:0 0 0 5px var(--background),0 0 18px var(--active-color); }
 .career-event.is-active { border-color:var(--event-color); }
 .career-event.is-active::before { background:var(--event-color); }
+
+.career-event.is-active::before { visibility:hidden; }
