@@ -1042,3 +1042,43 @@ body:has(.home-next) .footer a { color:#382b47; }
   background:color-mix(in srgb,var(--event-color) 6%,var(--surface));
 }
 @media(prefers-reduced-motion:reduce) { .career-event { transition:none; } }
+
+/* A lighter, project-tinted backdrop keeps the featured section legible in light mode. */
+:root[data-theme=light] .playground {
+  --featured-overlay-end:#f8f6fceF;
+  --featured-singalong:#f7e6e0ef;
+  --featured-orkuty:#f9e3f0ef;
+  --featured-ryan:#ede5faef;
+  --featured-deltaverse:#f9f0d7ef;
+  --featured-ink:#201c2c;
+  --featured-muted:#514b5d;
+  --featured-border:#4d435c70;
+}
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme=dark]) .playground {
+    --featured-overlay-end:#f8f6fcef;
+    --featured-singalong:#f7e6e0ef;
+    --featured-orkuty:#f9e3f0ef;
+    --featured-ryan:#ede5faef;
+    --featured-deltaverse:#f9f0d7ef;
+    --featured-ink:#201c2c;
+    --featured-muted:#514b5d;
+    --featured-border:#4d435c70;
+  }
+}
+.playground:where(:has(.playground-backdrop)) { color:var(--featured-ink, #fff); }
+.playground-backdrop::after { background:linear-gradient(110deg,var(--featured-slide-tint, var(--slide-tint)),var(--featured-overlay-end, #11101de0)); }
+.playground-backdrop-singalong { --featured-slide-tint:var(--featured-singalong, var(--slide-tint)); }
+.playground-backdrop-orkuty { --featured-slide-tint:var(--featured-orkuty, var(--slide-tint)); }
+.playground-backdrop-ryan { --featured-slide-tint:var(--featured-ryan, var(--slide-tint)); }
+.playground-backdrop-deltaverse { --featured-slide-tint:var(--featured-deltaverse, var(--slide-tint)); }
+.playground-heading p { color:var(--featured-muted, #c5c0d5); }
+.playground-heading h2 span { color:var(--featured-ink, #b19cff); }
+.playground-heading .playground-all { color:var(--featured-ink, #fff); border-color:var(--featured-border, #ffffff55); }
+.playground .carousel-pill { background:var(--featured-pill, #ffffff65); }
+.playground .carousel-pill[aria-current] { background:var(--featured-pill-track, #ffffff38); }
+.playground .carousel-progress { background:var(--featured-pill-progress, #e4d9ff); }
+:root[data-theme=light] .playground { --featured-pill:#5d526c80; --featured-pill-track:#5d526c55; --featured-pill-progress:#49377f; }
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme=dark]) .playground { --featured-pill:#5d526c80; --featured-pill-track:#5d526c55; --featured-pill-progress:#49377f; }
+}
