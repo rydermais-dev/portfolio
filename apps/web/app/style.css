@@ -745,3 +745,7 @@ main { overflow-x:clip; }
 @media (prefers-reduced-motion:reduce) {
   .home-hero .home-hero-photo { transition:none; }
 }
+.story-controls { align-items:center; }
+.story-position { min-width:3.2rem; text-align:center; color:#c5c0d5; font-variant-numeric:tabular-nums; }
+.story-controls .story-button { border-radius:50%; display:grid; place-items:center; font-size:1.2rem; }
+.story-controls .story-button:hover { background-color:#ffffff16; border-color:#c5b5ff; }

@@ -105,7 +105,7 @@ export default async function Page({ params }: Props) {
         </section>)}</div>
       </section>
       <Playground locale={locale} />
-      <section className="wrap section home-projects"><div className="home-section-heading"><h2>{t('html.home.projectsTitle')}</h2><Link href={path('/projects')}>{t('menu.projects')} ↗</Link></div>{featured(projects.slice(0, 3))}</section><section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
+      <section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
   </>;
 
   if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
