@@ -58,20 +58,20 @@ export function Playground({ locale }: { locale: Locale }) {
     setTimerKey((key) => key + 1);
   };
 
-  return <section className="playground" aria-labelledby="playground-title">
+  return <section className="playground" data-project={project.id} aria-labelledby="playground-title">
     <div className="playground-backdrops" aria-hidden="true">{featuredProjects.map((item, index) => <div key={item.id} className={'playground-backdrop playground-backdrop-' + item.id + (selected === index ? ' is-visible' : '')} style={{ backgroundImage: 'url("' + item.image + '")' }} />)}</div>
     <div className="wrap playground-inner">
       <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p><Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <Icon name="arrow_outward" /></Link></div></div>
       <div className="playground-slide" onPointerEnter={() => setInteracting(true)} onPointerLeave={() => setInteracting(false)} onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
         <div className="playground-stage">
-          <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}><Icon name="arrow_back" /></Button>
+          <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}><Icon name="chevron_left" /></Button>
         <div className={'playground-stack ' + (direction === 1 ? 'is-forward' : 'is-backward')}>
           <div className="carousel-depth" key={timerKey} aria-hidden="true"><i /><i /></div>
           <div className="playground-current" key={project.id}>
             <ProjectCard project={project} locale={locale} autoActive={autoActive} visitLabel={translate(locale, 'html.home.visit')} />
           </div>
         </div>
-        <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}><Icon name="arrow_forward" /></Button>
+        <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}><Icon name="chevron_right" /></Button>
         </div>
         <div className="carousel-pagination" aria-label="Escolher destaque">
           {featuredProjects.map((item, index) => <button key={item.id} type="button" className="ui-button carousel-pill" aria-label={item.title + ' · ' + (index + 1) + ' / ' + featuredProjects.length} aria-current={selected === index ? 'true' : undefined} onClick={() => select(index)}>

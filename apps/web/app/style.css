@@ -1082,3 +1082,50 @@ body:has(.home-next) .footer a { color:#382b47; }
 @media (prefers-color-scheme:light) {
   :root:not([data-theme=dark]) .playground { --featured-pill:#5d526c80; --featured-pill-track:#5d526c55; --featured-pill-progress:#49377f; }
 }
+
+/* The carousel chrome follows the active project and the current theme. */
+.playground { --carousel-color:#e95d3b; --carousel-surface:#201b2b; --carousel-ink:#fff; --carousel-depth-shadow:#08061066; }
+.playground[data-project=orkuty] { --carousel-color:#e57bb4; }
+.playground[data-project=ryan] { --carousel-color:#9871f6; }
+.playground[data-project=deltaverse] { --carousel-color:#e5b929; }
+:root[data-theme=light] .playground { --carousel-surface:#fff; --carousel-ink:#201c2c; --carousel-depth-shadow:#52405c22; }
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme=dark]) .playground { --carousel-surface:#fff; --carousel-ink:#201c2c; --carousel-depth-shadow:#52405c22; }
+}
+.playground-backdrops::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(to bottom,transparent 45%,var(--carousel-depth-shadow) 100%); }
+.carousel-depth i {
+  border-color:color-mix(in srgb,var(--carousel-color) 45%,transparent);
+  background:color-mix(in srgb,var(--carousel-color) 18%,var(--carousel-surface));
+  border-radius:18px;
+  transition:background-color .7s ease,border-color .7s ease;
+}
+.ui-button.carousel-arrow {
+  width:44px; height:44px; min-height:44px; border-radius:50%;
+  color:var(--carousel-ink);
+  background-color:color-mix(in srgb,var(--carousel-color) 20%,var(--carousel-surface));
+  border-color:color-mix(in srgb,var(--carousel-color) 55%,transparent);
+  backdrop-filter:blur(12px);
+}
+.ui-button.carousel-arrow:hover { background-color:color-mix(in srgb,var(--carousel-color) 34%,var(--carousel-surface)); }
+.ui-button.carousel-arrow .site-icon { font-size:24px; }
+.playground .carousel-pill { background:color-mix(in srgb,var(--carousel-color) 42%,transparent); }
+.playground .carousel-pill[aria-current] { background:color-mix(in srgb,var(--carousel-color) 25%,transparent); }
+.playground .carousel-progress { background:var(--carousel-color); }
+@media(max-width:700px) { .ui-button.carousel-arrow { width:36px; height:36px; min-height:36px; } }
+
+/* The active slide uses a light, project-tinted scrim in the light theme. */
+:root[data-theme=light] .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 10%,#fff); --featured-card-ink:#201c2c; }
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme=dark]) .playground { --featured-card-bottom:color-mix(in srgb,var(--carousel-color) 10%,#fff); --featured-card-ink:#201c2c; }
+}
+.playground .project-art::after { background:linear-gradient(transparent 48%,var(--featured-card-bottom, #15121eee)); }
+.playground .project-info p { color:var(--featured-card-ink, #eeeaf3); }
+.playground .project-visit { color:var(--featured-card-ink, #fff); border-color:color-mix(in srgb,var(--featured-card-ink, #fff) 35%,transparent); }
+.playground .project-info h3 a .project-visit { color:var(--featured-card-ink, #fff); }
+@media (hover:hover) and (pointer:fine) {
+  .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-art::after { background:linear-gradient(transparent 35%,var(--featured-card-bottom, #24212d) 82%); }
+  :root[data-theme=light] .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:brightness(0) opacity(.8); }
+}
+@media (prefers-color-scheme:light) and (hover:hover) and (pointer:fine) {
+  :root:not([data-theme=dark]) .playground .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo { filter:brightness(0) opacity(.8); }
+}
