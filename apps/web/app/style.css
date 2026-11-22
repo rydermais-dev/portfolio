@@ -176,7 +176,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .timeline .card > a { color:var(--accent); font-size:.93rem; font-weight:650; text-decoration:none; }
 .project-detail { --project-color:#383052; background:var(--project-color); color:#fff; border-radius:var(--radius) var(--radius) 0 0; min-height:70vh; transition:background-color .35s ease; }
 @media (prefers-reduced-motion:no-preference) { .project-detail { animation:project-enter .4s ease-out both; } @keyframes project-enter { from { opacity:.65; filter:saturate(.65); } to { opacity:1; filter:saturate(1); } } }
-.project-singalong { --project-color:#403067; }
+.project-singalong { --project-color:#e95d3b; }
 .project-cedes { --project-color:#294e57; }
 .project-rydermais { --project-color:#292c50; }
 .project-ryan { --project-color:#374d78; }
@@ -489,7 +489,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 
 /* Full-bleed project cards, inspired by the original MiniDisplay. */
 .project-card { --project-highlight:#9871f6; position:relative; display:block; width:100%; min-width:0; box-sizing:border-box; aspect-ratio:16 / 10; min-height:280px; padding:0; overflow:visible; background:#24212d; color:#fff; border-radius:12px; transform-style:preserve-3d; }
-.project-card-singalong { --project-highlight:#40ad4b; }
+.project-card-singalong { --project-highlight:#e95d3b; }
 .project-card-cedes { --project-highlight:#e0a535; }
 .project-card-rydermais,.project-card-ryan { --project-highlight:#9871f6; }
 .project-card-orkuty { --project-highlight:#e57bb4; }
