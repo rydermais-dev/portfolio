@@ -95,7 +95,7 @@ export default async function Page({ params }: Props) {
         </section>)}</div>
       </section>
       <Playground locale={locale} />
-      <section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
+      <section className="wrap home-next" lang="pt-BR"><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link href={path('/contact')}>{t('menu.contact')} <span aria-hidden="true">↗</span></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
   </>;
 
   if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
