@@ -620,3 +620,17 @@ main { overflow-x:clip; }
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
   .tilt-card:hover { transition:transform 0s, border-color .2s; }
 }
+/* Keep the action above the decorative plane, also when the card tilts. */
+.project-card .project-info h3 a { z-index: 5; }
+@media (hover:hover) and (pointer:fine) {
+  .project-card .project-foreground { transition: transform var(--foreground-duration) var(--foreground-easing), opacity .32s ease; }
+  .project-card-orkuty .project-foreground { --foreground-duration: .55s; --foreground-easing: cubic-bezier(.18,.8,.25,1); transform: translate(55%,18%) rotate(19deg); }
+  .project-card-deltaverse .project-foreground { --foreground-duration: .42s; --foreground-easing: cubic-bezier(.25,.8,.45,1.15); transform: translateY(38%); }
+  .project-card-singalong .project-foreground { --foreground-duration: .62s; --foreground-easing: cubic-bezier(.18,.7,.25,1); transform: translateY(12%) rotate(-28deg) scale(.7); }
+  .project-card-rydermais .project-foreground { --foreground-duration: .8s; --foreground-easing: ease-out; transform: rotate(-42deg) scale(.55); }
+  .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { transform: translate3d(0,0,32px) rotate(0) scale(1); }
+  .project-card:hover .project-info h3,.project-card:focus-within .project-info h3 { transform: translateZ(55px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .project-card .project-foreground { transition:none; }
+}
