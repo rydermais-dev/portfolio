@@ -35,7 +35,7 @@ A página inicial apresenta uma seleção interativa de CodeHouse, SingAlong! e 
 
 ## Linguagem visual das páginas
 
-O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos e contatos compartilham tipografia Inter Variable, espaçamento, cores e estados de foco. Cada projeto recebe uma cor de abertura e uma transição respeita a preferência por movimento reduzido. Páginas de projeto oferecem retorno ao catálogo e links disponíveis. Verificar páginas claras e escuras, teclado, dimensões móveis e desktop em cada alteração visual.
+O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos e contatos compartilham tipografia Inter Variable, espaçamento, cores e estados de foco. Cada projeto recebe uma cor de abertura e uma transição respeita a preferência por movimento reduzido. Páginas de projeto oferecem retorno ao catálogo e links disponíveis. O Orkuty usa uma capa de balões de conversa e um mockup transparente do login como camada animada no card. Verificar páginas claras e escuras, teclado, dimensões móveis e desktop em cada alteração visual.
 
 ## Interações recuperadas
 
