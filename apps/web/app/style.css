@@ -1201,3 +1201,26 @@ body:has(.home-next) .footer a { color:#382b47; }
 .cert-collection .cert-piece-mark { grid-column:2; grid-row:1 / span 2; margin:0; }
 :root[data-theme=dark] .cert-collection .cert-logo { background:#fff; border-radius:9px; padding:6px 10px; }
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) .cert-collection .cert-logo { background:#fff; border-radius:9px; padding:6px 10px; } }
+
+/* A consistent illuminated certificate surface, with original issuer colors intact. */
+.cert-collection .cert-piece { transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease; }
+.cert-collection .cert-logo {
+  width:128px; max-width:72%; height:60px; padding:8px 12px;
+  background:#fff; border:1px solid #e9e4ed; border-radius:10px;
+}
+.cert-collection .cert-logo img { object-position:center; }
+.cert-collection .cert-piece-mark { display:grid; place-items:center; width:38px; height:38px; border:1px solid var(--cert-rule); border-radius:50%; background:var(--cert-chip); }
+.cert-collection .cert-piece:focus-within { border-color:var(--cert-accent); box-shadow:0 12px 30px #24163420; }
+@media (hover:hover) and (pointer:fine) {
+  .cert-collection .cert-piece:hover { border-color:var(--cert-accent); box-shadow:0 18px 38px #24163422; }
+  .cert-collection .cert-piece.reveal-active {
+    background-image:radial-gradient(220px circle at var(--reveal-x) var(--reveal-y), rgb(166 135 225 / calc(var(--reveal-strength) * .28)), transparent 78%);
+    box-shadow:inset 0 0 0 1px rgb(162 126 225 / calc(var(--reveal-strength) * .65)),0 12px 28px #21162b0c;
+  }
+}
+@media(prefers-reduced-motion:reduce) { .cert-collection .cert-piece { transition:none; } }
+/* White marks need a dark backing; dark marks retain a light backing in either theme. */
+.cert-collection .cert-logo:has(img[src$="/alura.webp"]),
+.cert-collection .cert-logo:has(img[src$="/ratatype.webp"]),
+.cert-collection .cert-logo:has(img[src$="/recode.webp"]),
+.cert-collection .cert-logo:has(img[src$="/udemy.webp"]) { background:#2c2535; border-color:#50445e; }
