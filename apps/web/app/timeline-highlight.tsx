@@ -16,7 +16,14 @@ export function TimelineHighlight() {
       timeline.style.setProperty('--timeline-marker', marker + 'px');
       const bounds = timeline.getBoundingClientRect();
       const active = bounds.top <= marker && bounds.bottom > marker
-        ? [...events].reverse().find((event) => event.getBoundingClientRect().top <= marker) ?? events[0]
+        ? events.reduce<HTMLElement | undefined>((closest, event) => {
+            const rect = event.getBoundingClientRect();
+            const distance = Math.abs((rect.top + rect.bottom) / 2 - marker);
+            if (!closest) return event;
+            const previous = closest.getBoundingClientRect();
+            const previousDistance = Math.abs((previous.top + previous.bottom) / 2 - marker);
+            return distance < previousDistance ? event : closest;
+          }, undefined)
         : undefined;
       events.forEach((event) => event.classList.toggle('is-active', event === active));
       timeline.querySelectorAll<HTMLElement>('.career-year').forEach((year) => {

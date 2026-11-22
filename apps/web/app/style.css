@@ -1035,3 +1035,10 @@ body:has(.home-next) .footer a { color:#382b47; }
   line-height:1;
   top:calc(var(--timeline-marker, calc((100dvh + var(--nav-height)) / 2)) - .5em - .2rem);
 }
+.career-event { transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease; }
+.career-event.is-active {
+  border-color:var(--event-color);
+  box-shadow:inset 4px 0 0 var(--event-color),0 8px 30px #00000012;
+  background:color-mix(in srgb,var(--event-color) 6%,var(--surface));
+}
+@media(prefers-reduced-motion:reduce) { .career-event { transition:none; } }
