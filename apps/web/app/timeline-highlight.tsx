@@ -18,10 +18,10 @@ export function TimelineHighlight() {
       const active = bounds.top <= marker && bounds.bottom > marker
         ? events.reduce<HTMLElement | undefined>((closest, event) => {
             const rect = event.getBoundingClientRect();
-            const distance = Math.abs((rect.top + rect.bottom) / 2 - marker);
+            const distance = Math.max(rect.top - marker, marker - rect.bottom, 0);
             if (!closest) return event;
             const previous = closest.getBoundingClientRect();
-            const previousDistance = Math.abs((previous.top + previous.bottom) / 2 - marker);
+            const previousDistance = Math.max(previous.top - marker, marker - previous.bottom, 0);
             return distance < previousDistance ? event : closest;
           }, undefined)
         : undefined;
