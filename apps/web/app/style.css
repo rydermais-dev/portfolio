@@ -1135,3 +1135,4 @@ body:has(.home-next) .footer a { color:#382b47; }
   :root:not([data-theme=dark]) .playground { --carousel-bottom-tint:color-mix(in srgb,var(--carousel-color) 26%,transparent); }
 }
 .playground-backdrops::after { background:linear-gradient(to bottom,transparent 45%,var(--carousel-bottom-tint, transparent) 100%),linear-gradient(to bottom,transparent 45%,var(--carousel-depth-shadow) 100%); }
+.playground .project-info h3 a .project-visit span { color:inherit; }
