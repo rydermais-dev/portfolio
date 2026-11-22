@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
           <p>Full Stack Developer · UI/UX</p>
           {!section && <p className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></p>}
-          {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('#sobre-mim')}>{t('menu.about')} ↓</Link></div>}
+          {!section && <div className="home-hero-actions"><Link className="ui-button ui-button--light" href={path('/projects')}>{t('menu.projects')} ↗</Link><Link className="ui-button ui-button--outline-light" href={path('#sobre-mim')}>{t('menu.about')} ↓</Link></div>}
         </div>
         <HomeHeroPortrait />
       </div>
@@ -95,7 +95,7 @@ export default async function Page({ params }: Props) {
         </section>)}</div>
       </section>
       <Playground locale={locale} />
-      <section className="wrap home-next" lang="pt-BR"><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link href={path('/contact')}>{t('menu.contact')} <span aria-hidden="true">↗</span></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
+      <section className="wrap home-next" lang="pt-BR"><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--primary" href={path('/contact')}>{t('menu.contact')} <span aria-hidden="true">↗</span></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
   </>;
 
   if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
@@ -104,8 +104,8 @@ export default async function Page({ params }: Props) {
       <h1>{project.title}</h1>
       <div className="project-intro">{projectDescription(project)}</div>
       <div className="actions">
-        {https(project.website) && <a href={https(project.website)}>{t('html.home.visit')} ↗</a>}
-        {https(project.code) && <a href={https(project.code)}>GitHub ↗</a>}
+        {https(project.website) && <a className="ui-button ui-button--light" href={https(project.website)}>{t('html.home.visit')} ↗</a>}
+        {https(project.code) && <a className="ui-button ui-button--outline-light" href={https(project.code)}>GitHub ↗</a>}
       </div>
       {project.image && <div className="project-cover"><img src={project.image} alt="" /></div>}
     </div>
@@ -129,7 +129,7 @@ export default async function Page({ params }: Props) {
         <div><h2><Link href={path('/blog/' + post.slug)}>{post.title} <span aria-hidden="true">↗</span></Link></h2><p>{post.description}</p></div>
       </article>)}</div>
       <News />
-      <div className="journal-follow" lang="pt-BR"><div><h2>Continuamos a conversa?</h2><p>Compartilho descobertas e projetos também no LinkedIn.</p></div><a href={linkedIn}>Acompanhar no LinkedIn ↗</a></div>
+      <div className="journal-follow" lang="pt-BR"><div><h2>Continuamos a conversa?</h2><p>Compartilho descobertas e projetos também no LinkedIn.</p></div><a className="ui-button ui-button--light" href={linkedIn}>Acompanhar no LinkedIn ↗</a></div>
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
       <article className="article" key={post.slug} lang="pt-BR"><Link href={path('/blog')}>← {t('menu.blog')}</Link><Markdown skipHtml>{post.body}</Markdown><aside className="article-next">{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} ↗</Link>)}</aside></article>)}
@@ -145,7 +145,7 @@ export default async function Page({ params }: Props) {
           <a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><span aria-hidden="true">↗</span></a>
         </div>
       </section>
-      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link href={path('/cv')}>Ver currículo <span aria-hidden="true">↗</span></Link></section>
+      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--outline" href={path('/cv')}>Ver currículo <span aria-hidden="true">↗</span></Link></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities ↗</a></div></div>}
   </section>;

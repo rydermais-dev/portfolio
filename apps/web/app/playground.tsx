@@ -57,21 +57,21 @@ export function Playground({ locale }: { locale: Locale }) {
       <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p></div></div>
       <div className="playground-slide" onPointerEnter={() => setInteracting(true)} onPointerLeave={() => setInteracting(false)} onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
         <div className="playground-stage">
-          <Button type="button" className="carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}>←</Button>
+          <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}>←</Button>
         <div className={'playground-stack ' + (direction === 1 ? 'is-forward' : 'is-backward')}>
           <div className="carousel-depth" key={timerKey} aria-hidden="true"><i /><i /></div>
           <div className="playground-current" key={project.id}>
             <ProjectCard project={project} locale={locale} visitLabel={translate(locale, 'html.home.visit')} />
           </div>
         </div>
-        <Button type="button" className="carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}>→</Button>
+        <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}>→</Button>
         </div>
         <div className="carousel-pagination" aria-label="Escolher destaque">
           {featuredProjects.map((item, index) => <button key={item.id} type="button" className="carousel-pill" aria-label={item.title + ' · ' + (index + 1) + ' / ' + featuredProjects.length} aria-current={selected === index ? 'true' : undefined} onClick={() => select(index)}>
             {selected === index && <span key={timerKey + '-' + String(running)} className={'carousel-progress' + (running ? ' is-running' : '')} />}
           </button>)}
         </div>
-        <Link className="playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <span aria-hidden="true">↗</span></Link>
+        <Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <span aria-hidden="true">↗</span></Link>
       </div>
     </div>
   </section>;
