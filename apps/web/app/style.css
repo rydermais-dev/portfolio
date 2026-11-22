@@ -983,3 +983,15 @@ main { overflow-x:clip; }
   vertical-align:-.16em;
   flex-shrink:0;
 }
+/* Fill the visible viewport below the sticky navigation without clipping content. */
+.home-hero {
+  min-height:calc(100vh - var(--nav-height));
+  min-height:calc(100dvh - var(--nav-height));
+  display:flex;
+  align-items:center;
+}
+.home-hero .hero-inner { width:min(1160px,calc(100% - 48px)); }
+@media(max-width:520px) {
+  .home-hero { min-height:calc(100vh - 78px); min-height:calc(100dvh - 78px); }
+  .home-hero .hero-inner { width:calc(100% - 36px); }
+}
