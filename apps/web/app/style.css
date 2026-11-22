@@ -535,3 +535,8 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .career-event.is-active::before { background:var(--event-color); }
 
 .career-event.is-active::before { visibility:hidden; }
+
+.project-card .project-logo { position:absolute; z-index:1; left:50%; top:46%; width:min(62%, 260px); height:35%; object-fit:contain; pointer-events:none; filter:drop-shadow(0 3px 12px #000a); transform:translate(-50%,-50%) translateZ(35px); transition:top .35s ease,transform .35s ease; }
+.project-card-cedes .project-logo { width:30%; height:48%; }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:30%; transform:translate(-50%,-50%) translateZ(65px) scale(1.05); } }
+@media(prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
