@@ -249,7 +249,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card { overflow:hidden; padding:0 0 1.6rem; }
 .project-card .project-image { display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:var(--background); margin-bottom:1.5rem; }
 .project-image img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
-.project-card:hover .project-image img { transform:scale(1.04); }
+:is(.project-card:hover,.project-card.is-auto-active) .project-image img { transform:scale(1.04); }
 .project-card .card-index,.project-card h3,.project-card p { margin-left:1.5rem; margin-right:1.5rem; }
 .project-card .card-index { margin-bottom:1rem; }
 .project-cover { margin-top:clamp(3rem,6vw,6rem); border-radius:20px; overflow:hidden; border:1px solid #ffffff40; max-width:960px; box-shadow:0 25px 80px #0004; }
@@ -266,7 +266,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .certification-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:auto; }
 .certification-tags span { color:var(--muted); background:var(--background); border-radius:99px; padding:.3rem .65rem; font-size:.73rem; }
 .certification-link { margin-top:auto; font-size:.85rem; font-weight:650; }
-@media(prefers-reduced-motion:reduce) { .project-image img { transition:none; } .project-card:hover .project-image img { transform:none; } }
+@media(prefers-reduced-motion:reduce) { .project-image img { transition:none; } :is(.project-card:hover,.project-card.is-auto-active) .project-image img { transform:none; } }
 .resume-panel { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem; background:#292a48; color:white; border-radius:20px; padding:clamp(1.5rem,4vw,2.5rem); }
 .resume-panel p { color:#d1cce3; margin-bottom:0; }
 .resume-link,.print-button { display:inline-flex; padding:.8rem 1rem; border-radius:10px; background:#fff; color:#28233d; font:inherit; font-weight:650; text-decoration:none; border:0; cursor:pointer; }
@@ -503,12 +503,12 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card .project-info p { color:#eeeaf3; margin-top:.65rem; font-size:.9rem; line-height:1.4; }
 @media(hover:hover) and (pointer:fine) {
   .project-card .project-info p { max-height:0; opacity:0; overflow:hidden; margin-top:0; transition:max-height .35s ease,opacity .25s ease,margin .35s ease; }
-  .project-card:hover,.project-card:focus-within { z-index:2; box-shadow:0 0 0 4px var(--background),0 0 0 7px var(--project-highlight),0 20px 45px #0005; }
-  .project-card:hover .project-image,.project-card:focus-within .project-image { height:62%; border-radius:11px 11px 0 0; }
-  .project-card:hover .project-image img,.project-card:focus-within .project-image img { filter:brightness(.8); }
-  .project-card:hover .project-info,.project-card:focus-within .project-info { background:linear-gradient(transparent, #24212d 42%); }
-  .project-card:hover .project-info h3,.project-card:focus-within .project-info h3 { transform:translateZ(35px); }
-  .project-card:hover .project-info p,.project-card:focus-within .project-info p { max-height:7rem; opacity:1; margin-top:.65rem; }
+  :is(.project-card:hover,.project-card.is-auto-active),.project-card:focus-within { z-index:2; box-shadow:0 0 0 4px var(--background),0 0 0 7px var(--project-highlight),0 20px 45px #0005; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-image,.project-card:focus-within .project-image { height:62%; border-radius:11px 11px 0 0; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-image img,.project-card:focus-within .project-image img { filter:brightness(.8); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info,.project-card:focus-within .project-info { background:linear-gradient(transparent, #24212d 42%); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info h3,.project-card:focus-within .project-info h3 { transform:translateZ(35px); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info p,.project-card:focus-within .project-info p { max-height:7rem; opacity:1; margin-top:.65rem; }
 }
 @media(max-width:600px) { .project-card { min-height:280px; } .project-card .project-info { padding:4rem 1.1rem 1.1rem; } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-image,.project-card .project-info h3,.project-card .project-info p { transition:none; } }
@@ -538,7 +538,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 
 .project-card .project-logo { position:absolute; z-index:1; left:50%; top:46%; width:min(62%, 260px); height:35%; object-fit:contain; pointer-events:none; filter:drop-shadow(0 3px 12px #000a); transform:translate(-50%,-50%) translateZ(35px); transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease,transform .35s ease,opacity .35s ease; }
 .project-card-cedes .project-logo { width:30%; height:48%; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:30%; transform:translate(-50%,-50%) translateZ(65px) scale(1.05); } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { top:30%; transform:translate(-50%,-50%) translateZ(65px) scale(1.05); } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
 
 /* The project mark settles into the image as its action is revealed. */
@@ -546,7 +546,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card .project-title { color:#fff; transition:opacity .25s ease,transform .3s ease; }
 .project-card .project-visit { position:absolute; left:0; display:inline-flex; align-items:center; gap:.65rem; padding:.55rem .9rem; border:1px solid #ffffff60; border-radius:999px; color:#fff; font-size:.85rem; background:#ffffff12; opacity:0; transform:translateX(-14px); pointer-events:none; transition:opacity .25s ease,transform .3s ease; }
 .project-card .project-visit span { color:inherit; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:83%; top:50%; width:min(29%,120px); height:21%; transform:translate(-50%,-50%) translateZ(45px); } .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; transform:translateX(12px); } .project-card:hover .project-visit,.project-card:focus-within .project-visit { opacity:1; transform:translateX(0); pointer-events:auto; } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { left:83%; top:50%; width:min(29%,120px); height:21%; transform:translate(-50%,-50%) translateZ(45px); } :is(.project-card:hover,.project-card.is-auto-active) .project-title,.project-card:focus-within .project-title { opacity:0; transform:translateX(12px); } :is(.project-card:hover,.project-card.is-auto-active) .project-visit,.project-card:focus-within .project-visit { opacity:1; transform:translateX(0); pointer-events:auto; } }
 @media(hover:none) { .project-card .project-visit { position:static; opacity:1; transform:none; pointer-events:auto; margin-left:auto; } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-title,.project-card .project-visit { transition:none; } }
 
@@ -554,21 +554,21 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card .project-title { font-family:inherit; font-weight:700; }
 .project-card .project-visit { left:auto; right:0; transform:translateX(-14px); font-family:inherit; font-weight:650; }
 .project-card .project-logo-small { position:absolute; left:0; max-width:42%; height:2rem; object-fit:contain; object-position:left center; opacity:0; transform:translateX(-8px); transition:opacity .25s ease,transform .3s ease; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:24%; top:50%; width:min(29%,120px); height:21%; opacity:0; } .project-card:hover .project-logo-small,.project-card:focus-within .project-logo-small { opacity:1; transform:translateX(0); } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { left:24%; top:50%; width:min(29%,120px); height:21%; opacity:0; } :is(.project-card:hover,.project-card.is-auto-active) .project-logo-small,.project-card:focus-within .project-logo-small { opacity:1; transform:translateX(0); } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-logo-small { transition:none; } }
 
 /* Animate the original logo to the measured position of the title. */
 .project-card .project-logo { z-index:3; object-position:center; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-bottom,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-bottom,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
 
 .project-card.tilt-card::after { display:none; }
 .project-card .project-title { opacity:.38; }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { width:min(36%,140px); height:auto; aspect-ratio:1 / 1; }
-  .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { width:min(36%,140px); height:auto; aspect-ratio:1 / 1; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-title,.project-card:focus-within .project-title { opacity:0; }
 }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-bottom,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-bottom,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
 }
 /* Use the same square geometry at both ends of the logo transition. */
 .project-card .project-logo { height:auto; aspect-ratio:1 / 1; object-fit:contain; object-position:center; }
@@ -576,29 +576,29 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card .project-info h3 a:focus-visible { outline:none; }
 .project-card .project-info h3 a:focus-visible .project-visit { outline:2px solid var(--accent); outline-offset:4px; }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { height:auto; aspect-ratio:1 / 1; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { height:auto; aspect-ratio:1 / 1; }
 }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:center; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { object-position:center; }
 }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:var(--logo-target-bottom,75%); transform:translate(0,-50%) translateZ(45px); }
-  .project-card:hover .project-info p,.project-card:focus-within .project-info p { padding-left:calc(min(36%,140px) + 1rem); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { top:var(--logo-target-bottom,75%); transform:translate(0,-50%) translateZ(45px); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info p,.project-card:focus-within .project-info p { padding-left:calc(min(36%,140px) + 1rem); }
 }
 
 /* Reserve a complete row for the active logo and action; descriptions use the full width. */
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-info,.project-card:focus-within .project-info { padding-top:1rem; }
-  .project-card:hover .project-info h3 a,.project-card:focus-within .project-info h3 a { min-height:var(--logo-slot,100px); }
-  .project-card:hover .project-info p,.project-card:focus-within .project-info p { padding-left:0; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info,.project-card:focus-within .project-info { padding-top:1rem; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info h3 a,.project-card:focus-within .project-info h3 a { min-height:var(--logo-slot,100px); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info p,.project-card:focus-within .project-info p { padding-left:0; }
 }
 .project-card .project-title { opacity:.16; }
-@media (hover:hover) and (pointer:fine) { .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; } }
+@media (hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-title,.project-card:focus-within .project-title { opacity:0; } }
 /* Align the visible mark and action to the bottom of the shared row. */
 .project-card .project-logo { transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease,transform .35s ease,object-position .35s ease; }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:left bottom; }
-  .project-card:hover .project-visit,.project-card:focus-within .project-visit { bottom:0; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-logo,.project-card:focus-within .project-logo { object-position:left bottom; }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-visit,.project-card:focus-within .project-visit { bottom:0; }
 }
 @media (prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
 
@@ -609,13 +609,13 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .project-card-orkuty .project-foreground { width:45%; height:80%; right:0; bottom:0; transform:translate(45%,12%) rotate(10deg); }
 .project-card-singalong .project-foreground { width:48%; height:70%; right:4%; bottom:4%; transform:translate(20%,15%) rotate(12deg); }
 .project-card-rydermais .project-foreground { width:55%; height:75%; right:2%; bottom:2%; transform:translate(18%,8%) scale(.85) rotate(15deg); }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { opacity:1; transform:translate(0,0) scale(1) rotate(0); } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-foreground,.project-card:focus-within .project-foreground { opacity:1; transform:translate(0,0) scale(1) rotate(0); } }
 @media(prefers-reduced-motion:reduce) { .project-card .project-foreground { transition:none; } }
 main { overflow-x:clip; }
 .project-card .project-foreground { z-index:3; }
 .project-card .project-logo { z-index:4; }
 .project-card-deltaverse .project-foreground,.project-card-orkuty .project-foreground,.project-card-singalong .project-foreground,.project-card-rydermais .project-foreground { bottom:25%; }
-@media(hover:hover) and (pointer:fine) { .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { transform:translate3d(0,0,32px) scale(1) rotate(0); } }
+@media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-foreground,.project-card:focus-within .project-foreground { transform:translate3d(0,0,32px) scale(1) rotate(0); } }
 /* Pointer tracking follows the mouse immediately; leaving keeps the reset transition. */
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
   .tilt-card:hover { transition:transform 0s, border-color .2s; }
@@ -628,8 +628,8 @@ main { overflow-x:clip; }
   .project-card-deltaverse .project-foreground { --foreground-duration: .42s; --foreground-easing: cubic-bezier(.25,.8,.45,1.15); transform: translateY(38%); }
   .project-card-singalong .project-foreground { --foreground-duration: .62s; --foreground-easing: cubic-bezier(.18,.7,.25,1); transform: translateY(12%) rotate(-28deg) scale(.7); }
   .project-card-rydermais .project-foreground { --foreground-duration: .8s; --foreground-easing: ease-out; transform: rotate(-42deg) scale(.55); }
-  .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { transform: translate3d(0,0,32px) rotate(0) scale(1); }
-  .project-card:hover .project-info h3,.project-card:focus-within .project-info h3 { transform: translateZ(55px); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-foreground,.project-card:focus-within .project-foreground { transform: translate3d(0,0,32px) rotate(0) scale(1); }
+  :is(.project-card:hover,.project-card.is-auto-active) .project-info h3,.project-card:focus-within .project-info h3 { transform: translateZ(55px); }
 }
 @media (prefers-reduced-motion:reduce) {
   .project-card .project-foreground { transition:none; }
@@ -653,10 +653,10 @@ main { overflow-x:clip; }
 .project-card .project-info { background:none; }
 .project-card .project-visit { background-color:#ffffff12; }
 @media (hover:hover) and (pointer:fine) {
-  .project-card:is(:hover,:focus-within) .project-art::after {
+  .project-card:is(:hover,:focus-within,.is-auto-active) .project-art::after {
     background:linear-gradient(transparent 35%, #24212d 82%);
   }
-  .project-card:is(:hover,:focus-within) .project-info { background:none; }
+  .project-card:is(:hover,:focus-within,.is-auto-active) .project-info { background:none; }
   .project-card .project-visit.reveal-active {
     background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), rgb(201 188 255 / var(--reveal-strength)), transparent 75%);
   }
@@ -667,15 +667,15 @@ main { overflow-x:clip; }
 }
 
 @media (hover:hover) and (pointer:fine) {
-  .project-card:is(:hover,:focus-within) .project-logo {
+  .project-card:is(:hover,:focus-within,.is-auto-active) .project-logo {
     left:var(--logo-target-left,1.5rem);
     top:var(--logo-target-bottom,85%);
     transform:translateY(-100%) translateZ(25px);
   }
-  .project-card:is(:hover,:focus-within) .project-info h3 { transform:none; }
+  .project-card:is(:hover,:focus-within,.is-auto-active) .project-info h3 { transform:none; }
 }
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
-  .project-card:is(:hover,:focus-within) .project-foreground {
+  .project-card:is(:hover,:focus-within,.is-auto-active) .project-foreground {
     translate: var(--foreground-x, 0px) var(--foreground-y, 0px);
   }
 }
@@ -943,3 +943,14 @@ main { overflow-x:clip; }
     box-shadow:inset 0 0 0 2px #d8ceffb3;
   }
 }
+
+.playground { position:relative; isolation:isolate; background:#1d1926; }
+.playground-backdrops { position:absolute; inset:0; overflow:hidden; z-index:-1; pointer-events:none; }
+.playground-backdrop { position:absolute; inset:-50px; background-size:cover; background-position:center; filter:blur(38px); opacity:0; transition:opacity 1s ease; }
+.playground-backdrop::after { content:''; position:absolute; inset:0; background:linear-gradient(110deg,var(--slide-tint),#11101de0); }
+.playground-backdrop-singalong { --slide-tint:#542d25da; }
+.playground-backdrop-orkuty { --slide-tint:#581a46dc; }
+.playground-backdrop-ryan { --slide-tint:#30145edc; }
+.playground-backdrop-deltaverse { --slide-tint:#58351fe0; }
+.playground-backdrop.is-visible { opacity:1; }
+@media(prefers-reduced-motion:reduce) { .playground-backdrop { transition:none; } }

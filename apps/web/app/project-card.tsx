@@ -7,11 +7,11 @@ type Project = (typeof projects)[number];
 const foregrounds = new Set(['orkuty', 'rydermais', 'singalong', 'deltaverse', 'ryan']);
 const revisedMarks = new Set(['orkuty', 'beatup', 'deltaverse', 'karaotrack', 'mangut']);
 
-export function ProjectCard({ project, locale, visitLabel }: { project: Project; locale: Locale; visitLabel: string }) {
+export function ProjectCard({ project, locale, visitLabel, autoActive = false }: { project: Project; locale: Locale; visitLabel: string; autoActive?: boolean }) {
   const destination = '/' + locale + '/project/' + project.id;
   const descriptions = project.description as Partial<Record<Locale, string>>;
   const language = descriptions[locale] ? locale : 'pt-BR';
-  return <TiltCard className={'card project-card project-card-' + project.id}>
+  return <TiltCard className={'card project-card project-card-' + project.id + (autoActive ? ' is-auto-active' : '')}>
     <div className="project-art">
       {project.image && <Link className="project-image" href={destination} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" /></Link>}
       {foregrounds.has(project.id) && <img className="project-foreground" src={'/images/project-foregrounds/' + project.id + (project.id === 'orkuty' ? '-v2' : '') + '.webp'} alt="" loading="lazy" />}

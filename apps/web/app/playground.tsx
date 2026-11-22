@@ -12,6 +12,7 @@ const featuredProjects = featuredIds.map((id) => projects.find((project) => proj
 
 export function Playground({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState(0);
+  const [autoActive, setAutoActive] = useState(false);
   const [interacting, setInteracting] = useState(false);
   const [visible, setVisible] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -34,13 +35,16 @@ export function Playground({ locale }: { locale: Locale }) {
 
   const running = !interacting && visible && !reducedMotion;
   useEffect(() => {
-    if (!running) return;
+    if (!running) { setAutoActive(false); return; }
+    setAutoActive(false);
+    const open = window.setTimeout(() => setAutoActive(true), 1400);
+    const close = window.setTimeout(() => setAutoActive(false), 5900);
     const timer = window.setTimeout(() => {
       setDirection(1);
       setSelected((index) => (index + 1) % featuredProjects.length);
       setTimerKey((key) => key + 1);
     }, 6500);
-    return () => window.clearTimeout(timer);
+    return () => { window.clearTimeout(open); window.clearTimeout(close); window.clearTimeout(timer); };
   }, [running, selected, timerKey]);
   const project = featuredProjects[selected];
   const intro = locale.startsWith('pt')
@@ -53,6 +57,7 @@ export function Playground({ locale }: { locale: Locale }) {
   };
 
   return <section className="playground" aria-labelledby="playground-title">
+    <div className="playground-backdrops" aria-hidden="true">{featuredProjects.map((item, index) => <div key={item.id} className={'playground-backdrop playground-backdrop-' + item.id + (selected === index ? ' is-visible' : '')} style={{ backgroundImage: 'url("' + item.image + '")' }} />)}</div>
     <div className="wrap playground-inner">
       <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p></div></div>
       <div className="playground-slide" onPointerEnter={() => setInteracting(true)} onPointerLeave={() => setInteracting(false)} onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
@@ -61,7 +66,7 @@ export function Playground({ locale }: { locale: Locale }) {
         <div className={'playground-stack ' + (direction === 1 ? 'is-forward' : 'is-backward')}>
           <div className="carousel-depth" key={timerKey} aria-hidden="true"><i /><i /></div>
           <div className="playground-current" key={project.id}>
-            <ProjectCard project={project} locale={locale} visitLabel={translate(locale, 'html.home.visit')} />
+            <ProjectCard project={project} locale={locale} autoActive={autoActive} visitLabel={translate(locale, 'html.home.visit')} />
           </div>
         </div>
         <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-next" aria-label="Próximo destaque" onClick={() => select(selected + 1)}>→</Button>
