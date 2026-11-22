@@ -995,3 +995,38 @@ main { overflow-x:clip; }
   .home-hero { min-height:calc(100vh - 78px); min-height:calc(100dvh - 78px); }
   .home-hero .hero-inner { width:calc(100% - 36px); }
 }
+/* Home-only closing section and footer palettes. */
+body:has(.home-next) .home-next {
+  background:#e8ddf6;
+  color:#251b38;
+}
+body:has(.home-next) .home-next h2 span { color:#694695; }
+body:has(.home-next) .home-next p { color:#554766; }
+body:has(.home-next) .home-next a { background:#352448; border-color:#352448; color:#fff; }
+body:has(.home-next) .home-next-blocks { --accent:#754e9f; }
+body:has(.home-next) .footer {
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:2rem max(24px,calc((100% - 1160px) / 2)) 3rem;
+  background:#c9b7dd;
+  color:#382b47;
+}
+body:has(.home-next) .footer a { color:#382b47; }
+@media(max-width:520px) { body:has(.home-next) .footer { padding-inline:18px; } }
+@media(prefers-color-scheme:dark) {
+  :root:not([data-theme=light]) body:has(.home-next) .home-next { background:#30213f; color:#f7f1ff; }
+  :root:not([data-theme=light]) body:has(.home-next) .home-next h2 span { color:#d3b7f4; }
+  :root:not([data-theme=light]) body:has(.home-next) .home-next p { color:#d9cbe5; }
+  :root:not([data-theme=light]) body:has(.home-next) .home-next a { background:#f1e7ff; border-color:#f1e7ff; color:#30213f; }
+  :root:not([data-theme=light]) body:has(.home-next) .home-next-blocks { --accent:#d3b7f4; }
+  :root:not([data-theme=light]) body:has(.home-next) .footer { background:#1c1427; color:#d5c7e0; }
+  :root:not([data-theme=light]) body:has(.home-next) .footer a { color:#e9ddf2; }
+}
+:root[data-theme=dark] body:has(.home-next) .home-next { background:#30213f; color:#f7f1ff; }
+:root[data-theme=dark] body:has(.home-next) .home-next h2 span { color:#d3b7f4; }
+:root[data-theme=dark] body:has(.home-next) .home-next p { color:#d9cbe5; }
+:root[data-theme=dark] body:has(.home-next) .home-next a { background:#f1e7ff; border-color:#f1e7ff; color:#30213f; }
+:root[data-theme=dark] body:has(.home-next) .home-next-blocks { --accent:#d3b7f4; }
+:root[data-theme=dark] body:has(.home-next) .footer { background:#1c1427; color:#d5c7e0; }
+:root[data-theme=dark] body:has(.home-next) .footer a { color:#e9ddf2; }
