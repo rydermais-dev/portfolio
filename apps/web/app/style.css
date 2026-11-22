@@ -562,3 +562,11 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 @media(hover:hover) and (pointer:fine) { .project-card:hover .project-logo,.project-card:focus-within .project-logo { left:1.5rem; top:var(--logo-target-y,75%); width:min(36%,140px); height:2rem; opacity:1; object-position:left center; transform:translate(0,-50%) translateZ(45px); } }
 
 .project-card.tilt-card::after { display:none; }
+.project-card .project-title { opacity:.38; }
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { width:min(36%,140px); height:auto; aspect-ratio:1 / 1; }
+  .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; }
+}
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { top:calc(var(--logo-target-y,75%) + 1rem); transform:translate(0,-100%) translateZ(45px); object-position:left bottom; }
+}
