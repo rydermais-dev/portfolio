@@ -1193,3 +1193,11 @@ body:has(.home-next) .footer a { color:#382b47; }
 .cert-empty h3 { margin:.7rem 0 .3rem; }
 .cert-empty p { color:var(--muted); margin:0 0 1.2rem; }
 @media(max-width:650px) { .cert-collection-heading { align-items:start; flex-direction:column; } .cert-toolbar { padding:1rem; } .cert-toolbar label { flex-basis:100%; } .cert-toolbar .cert-clear { width:100%; } .cert-collection .cert-piece { min-height:270px; } }
+/* Institution marks are part of the certificate identity, without a boxed background. */
+.cert-collection .cert-piece-top { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:.9rem; }
+.cert-collection .cert-logo { grid-column:1; width:120px; max-width:70%; height:56px; padding:0; border:0; border-radius:0; background:transparent; display:flex; justify-content:flex-start; }
+.cert-collection .cert-logo img { width:100%; height:100%; object-fit:contain; object-position:left center; }
+.cert-collection .cert-issuer-meta { grid-column:1; }
+.cert-collection .cert-piece-mark { grid-column:2; grid-row:1 / span 2; margin:0; }
+:root[data-theme=dark] .cert-collection .cert-logo { background:#fff; border-radius:9px; padding:6px 10px; }
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) .cert-collection .cert-logo { background:#fff; border-radius:9px; padding:6px 10px; } }
