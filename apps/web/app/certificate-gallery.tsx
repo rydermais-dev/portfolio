@@ -211,8 +211,8 @@ export function CertificateGallery({ locale }: { locale: Locale }) {
             </div>
           </dl>
           <div className="cert-diploma-actions">
-            {verificationLink && <a className="ui-button ui-button--primary cert-diploma-link" href={verificationLink}>{verificationLabel} <Icon name="arrow_outward" /></a>}
-            <Button type="button" className="ui-button cert-copy-link" onClick={copyCertificateLink}>
+            {verificationLink && <a className="ui-button cert-diploma-link" href={verificationLink}>{verificationLabel} <Icon name="arrow_outward" /></a>}
+            <Button type="button" className="ui-button ui-button--outline cert-copy-link" onClick={copyCertificateLink}>
               <Icon name="link" /> {copyLabel}
             </Button>
             {copyState === 'copied' && <span className="cert-copy-status" role="status">{copiedLabel}</span>}
