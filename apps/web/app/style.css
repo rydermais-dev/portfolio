@@ -594,3 +594,10 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 }
 .project-card .project-title { opacity:.16; }
 @media (hover:hover) and (pointer:fine) { .project-card:hover .project-title,.project-card:focus-within .project-title { opacity:0; } }
+/* Align the visible mark and action to the bottom of the shared row. */
+.project-card .project-logo { transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease,transform .35s ease,object-position .35s ease; }
+@media (hover:hover) and (pointer:fine) {
+  .project-card:hover .project-logo,.project-card:focus-within .project-logo { object-position:left bottom; }
+  .project-card:hover .project-visit,.project-card:focus-within .project-visit { bottom:0; }
+}
+@media (prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
