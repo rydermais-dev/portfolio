@@ -10,7 +10,7 @@ import skills from '../../../content/skills.json';
 import posts from '../../../content/posts.json';
 import { News } from '../../news';
 import { Playground } from '../../playground';
-import { TiltCard } from '../../tilt-card';
+import { ProjectCard } from '../../project-card';
 import { HomeHeroPortrait } from '../../home-hero-portrait';
 import { HeroGrid } from '../../interaction-effects';
 import { PrintButton } from '../../print-button';
@@ -62,17 +62,7 @@ export default async function Page({ params }: Props) {
     const language = values[locale] ? locale : 'pt-BR';
     return <p lang={language}>{values[language]}</p>;
   };
-  const foregrounds = new Set(['orkuty', 'rydermais', 'singalong', 'deltaverse', 'ryan']);
-  const featured = (entries: typeof projects) => <div className="cards">
-    {entries.map((project) => <TiltCard className={'card project-card project-card-' + project.id} key={project.id}>
-      <div className="project-art">
-        {project.image && <Link className="project-image" href={path('/project/' + project.id)} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" /></Link>}
-        {foregrounds.has(project.id) && <img className="project-foreground" src={"/images/project-foregrounds/" + project.id + (project.id === "orkuty" ? "-v2" : "") + ".webp"} alt="" loading="lazy" />}
-      </div>
-      <img className="project-logo" src={"/images/project-logos/" + project.id + (["orkuty", "beatup", "deltaverse", "karaotrack", "mangut"].includes(project.id) ? "-v3" : "") + ".png"} alt="" loading="lazy" />
-      <div className="project-info"><h3><Link href={path('/project/' + project.id)} aria-label={t('html.home.visit') + ' · ' + project.title}><span className="project-title">{project.title}</span><span className="project-visit">{t('html.home.visit')} <span aria-hidden="true">↗</span></span></Link></h3>{projectDescription(project)}</div>
-    </TiltCard>)}
-  </div>;
+
 
   if (section === 'about' && !slug) permanentRedirect(path('#sobre-mim'));
 
@@ -130,7 +120,7 @@ export default async function Page({ params }: Props) {
 
   return <section className={'wrap section page-section page-' + section}>
     <h1>{heading}</h1>
-    {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p>{featured(projects)}</>}
+    {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p><div className="cards">{projects.map((project) => <ProjectCard key={project.id} project={project} locale={locale} visitLabel={t('html.home.visit')} />)}</div></>}
     {section === 'certifications' && <CertificateGallery viewLabel={t('html.certifications.view')} />}
     {section === 'blog' && !slug && <>
       <div className="journal-intro" lang="pt-BR"><div><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="editorial-aside"><strong>{posts.length}</strong><span>artigos publicados</span></div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>

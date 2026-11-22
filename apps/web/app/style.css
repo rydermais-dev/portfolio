@@ -749,3 +749,6 @@ main { overflow-x:clip; }
 .story-position { min-width:3.2rem; text-align:center; color:#c5c0d5; font-variant-numeric:tabular-nums; }
 .story-controls .story-button { border-radius:50%; display:grid; place-items:center; font-size:1.2rem; }
 .story-controls .story-button:hover { background-color:#ffffff16; border-color:#c5b5ff; }
+.playground-slide { min-width:0; }
+.playground-slide .story-controls { justify-content:center; padding-top:1.5rem; }
+.playground-slide .playground-all { display:block; width:fit-content; margin:1.3rem auto 0; }
