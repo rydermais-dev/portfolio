@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import Markdown from 'react-markdown';
 import { https, isLocale, locales, translate, type Locale } from '../../../content';
@@ -74,28 +74,24 @@ export default async function Page({ params }: Props) {
     </TiltCard>)}
   </div>;
 
-  if (!section || (section === 'about' && !slug)) return <>
-    <section className={'hero' + (section === 'about' ? ' hero-about' : ' home-hero')}>
+  if (section === 'about' && !slug) permanentRedirect(path('#sobre-mim'));
+
+  if (!section) return <>
+    <section className="hero home-hero">
       <HeroGrid />
       <div className="hero-trails" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
       <div className="wrap hero-inner">
-        {section === 'about' && <div className="hero-portrait"><img src="/wellington-linkedin.jpg" width="176" height="176" alt="" /></div>}
         <div>
-          <span className="hero-label">{section === 'about' ? t('menu.about') : 'FULL STACK / UI & UX'}</span>
+          <span className="hero-label">FULL STACK / UI & UX</span>
           <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
-          <p>{!section ? 'Full Stack Developer · UI/UX' : t('html.about.description')}</p>
+          <p>Full Stack Developer · UI/UX</p>
           {!section && <p className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></p>}
-          {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('/about')}>{t('menu.about')} ↓</Link></div>}
+          {!section && <div className="home-hero-actions"><Link href={path('/projects')}>{t('menu.projects')} ↗</Link><Link href={path('#sobre-mim')}>{t('menu.about')} ↓</Link></div>}
         </div>
-        {!section && <HomeHeroPortrait />}
+        <HomeHeroPortrait />
       </div>
     </section>
-    {!section ? <>
-      <section className="wrap section home-story"><div><h2>{t('html.home.trajectoryTitle')}</h2></div><div><p>{t('html.home.trajectoryParagraph1')}</p><div className="actions"><Link href={path('/about')}>{t('menu.about')} ↗</Link></div></div></section>
-      <Playground locale={locale} />
-      <section className="wrap section home-projects"><div className="home-section-heading"><h2>{t('html.home.projectsTitle')}</h2><Link href={path('/projects')}>{t('menu.projects')} ↗</Link></div>{featured(projects.slice(0, 3))}</section><section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
-    </> : <>
-      <section className="wrap section experience-section">
+      <section id="sobre-mim" className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
         <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
           <h3 className="career-year-label">{year}</h3>
@@ -108,14 +104,8 @@ export default async function Page({ params }: Props) {
           </li>)}</ol>
         </section>)}</div>
       </section>
-      <section className="wrap section">
-        <h2>{t('html.about.skills.title')}</h2>
-        <div className="cards">{skills.map((group) => <article className="card" key={group.name}>
-          <h3>{group.name}</h3><p>{group.items.map(({ name }) => name).join(' · ')}</p>
-        </article>)}</div>
-      </section>
-      <section className="wrap section"><h2>{t('html.about.personality.title')}</h2><Link href={path('/about/personality-test')}>{t('html.about.personality.button')}</Link></section>
-    </>}
+      <Playground locale={locale} />
+      <section className="wrap section home-projects"><div className="home-section-heading"><h2>{t('html.home.projectsTitle')}</h2><Link href={path('/projects')}>{t('menu.projects')} ↗</Link></div>{featured(projects.slice(0, 3))}</section><section className="wrap home-next" lang="pt-BR"><div><h2>Vamos conversar?</h2><p>Tem uma ideia, um desafio ou uma oportunidade em mente? Adoraria saber mais.</p></div><Link href={path('/contact')}>{t('menu.contact')} ↗</Link></section>
   </>;
 
   if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>

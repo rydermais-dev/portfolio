@@ -34,7 +34,7 @@ export function HomeHeroPortrait() {
     <div className="home-hero-scene" ref={scene} aria-hidden="true">
       <div className="home-hero-orbit" />
       <div className="home-hero-photo">
-        <img src="/wellington.jpg" width="420" height="420" alt="" fetchPriority="high" />
+        <img src="/wellington-linkedin.jpg" width="420" height="420" alt="" fetchPriority="high" />
       </div>
       <div className="home-hero-spark" />
     </div>
