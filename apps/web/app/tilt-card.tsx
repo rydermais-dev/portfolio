@@ -10,6 +10,7 @@ export function TiltCard({ children, className = '' }: { children: ReactNode; cl
     const heading = info?.querySelector<HTMLElement>('h3');
     if (!element || !info || !heading) return;
     const update = () => {
+      element.style.setProperty('--logo-target-left', (info.offsetLeft + heading.offsetLeft) + 'px');
       element.style.setProperty('--logo-slot', `${Math.min(element.clientWidth * .36, 140)}px`);
       element.style.setProperty('--logo-target-bottom', `${info.offsetTop + heading.offsetTop + heading.offsetHeight}px`);
     };

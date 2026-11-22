@@ -668,8 +668,9 @@ main { overflow-x:clip; }
 
 @media (hover:hover) and (pointer:fine) {
   .project-card:is(:hover,:focus-within) .project-logo {
+    left:var(--logo-target-left,1.5rem);
     top:var(--logo-target-bottom,85%);
-    transform:translateY(-100%) translateZ(45px);
+    transform:translateY(-100%) translateZ(25px);
   }
-  .project-card:is(:hover,:focus-within) .project-info h3 { transform:translateZ(20px); }
+  .project-card:is(:hover,:focus-within) .project-info h3 { transform:none; }
 }
