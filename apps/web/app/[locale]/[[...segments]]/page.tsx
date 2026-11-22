@@ -67,8 +67,8 @@ export default async function Page({ params }: Props) {
     {entries.map((project) => <TiltCard className={'card project-card project-card-' + project.id} key={project.id}>
       {project.image && <Link className="project-image" href={path('/project/' + project.id)} tabIndex={-1} aria-hidden="true"><img src={project.image} alt="" loading="lazy" /></Link>}
       {foregrounds.has(project.id) && <img className="project-foreground" src={"/images/project-foregrounds/" + project.id + ".webp"} alt="" loading="lazy" />}
-      <img className="project-logo" src={"/images/project-logos/" + project.id + (updatedMarks.has(project.id) ? "-v2" : "") + ".png"} alt="" loading="lazy" />
-      <div className="project-info"><h3><Link href={path('/project/' + project.id)} aria-label={t('html.home.visit') + ' · ' + project.title}><span className="project-title">{project.title}</span><span className="project-visit">{t('html.home.visit')} <span aria-hidden="true">↗</span></span></Link></h3></div>
+      <img className="project-logo" src={"/images/project-logos/" + project.id + (["orkuty", "beatup"].includes(project.id) ? "-v3" : updatedMarks.has(project.id) ? "-v2" : "") + ".png"} alt="" loading="lazy" />
+      <div className="project-info"><h3><Link href={path('/project/' + project.id)} aria-label={t('html.home.visit') + ' · ' + project.title}><span className="project-title">{project.title}</span><span className="project-visit">{t('html.home.visit')} <span aria-hidden="true">↗</span></span></Link></h3>{projectDescription(project)}</div>
     </TiltCard>)}
   </div>;
 

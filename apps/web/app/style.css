@@ -616,3 +616,7 @@ main { overflow-x:clip; }
 .project-card .project-logo { z-index:4; }
 .project-card-deltaverse .project-foreground,.project-card-orkuty .project-foreground,.project-card-singalong .project-foreground,.project-card-rydermais .project-foreground { bottom:25%; }
 @media(hover:hover) and (pointer:fine) { .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { transform:translate3d(0,0,32px) scale(1) rotate(0); } }
+/* Pointer tracking follows the mouse immediately; leaving keeps the reset transition. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .tilt-card:hover { transition:transform 0s, border-color .2s; }
+}
