@@ -68,9 +68,29 @@ export function HeroGrid() {
   return <canvas className="hero-grid" ref={canvas} aria-hidden="true" />;
 }
 
+const tiltProperties = ['--foreground-x', '--foreground-y', '--tilt-x', '--tilt-y', '--glare-x', '--glare-y'];
+
+function resetTilt(card: HTMLElement) {
+  card.classList.remove('is-pointer-over');
+  tiltProperties.forEach((property) => card.style.removeProperty(property));
+}
+
+function updateTilt(card: HTMLElement, x: number, y: number) {
+  const amount = card.classList.contains('project-card') ? 18 : 8;
+  card.style.setProperty('--foreground-x', String(x * 12) + 'px');
+  card.style.setProperty('--foreground-y', String(y * 12) + 'px');
+  card.style.setProperty('--tilt-x', String(-y * amount) + 'deg');
+  card.style.setProperty('--tilt-y', String(x * amount) + 'deg');
+  card.style.setProperty('--glare-x', String((x + .5) * 100) + '%');
+  card.style.setProperty('--glare-y', String((y + .5) * 100) + '%');
+  card.classList.add('is-pointer-over');
+}
+
 export function RevealLight() {
   useEffect(() => {
     const selector = 'main a:not(.project-card a), main button, .project-visit, .nav a, .nav button, .nav summary, .nav select, .footer a, .card:not(.project-card), .career-event, .contact-tile, .cert-piece';
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let tilted: HTMLElement | null = null;
     const lit = new Set<HTMLElement>();
     let frame = 0;
     let position: { x: number; y: number } | null = null;
@@ -78,6 +98,8 @@ export function RevealLight() {
       frame = 0;
       if (!position) return;
       const { x, y } = position;
+      const card = reducedMotion.matches ? null : document.elementFromPoint(x, y)?.closest<HTMLElement>('.tilt-card');
+      const cardRect = card?.getBoundingClientRect();
       const next = new Map<HTMLElement, { x: number; y: number; strength: number }>();
       document.querySelectorAll<HTMLElement>(selector).forEach((target) => {
         const rect = target.getBoundingClientRect();
@@ -89,6 +111,11 @@ export function RevealLight() {
         next.set(target, { x: x - rect.left, y: y - rect.top, strength: (1 - distance / 110) * .55 });
       });
 
+      if (tilted && tilted !== card) resetTilt(tilted);
+      tilted = card ?? null;
+      if (tilted && cardRect?.width && cardRect.height) {
+        updateTilt(tilted, (x - cardRect.left) / cardRect.width - .5, (y - cardRect.top) / cardRect.height - .5);
+      }
       lit.forEach((target) => {
         if (!next.has(target)) target.classList.remove('reveal-active');
       });
@@ -109,18 +136,28 @@ export function RevealLight() {
       position = { x: event.clientX, y: event.clientY };
       schedule();
     };
-    const clear = () => { position = null; cancelAnimationFrame(frame); frame = 0; lit.forEach((target) => target.classList.remove('reveal-active')); lit.clear(); };
+    const clear = () => {
+      position = null;
+      cancelAnimationFrame(frame);
+      frame = 0;
+      if (tilted) resetTilt(tilted);
+      tilted = null;
+      lit.forEach((target) => target.classList.remove('reveal-active'));
+      lit.clear();
+    };
     document.addEventListener('pointermove', move, { passive: true });
     document.addEventListener('pointerleave', clear);
     window.addEventListener('scroll', schedule, { capture: true, passive: true });
     window.addEventListener('resize', schedule);
     window.addEventListener('blur', clear);
+    reducedMotion.addEventListener('change', schedule);
     return () => {
       document.removeEventListener('pointermove', move);
       document.removeEventListener('pointerleave', clear);
       window.removeEventListener('scroll', schedule, true);
       window.removeEventListener('resize', schedule);
       window.removeEventListener('blur', clear);
+      reducedMotion.removeEventListener('change', schedule);
       clear();
     };
   }, []);

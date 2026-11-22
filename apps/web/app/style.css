@@ -231,7 +231,7 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
 .contact-tile small { margin-top:.3rem; color:var(--muted); overflow-wrap:anywhere; }
 .tilt-card { position:relative; transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); transform-style:preserve-3d; transition:transform .2s ease,border-color .2s; }
 .tilt-card::after { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; background:radial-gradient(circle at var(--glare-x,50%) var(--glare-y,50%),#ffffff35,transparent 60%); transition:opacity .2s; }
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) { .tilt-card:hover { transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); } .tilt-card:hover::after { opacity:1; } }
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) { .tilt-card:hover { transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); } .tilt-card.is-pointer-over::after { opacity:1; } }
 @media(max-width:700px) { .career-year { display:block; } .career-year-label { text-align:left; font-size:1.5rem; margin:1.5rem 0 .8rem; } .career-events { padding-left:1.25rem; } .career-event { padding:1.2rem; } .career-event::before { left:calc(-1.25rem - 9px); } .career-header { align-items:start; flex-direction:column; gap:.3rem; } }
 @media(prefers-reduced-motion:reduce) { .tilt-card,.contact-tile { transform:none !important; transition:none; } }
 
@@ -619,7 +619,7 @@ main { overflow-x:clip; }
 @media(hover:hover) and (pointer:fine) { :is(.project-card:hover,.project-card.is-auto-active) .project-foreground,.project-card:focus-within .project-foreground { transform:translate3d(0,0,32px) scale(1) rotate(0); } }
 /* Pointer tracking follows the mouse immediately; leaving keeps the reset transition. */
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
-  .tilt-card:hover { transition:transform 0s, border-color .2s; }
+  .tilt-card.is-pointer-over { transition:transform 0s, border-color .2s; }
 }
 /* Keep the action above the decorative plane, also when the card tilts. */
 .project-card .project-info h3 a { z-index: 5; }
