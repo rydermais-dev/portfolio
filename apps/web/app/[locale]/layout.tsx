@@ -8,6 +8,7 @@ import { RevealLight } from '../interaction-effects';
 import '@moduix/react/style.css';
 import '@fontsource-variable/inter';
 import '../style.css';
+import '../project-detail.css';
 
 export const metadata: Metadata = {
   title: { default: 'Wellington do Nascimento', template: '%s · Wellington do Nascimento' },

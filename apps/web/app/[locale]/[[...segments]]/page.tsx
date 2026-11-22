@@ -13,6 +13,7 @@ import posts from '../../../content/posts.json';
 import { News } from '../../news';
 import { Playground } from '../../playground';
 import { ProjectCard } from '../../project-card';
+import { ProjectDetail } from '../../project-detail';
 import { HomeHeroPortrait } from '../../home-hero-portrait';
 import { HeroGrid } from '../../interaction-effects';
 import { PrintButton } from '../../print-button';
@@ -59,12 +60,6 @@ export default async function Page({ params }: Props) {
   const heading = title(locale, segments);
   const date = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: 'UTC' });
   const groupedTimeline = Object.entries(Object.groupBy([...timeline].sort((a, b) => (b.startDate ?? b.formationStartDate ?? '').localeCompare(a.startDate ?? a.formationStartDate ?? '')), (entry) => (entry.startDate ?? entry.formationStartDate ?? '').slice(0, 4) || '—')).sort(([a], [b]) => b.localeCompare(a));
-  const projectDescription = (project: (typeof projects)[number]) => {
-    const values = project.description as Partial<Record<Locale, string>>;
-    const language = values[locale] ? locale : 'pt-BR';
-    return <p lang={language}>{values[language]}</p>;
-  };
-
 
   if (section === 'about' && !slug) permanentRedirect(path('#sobre-mim'));
 
@@ -100,18 +95,11 @@ export default async function Page({ params }: Props) {
       <section className="wrap home-next" lang="pt-BR"><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--primary" href={path('/contact')}>{t('menu.contact')} <Icon name="arrow_outward" /></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
   </>;
 
-  if (section === 'project') return <>{projects.filter(({ id }) => id === slug).map((project) => <section key={project.id} className={'project-detail project-' + project.id}>
-    <div className="wrap project-detail-inner">
-      <Link className="back-link" href={path('/projects')}><Icon name="arrow_back" /> {t('menu.projects')}</Link>
-      <h1>{project.title}</h1>
-      <div className="project-intro">{projectDescription(project)}</div>
-      <div className="actions">
-        {https(project.website) && <a className="ui-button ui-button--light" href={https(project.website)}>{t('html.home.visit')} <Icon name="arrow_outward" /></a>}
-        {https(project.code) && <a className="ui-button ui-button--outline-light" href={https(project.code)}>GitHub <Icon name="arrow_outward" /></a>}
-      </div>
-      {project.image && <div className="project-cover"><img src={project.image} alt="" /></div>}
-    </div>
-  </section>)}</>;
+  if (section === 'project') {
+    const project = projects.find(({ id }) => id === slug);
+    if (!project) notFound();
+    return <ProjectDetail project={project} locale={locale} />;
+  }
 
   if (section === 'cv') return <section className="wrap section cv-page" lang="pt-BR">
     <div className="cv-controls"><Link href={path('/contact')}><Icon name="arrow_back" /> {t('menu.contact')}</Link><PrintButton label="Imprimir / salvar em PDF" /></div>

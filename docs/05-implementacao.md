@@ -15,6 +15,8 @@ Cada entrega começa com requisito e contrato escrito, usa uma branch própria e
 
 ## Sequência de desenvolvimento local
 
+- No painel editorial de projetos, usar o contrato de blocos em [Dados e mídia](03-conteudo.md#estudos-de-caso-dos-projetos). Validar a prévia com o mesmo componente da rota pública e confirmar que reordenar blocos conserva os links internos e que rascunhos ficam fora da saída pública.
+
 - Preparar Docker Compose local, envs de exemplo sem segredos, fixtures versionadas e comandos de diagnóstico no README. Documentar versões exatas de Bun, Next, Moduix e toolchain Rust escolhidas durante o bootstrap de cada app.
 - Aplicar migrações e seed local. Rodar format e clippy/test no Rust, typecheck e build de produção na web, e Playwright para rotas, scroll, menu, troca de idioma, links, 404 e limites de mídia. Os testes de contrato precisam usar a mesma OpenAPI e fixtures.
 - Antes do release, executar regressão em tema claro/escuro e teclado, simular API/banco indisponíveis, conferir conteúdo rascunho e informações pessoais na saída estática, rever traduções e confirmar que todo link do portfólio leva a uma rota funcional. Metas iniciais para avaliar no preview: LCP ≤2,5 s, CLS ≤0,1 e INP ≤200 ms, observando ambiente e amostra. Medir cold e warm separadamente e registrar resultados.
