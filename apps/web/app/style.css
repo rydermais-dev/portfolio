@@ -601,3 +601,18 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
   .project-card:hover .project-visit,.project-card:focus-within .project-visit { bottom:0; }
 }
 @media (prefers-reduced-motion:reduce) { .project-card .project-logo { transition:none; } }
+
+/* The art and mark tell the story; the action remains available without a caption. */
+.project-card .project-title { opacity:0; }
+.project-card .project-foreground { position:absolute; z-index:1; pointer-events:none; object-fit:contain; opacity:0; transition:transform .65s cubic-bezier(.2,.7,.2,1),opacity .45s ease; filter:drop-shadow(0 12px 16px #0006); }
+.project-card-deltaverse .project-foreground { width:38%; height:68%; right:8%; bottom:7%; transform:translateY(20%) scale(.92); }
+.project-card-orkuty .project-foreground { width:45%; height:80%; right:0; bottom:0; transform:translate(45%,12%) rotate(10deg); }
+.project-card-singalong .project-foreground { width:48%; height:70%; right:4%; bottom:4%; transform:translate(20%,15%) rotate(12deg); }
+.project-card-rydermais .project-foreground { width:55%; height:75%; right:2%; bottom:2%; transform:translate(18%,8%) scale(.85) rotate(15deg); }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { opacity:1; transform:translate(0,0) scale(1) rotate(0); } }
+@media(prefers-reduced-motion:reduce) { .project-card .project-foreground { transition:none; } }
+main { overflow-x:clip; }
+.project-card .project-foreground { z-index:3; }
+.project-card .project-logo { z-index:4; }
+.project-card-deltaverse .project-foreground,.project-card-orkuty .project-foreground,.project-card-singalong .project-foreground,.project-card-rydermais .project-foreground { bottom:25%; }
+@media(hover:hover) and (pointer:fine) { .project-card:hover .project-foreground,.project-card:focus-within .project-foreground { transform:translate3d(0,0,32px) scale(1) rotate(0); } }
