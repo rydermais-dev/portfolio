@@ -78,7 +78,7 @@ export function RevealLight() {
       frame = 0;
       if (!position) return;
       const { x, y } = position;
-      const next = new Set<HTMLElement>();
+      const next = new Map<HTMLElement, { x: number; y: number; strength: number }>();
       document.querySelectorAll<HTMLElement>(selector).forEach((target) => {
         const rect = target.getBoundingClientRect();
         if (!rect.width || !rect.height || rect.bottom < 0 || rect.top > innerHeight) return;
@@ -86,24 +86,43 @@ export function RevealLight() {
         const dy = Math.max(rect.top - y, 0, y - rect.bottom);
         const distance = Math.hypot(dx, dy);
         if (distance >= 110) return;
-        target.style.setProperty('--reveal-x', `${x - rect.left}px`);
-        target.style.setProperty('--reveal-y', `${y - rect.top}px`);
-        target.style.setProperty('--reveal-strength', String((1 - distance / 110) * .55));
-        target.classList.add('reveal-active');
-        next.add(target);
+        next.set(target, { x: x - rect.left, y: y - rect.top, strength: (1 - distance / 110) * .55 });
       });
-      lit.forEach((target) => { if (!next.has(target)) target.classList.remove('reveal-active'); });
-      lit.clear(); next.forEach((target) => lit.add(target));
+
+      lit.forEach((target) => {
+        if (!next.has(target)) target.classList.remove('reveal-active');
+      });
+      lit.clear();
+      next.forEach(({ x, y, strength }, target) => {
+        target.style.setProperty('--reveal-x', x + 'px');
+        target.style.setProperty('--reveal-y', y + 'px');
+        target.style.setProperty('--reveal-strength', String(strength));
+        target.classList.add('reveal-active');
+        lit.add(target);
+      });
+    };
+    const schedule = () => {
+      if (position && !frame) frame = requestAnimationFrame(update);
     };
     const move = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') return;
       position = { x: event.clientX, y: event.clientY };
-      if (!frame) frame = requestAnimationFrame(update);
+      schedule();
     };
     const clear = () => { position = null; cancelAnimationFrame(frame); frame = 0; lit.forEach((target) => target.classList.remove('reveal-active')); lit.clear(); };
     document.addEventListener('pointermove', move, { passive: true });
     document.addEventListener('pointerleave', clear);
-    return () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerleave', clear); clear(); };
+    window.addEventListener('scroll', schedule, { capture: true, passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('blur', clear);
+    return () => {
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerleave', clear);
+      window.removeEventListener('scroll', schedule, true);
+      window.removeEventListener('resize', schedule);
+      window.removeEventListener('blur', clear);
+      clear();
+    };
   }, []);
   return null;
 }
