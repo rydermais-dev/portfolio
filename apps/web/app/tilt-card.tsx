@@ -26,12 +26,16 @@ export function TiltCard({ children, className = '' }: { children: ReactNode; cl
     const x = (event.clientX - rect.left) / rect.width - .5;
     const y = (event.clientY - rect.top) / rect.height - .5;
     const amount = event.currentTarget.classList.contains('project-card') ? 18 : 8;
+    event.currentTarget.style.setProperty('--foreground-x', `${x * 12}px`);
+    event.currentTarget.style.setProperty('--foreground-y', `${y * 12}px`);
     event.currentTarget.style.setProperty('--tilt-x', `${-y * amount}deg`);
     event.currentTarget.style.setProperty('--tilt-y', `${x * amount}deg`);
     event.currentTarget.style.setProperty('--glare-x', `${(x + .5) * 100}%`);
     event.currentTarget.style.setProperty('--glare-y', `${(y + .5) * 100}%`);
   }
   function reset() {
+    card.current?.style.removeProperty('--foreground-x');
+    card.current?.style.removeProperty('--foreground-y');
     card.current?.style.removeProperty('--tilt-x');
     card.current?.style.removeProperty('--tilt-y');
   }
