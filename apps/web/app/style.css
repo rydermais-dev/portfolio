@@ -1136,3 +1136,11 @@ body:has(.home-next) .footer a { color:#382b47; }
 }
 .playground-backdrops::after { background:linear-gradient(to bottom,transparent 45%,var(--carousel-bottom-tint, transparent) 100%),linear-gradient(to bottom,transparent 45%,var(--carousel-depth-shadow) 100%); }
 .playground .project-info h3 a .project-visit span { color:inherit; }
+
+/* Fade the shrinking image into the slide's text surface instead of ending at a hard edge. */
+.playground .project-card { background:var(--featured-card-bottom, #24212d); }
+.playground .project-card .project-image {
+  background:transparent;
+  -webkit-mask-image:linear-gradient(to bottom,#000 65%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 65%,transparent 100%);
+}
