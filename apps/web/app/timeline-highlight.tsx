@@ -6,11 +6,14 @@ export function TimelineHighlight() {
   useEffect(() => {
     const timeline = document.querySelector<HTMLElement>('.career-timeline');
     if (!timeline) return;
+    const header = document.querySelector<HTMLElement>('.header');
     const events = Array.from(timeline.querySelectorAll<HTMLElement>('.career-event'));
     let frame = 0;
     const update = () => {
       frame = 0;
-      const marker = window.innerWidth <= 700 ? 100 : 112;
+      const menuBottom = Math.max(0, header?.getBoundingClientRect().bottom ?? 0);
+      const marker = menuBottom + (window.innerHeight - menuBottom) / 2;
+      timeline.style.setProperty('--timeline-marker', marker + 'px');
       const bounds = timeline.getBoundingClientRect();
       const active = bounds.top <= marker && bounds.bottom > marker
         ? [...events].reverse().find((event) => event.getBoundingClientRect().top <= marker) ?? events[0]
@@ -24,10 +27,12 @@ export function TimelineHighlight() {
       });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const headerObserver = new ResizeObserver(schedule);
+    if (header) headerObserver.observe(header);
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
     update();
-    return () => { window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); if (frame) cancelAnimationFrame(frame); };
+    return () => { headerObserver.disconnect(); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); if (frame) cancelAnimationFrame(frame); };
   }, []);
   return null;
 }

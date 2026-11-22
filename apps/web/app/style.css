@@ -1030,3 +1030,8 @@ body:has(.home-next) .footer a { color:#382b47; }
 :root[data-theme=dark] body:has(.home-next) .home-next-blocks { --accent:#d3b7f4; }
 :root[data-theme=dark] body:has(.home-next) .footer { background:#1c1427; color:#d5c7e0; }
 :root[data-theme=dark] body:has(.home-next) .footer a { color:#e9ddf2; }
+/* Keep the year marker at the center of the viewport below the sticky menu. */
+.career-year-label {
+  line-height:1;
+  top:calc(var(--timeline-marker, calc((100dvh + var(--nav-height)) / 2)) - .5em - .2rem);
+}
