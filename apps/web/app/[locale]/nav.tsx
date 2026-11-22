@@ -41,7 +41,7 @@ export function Header({ locale, links, themeLabel }: {
       const href = '/' + locale + path;
       const current = path === '/projects' && pathname.startsWith('/' + locale + '/project/')
         || pathname === href || Boolean(path && pathname.startsWith(href + '/'));
-      return <Link key={path} href={href} aria-current={current ? 'page' : undefined}
+      return <Link className="ui-button ui-button--nav" key={path} href={href} aria-current={current ? 'page' : undefined}
         onClick={() => { if (menu.current) menu.current.open = false; }}>{label}</Link>;
     });
   }
@@ -63,14 +63,14 @@ export function Header({ locale, links, themeLabel }: {
               {Object.entries(languages).map(([key, [label]]) => <option lang={key} key={key} value={key}>{label}</option>)}
             </select>
           </label>
-          <Button type="button" aria-label={themeLabel} className="theme" onClick={toggleTheme}>◐</Button>
+          <Button type="button" aria-label={themeLabel} className="ui-button ui-button--nav-icon theme" onClick={toggleTheme}>◐</Button>
           <details className="mobile" ref={menu} onKeyDown={(event) => {
             if (event.key === 'Escape' && menu.current?.open) {
               menu.current.open = false;
               menu.current.querySelector('summary')?.focus();
             }
           }}>
-            <summary>{menuLabel}</summary>
+            <summary className="ui-button ui-button--nav">{menuLabel}</summary>
             <nav aria-label={menuLabel}>{renderLinks()}</nav>
           </details>
         </div>

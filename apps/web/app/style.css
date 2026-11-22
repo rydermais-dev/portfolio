@@ -929,3 +929,17 @@ main { overflow-x:clip; }
 .playground-slide .ui-button.playground-all { display:flex; }
 .project-detail .actions .ui-button--outline-light { background:transparent; border-color:#ffffff88; color:#fff; }
 @media(prefers-reduced-motion:reduce) { .ui-button { transition:none; } }
+/* Navigation variants and proximity lighting share the action-button system. */
+.ui-button--nav { min-height:42px; padding:.6rem .85rem; border-radius:10px; background:transparent; border-color:transparent; color:var(--muted); font-size:.87rem; }
+.ui-button--nav-icon { min-width:42px; width:42px; min-height:42px; padding:0; background:var(--background); color:var(--ink); border-color:transparent; }
+.nav .ui-button--nav:hover,.nav .ui-button--nav[aria-current=page] { color:var(--ink); background-color:var(--background); }
+@media(hover:hover) and (pointer:fine) {
+  .ui-button.reveal-active,.nav .reveal-active,.project-card .project-visit.reveal-active {
+    background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), #c9bcff55, transparent 75%);
+    box-shadow:inset 0 0 0 1px rgb(196 184 255 / var(--reveal-strength));
+  }
+  .ui-button.reveal-active:active,.nav .reveal-active:active {
+    background-image:radial-gradient(180px circle at var(--reveal-x) var(--reveal-y), #d8ceff77, transparent 75%);
+    box-shadow:inset 0 0 0 2px #d8ceffb3;
+  }
+}
