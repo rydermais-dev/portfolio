@@ -340,6 +340,14 @@ body { font-family: 'Inter Variable', Inter, sans-serif; }
   .mobile-menu-layer,.mobile-menu-scrim,.mobile-drawer { transition:none; }
 }
 
+/* Keep the hamburger off desktop: the shared .ui-button display rule appears later in this sheet. */
+.nav .mobile-menu-toggle { display:none; }
+.mobile-menu-layer { display:none; }
+@media(max-width:1000px) {
+  .nav .mobile-menu-toggle { display:inline-flex; }
+  .mobile-menu-layer { display:block; }
+}
+
 /* Warm light and quiet moving trails, inspired by the profile portrait. */
 .hero-about { background:linear-gradient(115deg,#1d2029,#302b32 56%,#574536); }
 .hero-trails { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
