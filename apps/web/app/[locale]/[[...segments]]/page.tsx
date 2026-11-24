@@ -98,7 +98,7 @@ export default async function Page({ params }: Props) {
           </li>)}</ol>
         </section>)}</div>
       </section>
-      <section className="wrap home-next" lang="pt-BR"><HeroGrid /><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--primary" href={path('/contact')}>{t('menu.contact')} <Icon name="arrow_outward" /></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
+      <section className="wrap home-next" lang="pt-BR"><HeroGrid /><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--light" href={path('/contact')}>{t('menu.contact')} <Icon name="arrow_outward" /></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
   </>;
 
   if (section === 'project') {
