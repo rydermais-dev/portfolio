@@ -198,7 +198,9 @@ export function RevealLight() {
         const distance = Math.hypot(dx, dy);
         // The reveal reaches nearby elements at low intensity and strengthens
         // inside them. Its CSS radius stays constant throughout the interaction.
-        if (distance >= revealRange || ![...activeZones].some((zone) => zone.contains(target))) return;
+        const isVisibleZone = [...activeZones].some((zone) => zone.contains(target));
+        const isNavigationControl = Boolean(target.closest('.nav'));
+        if (distance >= revealRange || (!isVisibleZone && !(isNavigationControl && activeZones.size > 0))) return;
         const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
         const edgeDistance = inside
           ? Math.min(x - rect.left, rect.right - x, y - rect.top, rect.bottom - y)
