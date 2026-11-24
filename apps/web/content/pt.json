@@ -139,5 +139,18 @@
     "blog": "Blog",
     "about": "Sobre mim",
     "contact": "Contato"
+  },
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "Parabéns por conseguires!",
+        "description": "Lembra-te de que, em conjunto, as pessoas fazem mais, melhor e em menos tempo."
+      },
+      "helped": {
+        "title": "Vitória!",
+        "description": "Vês? É muito mais fácil com o apoio de quem percebe do assunto."
+      }
+    },
+    "playAgain": "Jogar novamente"
   }
 }

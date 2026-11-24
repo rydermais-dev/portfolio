@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { notFound, permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import Markdown from 'react-markdown';
-import { https, isLocale, locales, translate, type Locale } from '../../../content';
+import { withPortfolioSource } from '../../outbound-link';
+import { dictionaries, https, isLocale, locales, translate, type Locale } from '../../../content';
 import projects from '../../../content/projects.json';
 import timeline from '../../../content/timeline.json';
 import certifications from '../../../content/certifications.json';
@@ -21,6 +22,7 @@ import { HeroText } from '../../hero-text';
 import { PrintButton } from '../../print-button';
 import { CertificateGallery } from '../../certificate-gallery';
 import { TimelineHighlight } from '../../timeline-highlight';
+import { ContactCube } from '../../contact-cube';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
 const [featuredPost, ...archivePosts] = [...posts].sort((a, b) => b.date.localeCompare(a.date));
@@ -29,7 +31,7 @@ const links = [
   ['about', 'menu.about'], ['certifications', 'html.home.certifications'], ['projects', 'menu.projects'],
   ['blog', 'menu.blog'], ['contact', 'menu.contact'],
 ];
-const linkedIn = 'https://www.linkedin.com/in/wellnas/';
+const linkedIn = withPortfolioSource('https://www.linkedin.com/in/wellnas/');
 const staticRoutes = [[], ...links.map(([slug]) => [slug]), ['cv'], ['about', 'personality-test'],
   ...projects.map(({ id }) => ['project', id]), ...posts.map(({ slug }) => ['blog', slug])];
 
@@ -39,6 +41,7 @@ export function generateStaticParams() {
 
 function title(locale: Locale, segments: string[]) {
   const [section, slug] = segments;
+  if (!section) return translate(locale, 'menu.home');
   if (section === 'project') return projects.find((project) => project.id === slug)?.title;
   if (section === 'blog' && slug) return posts.find((post) => post.slug === slug)?.title;
   if (section === 'cv') return 'Curriculum Vitae';
@@ -50,7 +53,8 @@ function title(locale: Locale, segments: string[]) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, segments = [] } = await params;
   if (!isLocale(locale)) return {};
-  return { title: title(locale, segments) };
+  const pageTitle = title(locale, segments);
+  return { title: pageTitle ?? { absolute: 'Wellington do Nascimento' } };
 }
 
 export default async function Page({ params }: Props) {
@@ -87,18 +91,46 @@ export default async function Page({ params }: Props) {
     </div>
       <section id="sobre-mim" className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
-        <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
-          <h3 className="career-year-label">{year}</h3>
-          <ol className="career-events">{entries?.map((entry) => <li key={entry.id + '-' + (entry.company ?? entry.formationType)} className="career-event" lang="pt-BR" style={{ '--event-color': entry.color || '#9871f6' } as React.CSSProperties}>
-            <div className="career-header"><div className="career-company">{entry.companyLogo && <img src={entry.companyLogo} alt="" width="36" height="36" loading="lazy" />}<strong>{entry.company ?? entry.formationType}</strong></div><span>{entry.date ?? year}</span></div>
-            <h4>{entry.jobRole ?? entry.formationRole ?? entry.title}</h4>
-            <p>{entry.jobDescription ?? entry.formationDescription ?? entry.description}</p>
-            {(entry.jobtags || entry.formationtags) && <><div className="career-tags">{(entry.jobtags || entry.formationtags || []).slice(0, 8).map((tag) => <span key={tag}>{tag}</span>)}</div>{(entry.jobtags || entry.formationtags || []).length > 8 && <details className="career-more"><summary>{t('html.home.viewMore')}</summary><div className="career-tags">{(entry.jobtags || entry.formationtags || []).slice(8).map((tag) => <span key={tag}>{tag}</span>)}</div></details>}</>}
-            <div className="career-meta">{(entry.jobLocation || entry.formationLocation) && <span><Icon name="location_on" /> {entry.jobLocation || entry.formationLocation}</span>}{(entry.jobContract || entry.formationType) && <span><Icon name="work" /> {entry.jobContract || entry.formationType}</span>}{https(entry.companyLink) && <a href={https(entry.companyLink)}>{t('html.about.experience.company.button')} <Icon name="arrow_outward" /></a>}</div>
-          </li>)}</ol>
+        <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year}>
+          <h3 className="career-year-label" aria-label={year}><span className="career-year-full">{year}</span><span className="career-year-short" aria-hidden="true">{year.slice(-2)}</span></h3>
+          <ol className="career-events">{entries?.map((entry) => {
+            const organization = entry.company ?? entry.formationType;
+            const location = entry.jobLocation ?? entry.formationLocation;
+            const contract = entry.jobContract;
+            const website = https(entry.companyLink);
+            const tags = entry.jobtags ?? entry.formationtags ?? [];
+            return <li key={entry.id + '-' + organization} className="career-event" lang="pt-BR"
+              style={{ '--event-color': entry.color || '#9871f6' } as React.CSSProperties}>
+              <header className="career-header">
+                <div className="career-identity">
+                  {entry.companyLogo && <img className="career-logo" src={entry.companyLogo} alt="" width="48" height="48" loading="lazy" />}
+                  <div>
+                    {organization && <span className="career-company">{organization}</span>}
+                    <h4>{entry.jobRole ?? entry.formationRole ?? entry.title}</h4>
+                  </div>
+                </div>
+                <span className="career-period"><Icon name="calendar_today" />{entry.date ?? year}</span>
+              </header>
+              <div className="career-body">
+                <p>{entry.jobDescription ?? entry.formationDescription ?? entry.description}</p>
+                {tags.length > 0 && <ul className="career-tags">{tags.slice(0, 6).map((tag) => <li key={tag}>{tag}</li>)}</ul>}
+                {tags.length > 6 && <details className="career-more">
+                  <summary>{t('html.home.viewMore')} <span>+{tags.length - 6}</span></summary>
+                  <ul className="career-tags">{tags.slice(6).map((tag) => <li key={tag}>{tag}</li>)}</ul>
+                </details>}
+              </div>
+              {(location || contract || website) && <div className="career-meta">
+                {location && <span><Icon name="location_on" />{location}</span>}
+                {contract && <span><Icon name="work" />{contract}</span>}
+                {website && <a className="ui-button ui-button--outline-light" href={withPortfolioSource(website)}>
+                  {t('html.about.experience.company.button')} <Icon name="arrow_outward" />
+                </a>}
+              </div>}
+            </li>;
+          })}</ol>
         </section>)}</div>
       </section>
-      <section className="wrap home-next" lang="pt-BR"><HeroGrid /><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--light" href={path('/contact')}>{t('menu.contact')} <Icon name="arrow_outward" /></Link></div><div className="home-next-blocks" aria-hidden="true"><i /><i /><i /><i /></div></section>
+      <section className="wrap home-next" lang="pt-BR"><HeroGrid /><div className="home-next-copy"><h2>Vamos construir<br /><span>algo juntos?</span></h2><p>Uma ideia em construção, um desafio de produto ou uma oportunidade para colaborar. Me conte o que você tem em mente.</p><Link className="ui-button ui-button--light" href={path('/contact')}>{t('menu.contact')} <Icon name="arrow_outward" /></Link></div><ContactCube locale={locale} playAgain={dictionaries[locale].cube.playAgain} victoryCopy={dictionaries[locale].cube.victory} /></section>
   </>;
 
   if (section === 'project') {
@@ -139,7 +171,9 @@ export default async function Page({ params }: Props) {
       <article className="article journal-article" key={post.slug} lang="pt-BR">
         <Link href={path('/blog')}><Icon name="arrow_back" /> {t('menu.blog')}</Link>
         <header><h1>{post.title}</h1><p className="journal-meta">Wellington do Nascimento · <time dateTime={post.date}>{date.format(new Date(post.date))}</time> · {readingMinutes(post.body)} min de leitura</p></header>
-        <Markdown skipHtml>{post.body}</Markdown>
+        <Markdown skipHtml components={{
+          a: ({ href, title, children }) => <a href={href && withPortfolioSource(href)} title={title}>{children}</a>,
+        }}>{post.body}</Markdown>
         <aside className="article-next"><h2>Continue lendo</h2>{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} <Icon name="arrow_outward" /></Link>)}</aside>
       </article>)}
     {section === 'contact' && <div className="contact-page" lang="pt-BR">
@@ -152,6 +186,6 @@ export default async function Page({ params }: Props) {
       </header>
       <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--primary" href={path('/cv')}>Ver currículo <Icon name="arrow_outward" /></Link></section>
     </div>}
-    {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities <Icon name="arrow_outward" /></a></div></div>}
+    {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href={withPortfolioSource('https://www.16personalities.com/intp-personality')}>16Personalities <Icon name="arrow_outward" /></a></div></div>}
   </section>;
 }

@@ -332,5 +332,18 @@
   "footer": [
     "Site construído com ❤️ e ☕ em Nuxt3",
     "Código aberto </a> sob licença <a href=\"https://opensource.org/license/agpl-v3\" target=\"_blank\">AGPL-3.0</a> <span class=\"divider\">•</span> {views} visitas"
-  ]
+  ],
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "Parabéns por conseguir!",
+        "description": "Mas lembre-se de que pessoas unidas fazem mais, melhor e em menos tempo."
+      },
+      "helped": {
+        "title": "Vitória!",
+        "description": "Viu só? É muito mais fácil quando se tem o apoio de quem entende."
+      }
+    },
+    "playAgain": "Jogar novamente"
+  }
 }

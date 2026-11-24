@@ -131,5 +131,18 @@
         }
       }
     }
+  },
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "Glückwunsch, du hast es geschafft!",
+        "description": "Gemeinsam können wir mehr erreichen, bessere Ergebnisse erzielen und Zeit sparen."
+      },
+      "helped": {
+        "title": "Geschafft!",
+        "description": "Siehst du? Mit Hilfe von jemandem, der sich auskennt, geht es viel leichter."
+      }
+    },
+    "playAgain": "Noch einmal spielen"
   }
 }

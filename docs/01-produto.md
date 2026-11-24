@@ -35,6 +35,8 @@ A página inicial apresenta uma seleção interativa de CodeHouse, SingAlong! e 
 
 ## Linguagem visual das páginas
 
+Na chamada de contato da Home, o cubo mágico 3×3 substitui a animação de blocos. O tutorial aceita arrastar a peça verde até o encaixe ou ativá-la pelo teclado. Após o encaixe, o cubo se resolve e oferece uma partida. Em jogo, arrastar o cubo ou usar as setas do teclado com foco no modelo muda o ângulo da câmera. Os ícones ao redor da face que estiver mais voltada para o visitante giram suas linhas e colunas individualmente. O jogo aceita mouse e toque, oferece foco visível e elimina a animação dos giros com movimento reduzido.
+
 O cabeçalho com recortes permanece comum às rotas. Perfil, catálogo, projetos e contatos compartilham tipografia Inter Variable, espaçamento, cores e estados de foco. Cada projeto recebe uma cor de abertura e uma transição respeita a preferência por movimento reduzido. Páginas de projeto oferecem retorno ao catálogo e links disponíveis. O Orkuty usa uma capa de balões de conversa e um mockup transparente do login como camada animada no card. Verificar páginas claras e escuras, teclado, dimensões móveis e desktop em cada alteração visual.
 
 ## Interações recuperadas

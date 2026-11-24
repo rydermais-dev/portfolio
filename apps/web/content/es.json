@@ -106,5 +106,18 @@
     null,
     null
   ],
-  "footer[0]": "Sitio Desbeado con ❤️ en Nuxt3 | Visitas: {Vistas}"
+  "footer[0]": "Sitio Desbeado con ❤️ en Nuxt3 | Visitas: {Vistas}",
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "¡Enhorabuena por resolverlo!",
+        "description": "Recuerda que, cuando trabajamos juntos, hacemos más, mejor y en menos tiempo."
+      },
+      "helped": {
+        "title": "¡Victoria!",
+        "description": "¿Lo ves? Es mucho más fácil con el apoyo de alguien que sabe."
+      }
+    },
+    "playAgain": "Jugar de nuevo"
+  }
 }

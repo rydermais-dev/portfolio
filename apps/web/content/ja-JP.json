@@ -49,5 +49,18 @@
       }
     }
   },
-  "footer[0]": "nuxt3 |でdebreeed embreeがdebreeされました訪問：{ビュー}"
+  "footer[0]": "nuxt3 |でdebreeed embreeがdebreeされました訪問：{ビュー}",
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "完成おめでとうございます！",
+        "description": "力を合わせれば、もっと多くのことを、より良く、より短い時間で成し遂げられます。"
+      },
+      "helped": {
+        "title": "クリア！",
+        "description": "詳しい人のサポートがあると、ずっと簡単ですね。"
+      }
+    },
+    "playAgain": "もう一度遊ぶ"
+  }
 }

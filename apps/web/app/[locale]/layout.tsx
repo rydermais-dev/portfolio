@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { isLocale, locales, translate } from '../../content';
 import { Header } from './nav';
+import { withPortfolioSource } from '../outbound-link';
 import { RevealLight } from '../interaction-effects';
 import { ContactFooterDots } from '../contact-footer-dots';
 import '@moduix/react/style.css';
@@ -14,6 +15,16 @@ import '../project-detail.css';
 export const metadata: Metadata = {
   title: { default: 'Wellington do Nascimento', template: '%s · Wellington do Nascimento' },
   description: 'Portfólio profissional de Wellington do Nascimento.',
+  applicationName: 'Wellington N. Portfolio',
+  icons: {
+    icon: [
+      { url: '/favicons/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicons/favicon.ico', rel: 'shortcut icon' },
+    ],
+    apple: [{ url: '/favicons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/favicons/site.webmanifest',
 };
 
 export function generateStaticParams() {
@@ -39,7 +50,7 @@ export default async function Layout({ children, params }: {
           <main id="content">{children}</main>
           <footer className="wrap footer">
             <span>Wellington do Nascimento</span>
-            <a href="https://github.com/rydermais-dev/portfolio">GitHub · AGPL-3.0</a>
+            <a href={withPortfolioSource('https://github.com/rydermais-dev/portfolio')}>GitHub · AGPL-3.0</a>
           </footer>
           <ContactFooterDots />
         </div>

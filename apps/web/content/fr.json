@@ -106,5 +106,18 @@
     null,
     null
   ],
-  "footer[0]": "Le site est débranché avec ❤️ dans nuxt3 | Visites: {vues}"
+  "footer[0]": "Le site est débranché avec ❤️ dans nuxt3 | Visites: {vues}",
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "Bravo, tu as réussi !",
+        "description": "Souviens-toi qu’ensemble, on peut faire plus, mieux et plus vite."
+      },
+      "helped": {
+        "title": "Victoire !",
+        "description": "Tu vois ? C’est bien plus facile avec l’aide de quelqu’un qui s’y connaît."
+      }
+    },
+    "playAgain": "Rejouer"
+  }
 }

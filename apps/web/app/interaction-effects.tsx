@@ -134,6 +134,7 @@ export function RevealLight() {
       cancelAnimationFrame(enterFrames.get(target) ?? 0);
       enterFrames.delete(target);
       target.classList.remove('reveal-entering');
+      target.classList.remove('pointer-inside');
       target.classList.add('reveal-leaving');
       target.style.setProperty('--reveal-strength', '0');
       clearTimeout(exitTimers.get(target));
@@ -145,7 +146,7 @@ export function RevealLight() {
     let frame = 0;
     let position: { x: number; y: number } | null = lastPointer.current;
     let touchTimer: ReturnType<typeof setTimeout> | undefined;
-    const zones = document.querySelectorAll('.home-hero, .playground, .home-next, .contact-page, .footer');
+    const zones = document.querySelectorAll('.home-hero, .playground, .career-timeline, .home-next, .contact-page, .footer');
     const visibility = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) activeZones.add(entry.target);
@@ -199,7 +200,8 @@ export function RevealLight() {
         const frame = target.classList.contains('home-hero-portrait-figure')
           ? target.closest<HTMLElement>('.home-hero-photo')
           : null;
-        const revealRange = frame ? 190 : 110;
+        const isCareerCard = target.classList.contains('career-event');
+        const revealRange = frame ? 190 : isCareerCard ? 205 : 110;
         const dx = Math.max(rect.left - x, 0, x - rect.right);
         const dy = Math.max(rect.top - y, 0, y - rect.bottom);
         const distance = Math.hypot(dx, dy);
@@ -209,12 +211,16 @@ export function RevealLight() {
         const isNavigationControl = Boolean(target.closest('.nav'));
         if (distance >= revealRange || (!isVisibleZone && !(isNavigationControl && activeZones.size > 0))) return;
         const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+        if (isCareerCard) target.classList.toggle('pointer-inside', inside);
         const edgeDistance = inside
           ? Math.min(x - rect.left, rect.right - x, y - rect.top, rect.bottom - y)
           : 0;
+        const edgeStrength = isCareerCard ? .18 : .16;
+        const interiorBoost = isCareerCard ? .20 : .08;
+        const proximity = 1 - distance / revealRange;
         const strength = inside
-          ? .16 + Math.min(edgeDistance / 40, 1) * .08
-          : (1 - distance / revealRange) * .16;
+          ? edgeStrength + Math.min(edgeDistance / 40, 1) * interiorBoost
+          : proximity ** (isCareerCard ? 1.6 : 1) * edgeStrength;
         const localX = x - rect.left;
         const localY = y - rect.top;
         if (frame?.parentElement) {

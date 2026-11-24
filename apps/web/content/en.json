@@ -120,5 +120,18 @@
     null,
     null
   ],
-  "footer[0]": "Site Debreeed with ❤️ in NUXT3 | Visits: {views}"
+  "footer[0]": "Site Debreeed with ❤️ in NUXT3 | Visits: {views}",
+  "cube": {
+    "victory": {
+      "self": {
+        "title": "Congratulations on solving it!",
+        "description": "Remember, when people work together, they get more done, better and faster."
+      },
+      "helped": {
+        "title": "Victory!",
+        "description": "See? It’s much easier with help from someone who knows what they’re doing."
+      }
+    },
+    "playAgain": "Play again"
+  }
 }

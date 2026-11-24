@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { https, translate, type Locale } from '../content';
+import { withPortfolioSource } from './outbound-link';
 import projects from '../content/projects.json';
 import { projectStories, type ProjectBlock } from '../content/project-stories';
 import { Icon } from './material-icon';
@@ -73,8 +74,8 @@ export function ProjectDetail({ project, locale }: { project: Project; locale: L
               {story.focus.map((item) => <li key={item}>{item}</li>)}
             </ul>}
             {(website || code) && <div className="case-actions">
-              {website && <a className="ui-button ui-button--light" href={website}>{translate(locale, 'html.home.visit')} <Icon name="arrow_outward" /></a>}
-              {code && <a className="ui-button ui-button--outline-light" href={code}>GitHub <Icon name="arrow_outward" /></a>}
+              {website && <a className="ui-button ui-button--light" href={withPortfolioSource(website)}>{translate(locale, 'html.home.visit')} <Icon name="arrow_outward" /></a>}
+              {code && <a className="ui-button ui-button--outline-light" href={withPortfolioSource(code)}>GitHub <Icon name="arrow_outward" /></a>}
             </div>}
           </div>
           {project.image && <div className="case-cover">
