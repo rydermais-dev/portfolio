@@ -150,7 +150,7 @@ export default async function Page({ params }: Props) {
           <a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><Icon name="arrow_outward" /></a>
         </div>
       </header>
-      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--light" href={path('/cv')}>Ver currículo <Icon name="arrow_outward" /></Link></section>
+      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--primary" href={path('/cv')}>Ver currículo <Icon name="arrow_outward" /></Link></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities <Icon name="arrow_outward" /></a></div></div>}
   </section>;

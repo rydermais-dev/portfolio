@@ -21,7 +21,7 @@ export function HeroGrid() {
       ctx.clearRect(0, 0, width, height);
       const explicitTheme = document.documentElement.dataset.theme;
       const lightTheme = explicitTheme === 'light' || (explicitTheme !== 'dark' && matchMedia('(prefers-color-scheme: light)').matches);
-      const glow = lightTheme ? '41,38,46' : '243,240,250';
+      const glow = lightTheme ? '112,83,174' : '243,240,250';
       const bounds = parent.getBoundingClientRect();
       const pointerPosition = pointer ? { x: pointer.clientX - bounds.left, y: pointer.clientY - bounds.top } : null;
       const spacing = width < 600 ? 34 : 39;
@@ -142,7 +142,7 @@ export function RevealLight() {
     let frame = 0;
     let position: { x: number; y: number } | null = null;
     let touchTimer: ReturnType<typeof setTimeout> | undefined;
-    const zones = document.querySelectorAll('.home-hero, .playground');
+    const zones = document.querySelectorAll('.home-hero, .playground, .home-next, .contact-page, .footer');
     const visibility = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) activeZones.add(entry.target);
