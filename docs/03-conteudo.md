@@ -31,6 +31,20 @@ URLs sem prefixo usam preferência salva ou Accept-Language, preservam caminho e
 
 ## Estudos de caso dos projetos
 
+A abertura da home e os destaques compartilham uma camada de luz. O brilho acompanha o ponteiro e atravessa a transição entre as duas seções. Os estudos de caso usam o mesmo efeito na abertura. Cliques, toques e ativações pelo teclado produzem um pulso de luz sem bloquear a navegação. Com a preferência por movimento reduzido, o pulso apenas muda de opacidade.
+
+Na home, os títulos respondem à proximidade do ponteiro. O retrato usa um recorte transparente e um fundo fotográfico separados em WebP para que a luz neutra passe entre as duas camadas.
+
+A moldura e o cenário acompanham o ponteiro enquanto a foto estiver na tela. O retrato compensa a perspectiva da moldura, com inclinação leve em torno do centro. A abertura superior dá espaço ao cabelo, e as laterais e a base continuam recortadas pelo contorno da moldura.
+
+A luz do retrato usa uma máscara de opacidade alinhada ao WebP. O efeito é mais intenso no contorno do cabelo, nos ombros e na gola, e discreto no rosto. A máscara suaviza as transições e recorta a luz pela silhueta da foto.
+
+Um mapa de relevo WebP em escala de cinza aproxima o volume do rosto, cabelo e tecido. Um filtro SVG usa esse mapa para calcular a luz difusa de um ponto que acompanha o cursor. A foto original continua sendo a imagem exibida.
+
+O reflexo lateral usa o mesmo mapa de relevo, com intensidade que cresce suavemente quando o ponteiro se aproxima do contorno da cabeça e do tronco.
+
+A abertura aceita um resumo editorial e uma imagem transparente sobre a capa. O Orkuty usa o mock do login sobre os balões de conversa. Os detalhes de sala do [SingAlong](https://singalong.rydermais.com/), o mural do [Orkuty](https://orkuty.rydermais.com/) e a organização das atividades do [CEDES](https://website-cedes.vercel.app/) têm como fonte as páginas públicas dos projetos.
+
 O catálogo continua em `apps/web/content/projects.json`. A página de detalhe combina esse registro com o estudo de caso de mesmo `id` em `apps/web/content/project-stories.ts`. As amostras descrevem conceitos e materiais existentes. Revise a narrativa com o dono antes de tratá-la como conteúdo definitivo.
 
 Cada estudo tem categoria traduzível, cor de destaque, temas e uma lista ordenada de blocos. A ordem alimenta a leitura e o índice lateral. Os formatos atuais são `text` (título e parágrafos), `feature` (texto e uma imagem) e `gallery` (uma ou mais imagens). Imagens têm texto alternativo e legenda opcional. A abertura usa título, resumo, capa e links do catálogo. Uma página sem estudo ainda exibe a abertura e a navegação. As amostras têm pt-BR e inglês. Outros idiomas recebem o texto pt-BR com o atributo de idioma correspondente.

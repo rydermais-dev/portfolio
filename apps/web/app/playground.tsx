@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { translate, type Locale } from '../content';
 import projects from '../content/projects.json';
 import { ProjectCard } from './project-card';
+import { HeroText } from './hero-text';
 
 const featuredIds = ['singalong', 'orkuty', 'ryan', 'deltaverse'];
 const featuredProjects = featuredIds.map((id) => projects.find((project) => project.id === id)!);
@@ -61,7 +62,7 @@ export function Playground({ locale }: { locale: Locale }) {
   return <section className="playground" data-project={project.id} aria-labelledby="playground-title">
     <div className="playground-backdrops" aria-hidden="true">{featuredProjects.map((item, index) => <div key={item.id} className={'playground-backdrop playground-backdrop-' + item.id + (selected === index ? ' is-visible' : '')} style={{ backgroundImage: 'url("' + item.image + '")' }} />)}</div>
     <div className="wrap playground-inner">
-      <div className="playground-heading"><h2 id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></h2><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p><Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <Icon name="arrow_outward" /></Link></div></div>
+      <div className="playground-heading"><HeroText as="h2" id="playground-title">{translate(locale, 'html.home.projectsTitle')}<span>.</span></HeroText><div className="playground-description"><p lang={locale.startsWith('pt') ? 'pt' : 'en'}>{intro}</p><Link className="ui-button ui-button--outline-light playground-all" href={'/' + locale + '/projects'}>Ver todos os projetos <Icon name="arrow_outward" /></Link></div></div>
       <div className="playground-slide" onPointerEnter={() => setInteracting(true)} onPointerLeave={() => setInteracting(false)} onFocusCapture={() => setInteracting(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
         <div className="playground-stage">
           <Button type="button" className="ui-button ui-button--icon-light carousel-arrow carousel-arrow-prev" aria-label="Destaque anterior" onClick={() => select(selected - 1)}><Icon name="chevron_left" /></Button>

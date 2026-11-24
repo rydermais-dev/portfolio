@@ -4,6 +4,7 @@ import { https, translate, type Locale } from '../content';
 import projects from '../content/projects.json';
 import { projectStories, type ProjectBlock } from '../content/project-stories';
 import { Icon } from './material-icon';
+import { HeroLight } from './hero-light';
 
 type Project = (typeof projects)[number];
 
@@ -58,6 +59,7 @@ export function ProjectDetail({ project, locale }: { project: Project; locale: L
 
   return <article className="case-page" style={{ '--case-accent': story?.accent ?? '#c094ff' } as CSSProperties}>
     <header className="case-hero">
+      <HeroLight />
       <div className="wrap">
         <Link className="ui-button ui-button--outline-light case-back" href={href('/projects')}>
           <Icon name="arrow_back" /> {translate(locale, 'menu.projects')}
@@ -66,7 +68,7 @@ export function ProjectDetail({ project, locale }: { project: Project; locale: L
           <div className="case-intro">
             {story && <span className="case-category" {...localized(story.category, locale)} />}
             <h1>{project.title}</h1>
-            <p {...localized(project.description, locale)} />
+            <p {...localized(story?.summary ?? project.description, locale)} />
             {story && story.focus.length > 0 && <ul className="case-focus">
               {story.focus.map((item) => <li key={item}>{item}</li>)}
             </ul>}
@@ -75,7 +77,10 @@ export function ProjectDetail({ project, locale }: { project: Project; locale: L
               {code && <a className="ui-button ui-button--outline-light" href={code}>GitHub <Icon name="arrow_outward" /></a>}
             </div>}
           </div>
-          {project.image && <div className="case-cover"><img src={project.image} alt="" fetchPriority="high" /></div>}
+          {project.image && <div className="case-cover">
+            <img src={project.image} alt="" fetchPriority="high" />
+            {story?.coverOverlay && <img className="case-cover-overlay" src={story.coverOverlay} alt="" />}
+          </div>}
         </div>
       </div>
     </header>

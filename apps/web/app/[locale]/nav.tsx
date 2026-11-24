@@ -5,7 +5,7 @@ import { Icon } from '../material-icon';
 import { Button } from '@moduix/react/button';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { languages, type Locale } from '../../content';
 
 const labels: Record<Locale, [string, string, string]> = {
@@ -23,18 +23,25 @@ export function Header({ locale, links, themeLabel }: {
 }) {
   const pathname = usePathname();
   const router = useRouter();
+  const [darkTheme, setDarkTheme] = useState(false);
   const menu = useRef<HTMLDetailsElement>(null);
   const [menuLabel, languageLabel, skipLabel] = labels[locale];
 
   useEffect(() => {
     const saved = localStorage.getItem('portfolio-theme');
     if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+    const update = () => setDarkTheme(document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches));
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
   }, []);
 
   function toggleTheme() {
     const root = document.documentElement;
     const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
     root.dataset.theme = dark ? 'light' : 'dark';
+    setDarkTheme(!dark);
     localStorage.setItem('portfolio-theme', root.dataset.theme);
   }
 
@@ -43,7 +50,7 @@ export function Header({ locale, links, themeLabel }: {
       const href = '/' + locale + path;
       const current = path === '/projects' && pathname.startsWith('/' + locale + '/project/')
         || pathname === href || Boolean(path && pathname.startsWith(href + '/'));
-      return <Link className="ui-button ui-button--nav" key={path} href={href} aria-current={current ? 'page' : undefined}
+      return <Link className="ui-button ui-button--outline-light ui-button--nav" key={path} href={href} aria-current={current ? 'page' : undefined}
         onClick={() => { if (menu.current) menu.current.open = false; }}>{label}</Link>;
     });
   }
@@ -56,7 +63,7 @@ export function Header({ locale, links, themeLabel }: {
         <nav className="desktop" aria-label={menuLabel}>{renderLinks()}</nav>
         <div className="tools">
           <label className="language">
-            <img alt="" width="20" height="16" src={'/flags/Flag_' + languages[locale][1] + '.svg'} />
+            <img className="language-flag" alt="" width="20" height="16" src={'/flags/Flag_' + languages[locale][1] + '.svg'} />
             <select aria-label={languageLabel} value={locale} onChange={(event) => {
               const suffix = pathname.slice(locale.length + 1);
               document.cookie = 'portfolio-locale=' + encodeURIComponent(event.target.value) + '; Path=/; Max-Age=31536000; SameSite=Lax';
@@ -65,7 +72,7 @@ export function Header({ locale, links, themeLabel }: {
               {Object.entries(languages).map(([key, [label]]) => <option lang={key} key={key} value={key}>{label}</option>)}
             </select>
           </label>
-          <Button type="button" aria-label={themeLabel} className="ui-button ui-button--nav-icon theme" onClick={toggleTheme}><Icon name="contrast" /></Button>
+          <Button type="button" aria-label={themeLabel} className="ui-button ui-button--nav-icon theme" onClick={toggleTheme}><Icon name={darkTheme ? 'light_mode' : 'dark_mode'} /></Button>
           <details className="mobile" ref={menu} onKeyDown={(event) => {
             if (event.key === 'Escape' && menu.current?.open) {
               menu.current.open = false;

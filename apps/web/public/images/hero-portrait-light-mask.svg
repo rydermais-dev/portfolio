@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 840">
+  <defs>
+    <filter id="feather" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <linearGradient id="skin" x2=".75" y2="1">
+      <stop stop-color="#fff" stop-opacity=".27"/>
+      <stop offset=".62" stop-color="#fff" stop-opacity=".21"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".18"/>
+    </linearGradient>
+    <linearGradient id="hair" x2="0" y2="1">
+      <stop stop-color="#fff" stop-opacity=".7"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".03"/>
+    </linearGradient>
+  </defs>
+  <!-- Aligned to the 840 × 840 portrait. CSS also clips to the WebP alpha. -->
+  <path fill="#fff" opacity=".04" d="M0 0h840v840H0z"/>
+  <g filter="url(#feather)">
+    <path fill="url(#hair)" d="M226 207Q218 137 270 96Q314 56 386 60Q468 61 528 115Q584 154 585 207Q587 261 536 286L505 250Q454 251 411 225Q361 198 330 179Q301 196 286 230L273 305Q241 271 226 207Z"/>
+    <path fill="url(#skin)" d="M320 182Q343 191 377 213Q441 260 506 256Q532 252 540 294Q555 280 555 320Q553 354 532 381Q519 444 481 483Q454 513 410 507Q369 501 344 469Q307 437 292 386Q269 364 280 327Q286 312 294 323Q290 238 320 182Z"/>
+    <path fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round" opacity=".68"
+      d="M292 312Q281 334 294 371Q304 421 348 467Q375 501 414 505Q451 509 480 479Q518 442 530 384Q550 351 548 316"/>
+    <path fill="#fff" opacity=".13" d="M341 445Q382 504 435 509Q480 507 516 477Q512 506 535 541Q517 621 479 662Q459 693 451 737Q422 668 389 623Q347 570 335 527Z"/>
+    <path fill="#fff" opacity=".58" d="M0 674Q111 560 286 526L325 493Q333 575 384 630Q429 687 451 733Q480 643 519 589L524 495Q576 548 670 575Q784 610 840 747V840H0Z"/>
+    <path fill="#fff" opacity=".76" d="M5 751Q24 632 116 589Q210 547 284 529L330 500Q307 553 300 605Q189 628 133 687Q93 724 81 829H0ZM535 515Q592 543 658 571Q736 600 776 671L810 839H738Q730 735 667 684Q606 635 553 607Z"/>
+  </g>
+</svg>

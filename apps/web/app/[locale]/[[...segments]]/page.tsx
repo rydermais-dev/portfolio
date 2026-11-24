@@ -16,11 +16,15 @@ import { ProjectCard } from '../../project-card';
 import { ProjectDetail } from '../../project-detail';
 import { HomeHeroPortrait } from '../../home-hero-portrait';
 import { HeroGrid } from '../../interaction-effects';
+import { HeroLight } from '../../hero-light';
+import { HeroText } from '../../hero-text';
 import { PrintButton } from '../../print-button';
 import { CertificateGallery } from '../../certificate-gallery';
 import { TimelineHighlight } from '../../timeline-highlight';
 
 type Props = { params: Promise<{ locale: string; segments?: string[] }> };
+const [featuredPost, ...archivePosts] = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+const readingMinutes = (body: string) => Math.max(1, Math.ceil(body.trim().split(/\s+/).length / 220));
 const links = [
   ['about', 'menu.about'], ['certifications', 'html.home.certifications'], ['projects', 'menu.projects'],
   ['blog', 'menu.blog'], ['contact', 'menu.contact'],
@@ -64,21 +68,23 @@ export default async function Page({ params }: Props) {
   if (section === 'about' && !slug) permanentRedirect(path('#sobre-mim'));
 
   if (!section) return <>
+    <div className="home-showcase">
+      <HeroLight />
     <section className="hero home-hero">
       <HeroGrid />
       <div className="hero-trails" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
       <div className="wrap hero-inner">
         <div>
-          <span className="hero-label">FULL STACK / UI & UX</span>
-          <h1>Wellington do Nascimento<span className="hero-dot">.</span></h1>
-          <p>Full Stack Developer · UI/UX</p>
-          {!section && <p className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></p>}
+          <HeroText as="h1">Wellington do Nascimento<span className="hero-dot">.</span></HeroText>
+          <HeroText as="p">Full Stack Developer · UI/UX</HeroText>
+          {!section && <HeroText as="p" className="home-hero-statement" lang="pt-BR">Da ideia à interface.<br /><span>Feito para pessoas.</span></HeroText>}
           {!section && <div className="home-hero-actions"><Link className="ui-button ui-button--light" href={path('/projects')}>{t('menu.projects')} <Icon name="arrow_outward" /></Link><Link className="ui-button ui-button--outline-light" href={path('#sobre-mim')}>{t('menu.about')} <Icon name="arrow_downward" /></Link></div>}
         </div>
         <HomeHeroPortrait />
       </div>
     </section>
       <Playground locale={locale} />
+    </div>
       <section id="sobre-mim" className="wrap section experience-section">
         <h2>{t('html.about.experience.title')}</h2>
         <div className="career-timeline"><TimelineHighlight />{groupedTimeline.map(([year, entries]) => <section className="career-year" key={year} style={{ '--year-color': entries?.[0]?.color || 'var(--accent)' } as React.CSSProperties}>
@@ -109,33 +115,42 @@ export default async function Page({ params }: Props) {
   </section>;
 
   return <section className={'wrap section page-section page-' + section}>
-    {section !== 'contact' && <h1>{heading}</h1>}
+    {section !== 'contact' && section !== 'blog' && <h1>{heading}</h1>}
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p><div className="cards">{projects.map((project) => <ProjectCard key={project.id} project={project} locale={locale} visitLabel={t('html.home.visit')} />)}</div></>}
     {section === 'certifications' && <CertificateGallery locale={locale} />}
     {section === 'blog' && !slug && <>
-      <div className="journal-intro" lang="pt-BR"><div><h2>Ideias, descobertas e código.</h2><p>Um espaço para compartilhar o que aprendo construindo para a web e as histórias que encontro pelo caminho.</p></div><div className="editorial-aside"><strong>{posts.length}</strong><span>artigos publicados</span></div></div><div className="journal-heading"><h2>Artigos</h2><span>{posts.length} publicações</span></div>
-      <div className="blog-index">{[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">
+      <header className="journal-masthead" lang="pt-BR"><h1>Notas de desenvolvimento</h1><p>O que aprendo construindo para a web, do código às decisões de interface.</p></header>
+      {featuredPost && <article className="journal-feature" lang="pt-BR">
+        <div className="journal-feature-copy"><p className="journal-meta"><time dateTime={featuredPost.date}>{date.format(new Date(featuredPost.date))}</time> · {readingMinutes(featuredPost.body)} min de leitura</p>
+          <h2><Link href={path('/blog/' + featuredPost.slug)}>{featuredPost.title}</Link></h2>
+          <p>{featuredPost.description}</p>
+          <Link className="ui-button ui-button--outline" href={path('/blog/' + featuredPost.slug)}>Ler artigo <Icon name="arrow_outward" /></Link>
+        </div><div className="journal-feature-art" aria-hidden="true"><span /><span /><span /></div>
+      </article>}
+      {archivePosts.length > 0 && <div className="journal-heading" lang="pt-BR"><h2>Arquivo</h2></div>}
+      <div className="blog-index">{archivePosts.map((post) => <article className="card blog-entry" key={post.slug} lang="pt-BR">
         {post.date && <time dateTime={post.date}>{date.format(new Date(post.date))}</time>}
-        <div><h2><Link href={path('/blog/' + post.slug)}>{post.title} <Icon name="arrow_outward" /></Link></h2><p>{post.description}</p></div>
+        <div><h3><Link href={path('/blog/' + post.slug)}>{post.title} <Icon name="arrow_outward" /></Link></h3><p>{post.description} · {readingMinutes(post.body)} min de leitura</p></div>
       </article>)}</div>
       <News />
       <div className="journal-follow" lang="pt-BR"><div><h2>Continuamos a conversa?</h2><p>Compartilho descobertas e projetos também no LinkedIn.</p></div><a className="ui-button ui-button--light" href={linkedIn}>Acompanhar no LinkedIn <Icon name="arrow_outward" /></a></div>
     </>}
     {section === 'blog' && slug && posts.filter((post) => post.slug === slug).map((post) =>
-      <article className="article" key={post.slug} lang="pt-BR"><Link href={path('/blog')}><Icon name="arrow_back" /> {t('menu.blog')}</Link><Markdown skipHtml>{post.body}</Markdown><aside className="article-next">{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} <Icon name="arrow_outward" /></Link>)}</aside></article>)}
+      <article className="article journal-article" key={post.slug} lang="pt-BR">
+        <Link href={path('/blog')}><Icon name="arrow_back" /> {t('menu.blog')}</Link>
+        <header><h1>{post.title}</h1><p className="journal-meta">Wellington do Nascimento · <time dateTime={post.date}>{date.format(new Date(post.date))}</time> · {readingMinutes(post.body)} min de leitura</p></header>
+        <Markdown skipHtml>{post.body}</Markdown>
+        <aside className="article-next"><h2>Continue lendo</h2>{posts.filter((other) => other.slug !== slug).map((other) => <Link key={other.slug} href={path('/blog/' + other.slug)}>{other.title} <Icon name="arrow_outward" /></Link>)}</aside>
+      </article>)}
     {section === 'contact' && <div className="contact-page" lang="pt-BR">
       <header className="contact-hero">
-        <div className="contact-hero-copy"><h1>Uma boa conversa<br /><span>abre caminhos.</span></h1><p>Tem um projeto, uma oportunidade ou uma ideia que merece sair do papel? Conte comigo para pensar nos próximos passos.</p></div>
-        <div className="contact-hero-art" aria-hidden="true"><i /><i /><i /><span /></div>
-      </header>
-      <section className="contact-channels" aria-labelledby="contact-channels-title">
-        <div className="contact-channels-intro"><h2 id="contact-channels-title">Escolha por onde começar</h2><p>Escreva diretamente ou acompanhe meu trabalho profissional.</p></div>
+        <div className="contact-hero-copy"><h1>Vamos conversar.</h1><p>Se você está montando um time ou tem um produto em construção, me conte qual problema quer resolver e em que ponto o trabalho está.</p></div>
         <div className="contact-grid">
           <a className="contact-tile" href="mailto:dev.wellnascimento@gmail.com"><Icon name="mail" /><div><strong>E-mail</strong><small>dev.wellnascimento@gmail.com</small></div><Icon name="arrow_outward" /></a>
           <a className="contact-tile" href={linkedIn}><span aria-hidden="true">in</span><div><strong>LinkedIn</strong><small>@wellnas</small></div><Icon name="arrow_outward" /></a>
         </div>
-      </section>
-      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--outline" href={path('/cv')}>Ver currículo <Icon name="arrow_outward" /></Link></section>
+      </header>
+      <section className="contact-resume"><div><h2>Minha trajetória em uma página</h2><p>Experiências e competências em uma versão pronta para impressão.</p></div><Link className="ui-button ui-button--light" href={path('/cv')}>Ver currículo <Icon name="arrow_outward" /></Link></section>
     </div>}
     {section === 'about' && slug && <div className="personality-result"><img src="/images/MBTI/16personalities-intp.svg" alt="" /><div><span className="page-kicker">INTP-T</span><p>{t('html.about.personality.description')}</p><a href="https://www.16personalities.com/intp-personality">16Personalities <Icon name="arrow_outward" /></a></div></div>}
   </section>;
