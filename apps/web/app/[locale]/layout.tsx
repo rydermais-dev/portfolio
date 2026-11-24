@@ -51,8 +51,8 @@ export default async function Layout({ children, params }: {
           <footer className="wrap footer">
             <span>Wellington do Nascimento</span>
             <a href={withPortfolioSource('https://github.com/rydermais-dev/portfolio')}>GitHub · AGPL-3.0</a>
+            <ContactFooterDots />
           </footer>
-          <ContactFooterDots />
         </div>
       </body>
     </html>
