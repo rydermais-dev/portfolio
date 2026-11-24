@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { portraitLightPoint, portraitPointer } from './portrait-pointer';
 
 export function HeroGrid() {
@@ -119,6 +120,8 @@ function updateTilt(card: HTMLElement, x: number, y: number, proximity = 1) {
 }
 
 export function RevealLight() {
+  const pathname = usePathname();
+  const lastPointer = useRef<{ x: number; y: number } | null>(null);
   useEffect(() => {
     const selector = 'main a:not(.project-card a), main button, .project-card, .project-visit, .nav a, .nav button, .nav summary, .nav .language, .footer, .footer a, .card:not(.project-card), .career-event, .contact-tile, .cert-piece, [data-hero-text], [data-portrait-light]';
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -140,7 +143,7 @@ export function RevealLight() {
       }, 180));
     };
     let frame = 0;
-    let position: { x: number; y: number } | null = null;
+    let position: { x: number; y: number } | null = lastPointer.current;
     let touchTimer: ReturnType<typeof setTimeout> | undefined;
     const zones = document.querySelectorAll('.home-hero, .playground, .home-next, .contact-page, .footer');
     const visibility = new IntersectionObserver((entries) => {
@@ -148,7 +151,11 @@ export function RevealLight() {
         if (entry.isIntersecting) activeZones.add(entry.target);
         else activeZones.delete(entry.target);
       });
-      if (!activeZones.size) clear();
+      if (!activeZones.size) clear(true);
+      else {
+        if (!position) position = lastPointer.current;
+        schedule();
+      }
     });
     zones.forEach((zone) => visibility.observe(zone));
     const update = () => {
@@ -256,8 +263,9 @@ export function RevealLight() {
     };
     const move = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+      lastPointer.current = { x: event.clientX, y: event.clientY };
       if (!activeZones.size) return;
-      position = { x: event.clientX, y: event.clientY };
+      position = lastPointer.current;
       schedule();
     };
     const touch = (event: PointerEvent) => {
@@ -267,8 +275,9 @@ export function RevealLight() {
       clearTimeout(touchTimer);
       touchTimer = setTimeout(clear, 650);
     };
-    const clear = () => {
+    const clear = (preservePointer = false) => {
       position = null;
+      if (!preservePointer) lastPointer.current = null;
       cancelAnimationFrame(frame);
       frame = 0;
       tilted.forEach(resetTilt);
@@ -276,27 +285,28 @@ export function RevealLight() {
       lit.forEach(fadeOut);
       lit.clear();
     };
+    const clearOnExit = () => clear();
     document.addEventListener('pointermove', move, { passive: true });
     document.addEventListener('pointerdown', touch, { passive: true });
-    document.addEventListener('pointerleave', clear);
+    document.addEventListener('pointerleave', clearOnExit);
     window.addEventListener('scroll', schedule, { capture: true, passive: true });
     window.addEventListener('resize', schedule);
-    window.addEventListener('blur', clear);
+    window.addEventListener('blur', clearOnExit);
     reducedMotion.addEventListener('change', schedule);
     return () => {
       visibility.disconnect();
       document.removeEventListener('pointermove', move);
       document.removeEventListener('pointerdown', touch);
-      document.removeEventListener('pointerleave', clear);
+      document.removeEventListener('pointerleave', clearOnExit);
       window.removeEventListener('scroll', schedule, true);
       window.removeEventListener('resize', schedule);
-      window.removeEventListener('blur', clear);
+      window.removeEventListener('blur', clearOnExit);
       reducedMotion.removeEventListener('change', schedule);
-      clear();
+      clear(true);
       clearTimeout(touchTimer);
       exitTimers.forEach(clearTimeout);
       enterFrames.forEach(cancelAnimationFrame);
     };
-  }, []);
+  }, [pathname]);
   return null;
 }
