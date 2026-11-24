@@ -858,6 +858,7 @@ main { overflow-x:clip; }
   .playground-stack .carousel-depth i { animation:none; }
 }
 .home-next { position:relative; overflow:hidden; min-height:330px; align-items:stretch; background:radial-gradient(circle at 82% 50%, #6f4b9666, transparent 39%),#231c30; border:1px solid #bfa8dc32; }
+.home-next > .hero-grid { z-index:0; }
 .home-next-copy { position:relative; z-index:1; max-width:680px; }
 .home-next h2 { font-size:clamp(2.7rem,5vw,4.7rem); line-height:1.03; letter-spacing:-.055em; }
 .home-next h2 span { color:#c7afe8; }
