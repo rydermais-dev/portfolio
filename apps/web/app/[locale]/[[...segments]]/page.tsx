@@ -147,7 +147,7 @@ export default async function Page({ params }: Props) {
   </section>;
 
   return <section className={'wrap section page-section page-' + section}>
-    {section !== 'contact' && section !== 'blog' && <h1>{heading}</h1>}
+    {section !== 'contact' && section !== 'blog' && section !== 'certifications' && <h1>{heading}</h1>}
     {section === 'projects' && <><p className="editorial-lead" lang="pt-BR">Aqui você encontra o SingAlong!, que nasceu do meu interesse por jogos musicais, além de experimentos de automação, nostalgia e desenvolvimento para a web.</p><div className="cards">{projects.map((project) => <ProjectCard key={project.id} project={project} locale={locale} visitLabel={t('html.home.visit')} />)}</div></>}
     {section === 'certifications' && <CertificateGallery locale={locale} />}
     {section === 'blog' && !slug && <>

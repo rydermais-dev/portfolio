@@ -5,13 +5,12 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Button } from '@moduix/react/button';
 import { TiltCard } from './tilt-card';
 import { LogoCloud } from './logo-cloud';
-import { https, type Locale } from '../content';
+import { https, translate, type Locale } from '../content';
 import { withPortfolioSource } from './outbound-link';
 import { areaLabel, areas, certificateCatalog, certificateTechnologies, searchCertificates } from '../content/certificate-search';
-import { certificateLabels, diplomaLabels, diplomaShareLabels } from '../content/certificate-labels';
+import { certificateHeroTitles, certificateLabels, diplomaLabels, diplomaShareLabels } from '../content/certificate-labels';
 
 const issuers = [...new Set(certificateCatalog.map((cert) => cert.emissor))].sort();
-const years = certificateCatalog.map((cert) => Number(cert.date.match(/\b\d{4}\b/)?.[0])).filter(Boolean);
 const months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
 
 function logoSource(path: string) {
@@ -61,6 +60,11 @@ export function CertificateGallery({ locale }: { locale: Locale }) {
   const [areasLabel, technologiesLabel, searchLabel, placeholder, issuerLabel, allIssuers, clearLabel,
     topicsLabel, dateLabel, collectionTitle, intro, emptyTitle, emptyDescription, resultsLabel] = certificateLabels[locale];
   const [view, close, record, recipient, issuedBy, credentialLabel, verificationLabel] = diplomaLabels[locale];
+  const heroCredentials = [...certificateCatalog]
+    .sort((a, b) => Number(b.date.match(/\d{4}/)?.[0] ?? 0) - Number(a.date.match(/\d{4}/)?.[0] ?? 0))
+    .filter((certificate) => certificate.issuerLogo)
+    .filter((certificate, index, items) => items.findIndex((item) => item.emissor === certificate.emissor) === index)
+    .slice(0, 3);
   const [activeCertificate, setActiveCertificate] = useState<(typeof certificateCatalog)[number] | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const verificationLink = https(activeCertificate?.link);
@@ -128,7 +132,23 @@ export function CertificateGallery({ locale }: { locale: Locale }) {
   };
   const hasFilters = Boolean(query || issuer || selectedAreas.length || selectedTechnologies.length);
   return <div className="cert-experience">
-    <div className="cert-intro" lang="pt-BR"><div className="cert-intro-copy"><h2>O que aprendi<br /><span>pelo caminho.</span></h2><p>De programação e design à segurança da informação, esta coleção acompanha os assuntos que fui explorando ao longo da minha trajetória.</p><a href="#certificados">Explorar a coleção ↘</a></div><div className="cert-intro-aside"><div className="cert-record"><span>COLEÇÃO</span><strong>{certificateCatalog.length}</strong><span>CERTIFICADOS</span></div><div className="cert-record-meta">{years.length > 0 && <span>{Math.min(...years)} — {Math.max(...years)}</span>}<span>{issuers.length} INSTITUIÇÕES</span></div></div></div>
+    <header className="cert-hero">
+      <div className="cert-hero-copy">
+        <span className="cert-hero-kicker">{translate(locale, 'html.home.certifications')}</span>
+        <h1>{certificateHeroTitles[locale]}</h1>
+      </div>
+      <div className="cert-hero-art" aria-hidden="true">
+        {heroCredentials.map((certificate, index) => <div className="cert-hero-sheet" key={certificate.id}
+          style={{ '--sheet-brand': certificate.issuerColor ?? '#7655bb', '--sheet-index': index } as CSSProperties}>
+          <div className="cert-hero-sheet-heading">
+            <img src={logoSource(certificate.issuerLogo)} alt="" />
+            <span>{certificate.emissor}</span>
+          </div>
+          <div className="cert-hero-sheet-lines"><i /><i /><i /></div>
+          <span className="cert-hero-seal" />
+        </div>)}
+      </div>
+    </header>
     <LogoCloud selected={issuer} onSelect={(name) => setIssuer(name === issuer ? '' : name)} />
     <section className="cert-collection" id="certificados" aria-labelledby="cert-collection-title">
       <div className="cert-collection-heading">

@@ -12,6 +12,18 @@ export const certificateLabels = {
   ru: ['Области', 'Технологии', 'Поиск по ключевым словам', 'Например, React, безопасность, дизайн', 'Организация', 'Все организации', 'Сбросить фильтры', 'Темы', 'Дата выдачи', 'Посмотреть коллекцию', 'Ищите по теме или сочетайте фильтры.', 'Сертификаты не найдены', 'Попробуйте другой запрос или уберите фильтр.', 'Результаты'],
 } satisfies Record<Locale, readonly string[]>;
 
+export const certificateHeroTitles: Record<Locale, string> = {
+  'pt-BR': 'O estudo também vira projeto.',
+  'pt-PT': 'O estudo também ganha forma.',
+  en: 'Learning, put into practice.',
+  es: 'Aprender también es hacer.',
+  de: 'Lernen, um Dinge zu gestalten.',
+  fr: 'Apprendre, puis donner forme.',
+  'ja-JP': '学びを、かたちに。',
+  ko: '배움을 실천으로.',
+  ru: 'Знания в дело.',
+};
+
 type DiplomaLabels = [view: string, close: string, record: string, recipient: string, issuer: string, credential: string, verify: string];
 export const diplomaLabels = {
   'pt-BR': ['Ver', 'Fechar', 'Certificado · registro do portfólio', 'Titular', 'Emitido por', 'ID da credencial', 'Ver credencial'],
